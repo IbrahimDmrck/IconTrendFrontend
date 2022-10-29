@@ -18,9 +18,9 @@ export class CongressService {
     return this.httpClient.get<ListResponseModel<Congress>>(newPath);
   }
 
-  add(congress:Congress):Observable<SingleResponseModel<number>>{
+  add(congress:Congress):Observable<ResponseModel>{
     let newPath=this.apiURL+'add';
-    return this.httpClient.post<SingleResponseModel<number>>(newPath,congress);
+    return this.httpClient.post<ResponseModel>(newPath,congress);
   }
 
   delete(congress:Congress):Observable<ResponseModel>{

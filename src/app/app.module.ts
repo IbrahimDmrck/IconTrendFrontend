@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule,HTTP_INTERCEPTORS} from '@angular/common/http' 
 import { ToastrModule } from 'ngx-toastr';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -45,6 +47,7 @@ import { CongressDetailsComponent } from './components/congress-details/congress
 import { AccountLayoutComponent } from './components/account/account-layout/account-layout.component';
 import { AccountLoginComponent } from './components/account/account-login/account-login.component';
 import { AccountRegisterComponent } from './components/account/account-register/account-register.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 
 
@@ -97,12 +100,18 @@ import { AccountRegisterComponent } from './components/account/account-register/
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     ToastrModule.forRoot({
       positionClass: "toast-top-right"
     })
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+    JwtHelperService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
