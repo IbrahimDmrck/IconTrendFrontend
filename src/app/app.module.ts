@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import {HttpClientModule,HTTP_INTERCEPTORS} from '@angular/common/http' 
+import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -43,6 +45,8 @@ import { CongressDetailsComponent } from './components/congress-details/congress
 import { AccountLayoutComponent } from './components/account/account-layout/account-layout.component';
 import { AccountLoginComponent } from './components/account/account-login/account-login.component';
 import { AccountRegisterComponent } from './components/account/account-register/account-register.component';
+
+
 
 
 @NgModule({
@@ -92,7 +96,11 @@ import { AccountRegisterComponent } from './components/account/account-register/
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    HttpClientModule,
+    AppRoutingModule,
+    ToastrModule.forRoot({
+      positionClass: "toast-top-right"
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
