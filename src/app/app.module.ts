@@ -45,8 +45,8 @@ import { AdminAnnouncementManagerComponent } from './components/admin/admin-anno
 import { HomeLayoutComponent } from './components/home-layout/home-layout.component';
 import { CongressDetailsComponent } from './components/congress-details/congress-details.component';
 import { AccountLayoutComponent } from './components/account/account-layout/account-layout.component';
-import { AccountLoginComponent } from './components/account/account-login/account-login.component';
-import { AccountRegisterComponent } from './components/account/account-register/account-register.component';
+import { LoginComponent } from './components/account/account-login/account-login.component';
+import { RegisterComponent } from './components/account/account-register/account-register.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 
@@ -93,8 +93,8 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     HomeLayoutComponent,
     CongressDetailsComponent,
     AccountLayoutComponent,
-    AccountLoginComponent,
-    AccountRegisterComponent,
+    LoginComponent,
+    RegisterComponent,
   
   ],
   imports: [
