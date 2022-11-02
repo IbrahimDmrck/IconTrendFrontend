@@ -38,7 +38,7 @@ export class NaviComponent implements OnInit {
 
   checkifAdmin() {
     if (this.authService.isLoggedIn) {
-      this.isAdmin = this.authService.hasRole(this.currentUser, "admin");
+      this.isAdmin = this.authService.hasRole(this.currentUser, "Admin");
     } else {
       this.isAdmin = undefined!;
     }

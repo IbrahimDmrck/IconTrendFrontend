@@ -17,7 +17,7 @@ import { LocalStorageService } from './local-storage.service';
 })
 export class AuthService {
 
-  private apiURL="https://localhost:44320/api/Auth/login";
+  private apiURL="https://localhost:44320/api/";
   private loggedIn = new BehaviorSubject<boolean>(this.isTokenExpired()); //https://loiane.com/2017/08/angular-hide-navbar-login-page/
 
   public get loginStatus() {
@@ -50,7 +50,7 @@ export class AuthService {
   }
 
   login(user: LoginModel): Observable<SingleResponseModel<TokenModel>> {
-    let newPath = this.apiURL + 'auth/login'
+    let newPath = this.apiURL + 'Auth/login'
     return this.httpClient.post<SingleResponseModel<TokenModel>>(newPath, user)
   }
 
