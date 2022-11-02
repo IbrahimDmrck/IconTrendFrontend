@@ -1,1 +1,33 @@
-<p>home works!</p>
+<div *ngIf="congressDataLoaded == false" class="spinner-border text-success" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+  
+  <table *ngIf="congressDataLoaded==true" class="table">
+    <thead>
+      <tr>
+        <th>congreıd</th>
+        <th>congreadı</th>
+        <th>congre başkanı</th>
+        <th>congrehakkında</th>
+        <th>kongre şehri</th>
+        <th>kongre yeri</th>
+        <th>date</th>
+        <th>kongre status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let congress of congress ">
+        <td>{{ congress.congressId }}</td>
+        <td>{{ congress.congressName }}</td>
+        <td>{{ congress.congressPresidentId }}</td>
+        <td>{{ congress.congressAbout }}</td>
+        <td>{{ congress.congressCity }}</td>
+        <td>{{ congress.congressPlace }}</td>
+        <td>{{ congress.congressDate }}</td>
+      
+        <td>{{ congress.congressStatus }}</td>
+       
+       
+      </tr>
+    </tbody>
+  </table>

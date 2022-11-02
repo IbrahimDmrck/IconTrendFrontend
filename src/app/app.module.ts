@@ -4,6 +4,8 @@ import {HttpClientModule,HTTP_INTERCEPTORS} from '@angular/common/http'
 import { ToastrModule } from 'ngx-toastr';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -48,6 +50,8 @@ import { AccountLayoutComponent } from './components/account/account-layout/acco
 import { LoginComponent } from './components/account/account-login/account-login.component';
 import { RegisterComponent } from './components/account/account-register/account-register.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { NgxMaskModule } from 'ngx-mask';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 
@@ -103,6 +107,10 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
+    NgxMaskModule.forRoot(),
+    BrowserAnimationsModule,
+    MatDialogModule,
+    NgxSpinnerModule,
     ToastrModule.forRoot({
       positionClass: "toast-top-right"
     })

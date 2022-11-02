@@ -1,7 +1,7 @@
 <body class="text-center account-page">
     <main class="form-account account-card">
         <div class="card-body">
-            <div class="logo" style="font-size: 40px;"><span>Golden</span><span><span>Car</span></span></div>
+            <div class="logo" style="font-size: 40px;"><span>Icon</span><span><span>Trends</span></span></div>
             <hr class="solid">
             <form [formGroup]="loginForm" class="mt-4">
                 <div *ngIf="rememberedEmail">
@@ -15,7 +15,7 @@
                     <div class="form-floating mb-2">
                         <input formControlName="email" type="email" class="form-control" id="signinemail"
                             placeholder="name@example.com">
-                        <label for="signinemail">E-posta adresi</label>
+                        <label style="color: black;"  for="signinemail">E-posta adresi</label>
                     </div>
                 </div>
 
@@ -26,7 +26,7 @@
                 </div>
 
                 <div class="checkbox mb-3 mt-3 text-light">
-                    <label *ngIf="!rememberedEmail">
+                    <label style="color: black;" *ngIf="!rememberedEmail">
                         <input type="checkbox" value="remember-me" [(ngModel)]="rememberMe"
                             [ngModelOptions]="{standalone: true}"> E-postamı hatırla
                     </label>
