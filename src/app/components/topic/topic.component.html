@@ -1,1 +1,22 @@
-<p>topic works!</p>
+<div *ngIf="topicDataLoaded == false" class="spinner-border text-success" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+
+  <table  *ngIf="topicDataLoaded==true" class="table table-hover">
+    <thead >
+        <tr>
+            <th>ID</th>
+            <th>congressId</th>
+            <th>TopicName</th>
+            <th>Category</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let topic of topic">
+            <td>{{topic.id}}</td>
+            <td>{{topic.congressId}}</td>
+            <td>{{topic.topicName}}</td>
+            <td>{{topic.category}}</td>
+        </tr>
+    </tbody>
+  </table>

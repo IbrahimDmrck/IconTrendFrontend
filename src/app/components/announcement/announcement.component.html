@@ -1,1 +1,25 @@
-<p>announcement works!</p>
+
+<div *ngIf="announcementDataLoad == false" class="spinner-border text-success" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+<table *ngIf="announcementDataLoad==true" class="table table-hover">
+    <thead>
+
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Content</th>
+            <th>Date</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let announce of announcement ">
+            <td>{{announce.id}}</td>
+            <td>{{announce.announceTitle}}</td>
+            <td>{{announce.announceContent}}</td>
+            <td>{{announce.announceDate.toString().substring(0,10)}}</td>
+            <td>{{announce.announceStatus}}</td>
+        </tr>
+    </tbody>
+</table>

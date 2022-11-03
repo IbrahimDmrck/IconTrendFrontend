@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Announcement } from 'src/app/models/entities/announcement';
 import { Congress } from 'src/app/models/entities/congress';
+import { ScienceBoard } from 'src/app/models/entities/science-board';
 import { Topic } from 'src/app/models/entities/topic';
 import { AnnouncementService } from 'src/app/services/announcement.service';
 import { CongressImageService } from 'src/app/services/congress-image.service';
 import { CongressService } from 'src/app/services/congress.service';
+import { ScienceBoardService } from 'src/app/services/science-board.service';
 import { TopicService } from 'src/app/services/topic.service';
 
 @Component({
@@ -16,9 +18,10 @@ import { TopicService } from 'src/app/services/topic.service';
 export class HomeComponent implements OnInit {
 
   congress:Congress[];
-
+  scienceBoard:ScienceBoard[];
 
   congressDataLoaded:boolean=false;
+  scienceBoardDataLoaded:boolean=false;
 
   maxRandomCongressLength:number=5;
   randomCongress:Congress[]=[];
@@ -27,31 +30,28 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private congressService:CongressService,
-   
-    private activatedRoute:ActivatedRoute,
-   
-    private topicService:TopicService
-
+    private scienceBoardService:ScienceBoardService,
+    private router:Router
   ) { }
 
-  ngOnInit(): void {
-   
-      if (this.routerLink=='') {
-        this.getCongress();
-      }
-    
-  
-    
-  }
-  getCongress() {
-    throw new Error('Method not implemented.');
+  ngOnInit(): void {  
+        this.getCongress(); 
+        this.getScienceBoard();
   }
 
-  getProducts() {
+
+  getCongress() {
     this.congressService.getCongress().subscribe(response=>{
       this.congress = response.data
       this.congressDataLoaded = true;
     })   
+  }
+
+  getScienceBoard(){
+    this.scienceBoardService.getScienceBoards().subscribe(response=>{
+      this.scienceBoard=response.data;
+      this.scienceBoardDataLoaded=true;
+    })
   }
 
 }

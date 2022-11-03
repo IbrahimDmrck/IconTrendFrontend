@@ -52,6 +52,7 @@ import { RegisterComponent } from './components/account/account-register/account
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { NgxMaskModule } from 'ngx-mask';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { RegulatoryBoardComponent } from './components/regulatory-board/regulatory-board.component';
 
 
 
@@ -99,6 +100,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     AccountLayoutComponent,
     LoginComponent,
     RegisterComponent,
+    RegulatoryBoardComponent,
   
   ],
   imports: [

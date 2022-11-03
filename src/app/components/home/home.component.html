@@ -2,7 +2,7 @@
     <span class="visually-hidden">Loading...</span>
   </div>
   
-  <table *ngIf="congressDataLoaded==true" class="table">
+  <table *ngIf="congressDataLoaded==true" class="table table-hover" style="margin-top: 100px;">
     <thead>
       <tr>
         <th>congreıd</th>
@@ -20,14 +20,42 @@
         <td>{{ congress.congressId }}</td>
         <td>{{ congress.congressName }}</td>
         <td>{{ congress.congressPresidentId }}</td>
-        <td>{{ congress.congressAbout }}</td>
+        <td>{{ congress.congressAbout.substring(0,100) }}</td>
         <td>{{ congress.congressCity }}</td>
         <td>{{ congress.congressPlace }}</td>
-        <td>{{ congress.congressDate }}</td>
-      
-        <td>{{ congress.congressStatus }}</td>
-       
-       
+        <td>{{ congress.congressDate.toString().substring(0,10)}}</td> 
+        <td>{{ congress.congressStatus }}</td>     
       </tr>
     </tbody>
   </table>
+<br><br><br>
+<app-announcement></app-announcement>
+<br><br><br>
+<app-topic></app-topic>
+<br><br><br>
+<app-regulatory-board></app-regulatory-board>
+
+<br><br><br>
+<div *ngIf="scienceBoardDataLoaded == false" class="spinner-border text-success" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+
+<table *ngIf="scienceBoardDataLoaded==true" class="table table-hover" style="margin-top: 100px;">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>CongressId</th>
+      <th>Member Name</th>
+      <th>Univercity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let science of scienceBoard ">
+      <td>{{ science.id }}</td>
+      <td>{{ science.congressId }}</td>
+      <td>{{ science.scienceBoardMemberName }}</td>
+      <td>{{ science.univercity }}</td>
+   
+    </tr>
+  </tbody>
+</table>

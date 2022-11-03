@@ -1,0 +1,23 @@
+<div *ngIf="dataLoaded == false" class="spinner-border text-success" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+
+  <table *ngIf="dataLoaded==true" class="table-table-hover" class="table table-hover">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>CongressId</th>
+            <th>MemberName</th>
+            <th>Univercity</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let regulatory of regulatoryBoard">
+            <td>{{regulatory.id}}</td>
+            <td>{{regulatory.congressId}}</td>
+            <td>{{regulatory.regulatoryBoardMemberName}}</td>
+            <td>{{regulatory.univercity}}</td>
+        </tr>
+    </tbody>
+   
+  </table>
