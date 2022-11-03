@@ -53,6 +53,7 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { NgxMaskModule } from 'ngx-mask';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { RegulatoryBoardComponent } from './components/regulatory-board/regulatory-board.component';
+import { SideNavComponent } from './components/side-nav/side-nav.component';
 
 
 
@@ -101,6 +102,7 @@ import { RegulatoryBoardComponent } from './components/regulatory-board/regulato
     LoginComponent,
     RegisterComponent,
     RegulatoryBoardComponent,
+    SideNavComponent,
   
   ],
   imports: [
