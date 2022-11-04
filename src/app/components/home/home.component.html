@@ -1,66 +1,28 @@
 <div *ngIf="congressDataLoaded == false" class="spinner-border text-success" role="status">
     <span class="visually-hidden">Loading...</span>
   </div>
-  
-  <!-- <table *ngIf="congressDataLoaded==true" class="table table-hover" style="margin-top: 100px;">
-    <thead>
-      <tr>
-        <th>congreıd</th>
-        <th>congreadı</th>
-        <th>congre başkanı</th>
-        <th>congrehakkında</th>
-        <th>kongre şehri</th>
-        <th>kongre yeri</th>
-        <th>date</th>
-        <th>kongre status</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let congress of congress ">
-        <td>{{ congress.congressId }}</td>
-        <td>{{ congress.congressName }}</td>
-        <td>{{ congress.congressPresidentId }}</td>
-        <td>{{ congress.congressAbout.substring(0,100) }}</td>
-        <td>{{ congress.congressCity }}</td>
-        <td>{{ congress.congressPlace }}</td>
-        <td>{{ congress.congressDate.toString().substring(0,10)}}</td> 
-        <td>{{ congress.congressStatus }}</td>     
-      </tr>
-    </tbody>
-  </table> -->
 
-
-
-  <div style="float: left;margin-top:60px;">
-      <div class="blog-card"  *ngFor="let congress of congress ">
-        <div class="meta">
-          <div class="photo" style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg)"></div>
-          <ul class="details">
-            <li class="author"><a href="#">{{ congress.congressPresidentId }}</a></li>
-            <li class="date">{{ congress.congressDate.toString().substring(0,10)}}</li>
-            <li class="tags">
-              <ul>
-                <li><a href="#">{{ congress.congressCity }}</a></li>
-                <li><a href="#">{{ congress.congressPlace }}</a></li>
-                <li><a href="#"> <td>{{ congress.congressStatus }}</td></a></li>
-                <li><a href="#">CSS</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-        <div class="description">
-          <h1>{{ congress.congressName }}</h1>
-          <h2>Opening a door to the future</h2>
-          <p> {{ congress.congressAbout.substring(0,100) }}...</p>
-          <p class="read-more">
-            <a href="#">Read More</a>
-          </p>
-        </div>
-      </div>
-   </div>
-
-<br><br><br>
 <app-announcement></app-announcement>
+
+<div class="container-fluid" id="baslik">Kongrelerimiz...</div>
+<div *ngIf="congressDataLoaded==true" class="container-fluid" style="margin-top: 20px;">
+ <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
+  <div class="col"  *ngFor="let congress of congress ">
+    <div class="card">
+      <figure class="card__thumb">
+        <img src="https://source.unsplash.com/75S9fpDJVdo/300x510" alt="Picture by Kyle Cottrell" class="card__image">
+        <figcaption class="card__caption">
+          <h2 class="card__title">{{ congress.congressName }} aaaa aaaa aaaa</h2>
+          <p class="card__snippet">{{ congress.congressAbout.substring(0,100) }}...</p>
+          <a href="" class="card__button">Kongre Detayı</a>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+  </div>
+</div>
+
+
 <br><br><br>
 <app-topic></app-topic>
 <br><br><br>
