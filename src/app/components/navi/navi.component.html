@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg fixed-top navbar-dark" style="background-color:rgb(81, 93, 84);">
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark" style="background-color:rgb(42, 181, 139);">
   <app-side-nav></app-side-nav>
   <div class="container">
     <h2><a class="logo" routerLink=""><span>Icon</span><span><span>Trends</span></span></a></h2>
@@ -19,13 +19,13 @@
                 YÖNETİM
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" routerLink="/admin/brand/manager">Kongreleri Yönet</a></li>
-                <li><a class="dropdown-item" routerLink="/admin/color/manager">Duyuruları Yönet</a></li>
-                <li><a class="dropdown-item" routerLink="/admin/car/manager">Kongre Başkanlarını Yönet</a></li>
-                <li><a class="dropdown-item" routerLink="/admin/car/manager">Düzenleme Kurulunu Yönet</a></li>
-                <li><a class="dropdown-item" routerLink="/admin/car/manager">Bilim Kurulunu Yönet</a></li>
-                <li><a class="dropdown-item" routerLink="/admin/car/manager">KonularıYönet</a></li>
-                <li><a class="dropdown-item" routerLink="/admin/car/manager">Ulaşım Ve Konaklamaları Yönet</a></li>
+                <li><a class="dropdown-item" routerLink="/admin/congress/manager">Kongreleri Yönet</a></li>
+                <li><a class="dropdown-item" routerLink="/admin/announcement/manager">Duyuruları Yönet</a></li>
+                <li><a class="dropdown-item" routerLink="/admin/congresspresident/manager">Kongre Başkanlarını Yönet</a></li>
+                <li><a class="dropdown-item" routerLink="/admin/regulatoryboard/manager">Düzenleme Kurulunu Yönet</a></li>
+                <li><a class="dropdown-item" routerLink="/admin/scienceboard/manager">Bilim Kurulunu Yönet</a></li>
+                <li><a class="dropdown-item" routerLink="/admin/topic/manager">KonularıYönet</a></li>
+                <li><a class="dropdown-item" routerLink="/admin/transportlayvoer/manager">Ulaşım Ve Konaklamaları Yönet</a></li>
               </ul>
             </div>
           </div>
@@ -82,7 +82,7 @@
                 <path fill-rule="evenodd"
                   d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
               </svg>
-              <span class="text-light ms-2">{{currentUser.name}}</span>
+              <span style="cursor: pointer;" class="text-light ms-2">{{currentUser.name}}</span>
             </a>
             <ul class="dropdown-menu dropdown-menu-end shadow text-small" aria-labelledby="dropdownUser1">
               <li><a routerLink="/profile" class="dropdown-item">Profilim</a></li>
