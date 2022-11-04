@@ -25,30 +25,40 @@
 </table> -->
 
 <div class="coniner-fluid" style="margin-top: 70px;">
-    <div class="row">
+    <div class="row" style="background-color: rgb(226, 226, 226);padding:5px;border-radius:15px;">
     <div class="col-3">
-        <h5 id="">DUYURULAR</h5>
+        <!-- <h5 id="">DUYURULAR</h5>
         <div  id="announceArea"  *ngFor="let announce of announcement ">
             <span id="announceDate">{{announce.announceDate.toString().substring(0,10)}}</span> - 
             <span id="announceTitle"> {{announce.announceTitle}}</span>
             <p id="announceContent">{{announce.announceContent.substring(0,70)}}</p>    
             <hr> 
-        </div>
+        </div> -->
         
-    
+        <div class="list-group text-center mt-5" style="padding:5px;border-radius:5px;" >
+
+          <a href="announcement/seeallannounce" style="line-height:0.8;background-color: white;border-radius:10px;box-shadow:5px 10px 10px gray;" class="list-group-item list-group-item-action mb-3 ">Duyurular</a>
+          <a href="#" style="line-height:0.8;background-color: white;border-radius:10px;box-shadow:5px 10px 10px gray;" class="list-group-item list-group-item-action mb-3">Kongreler</a>
+          <a href="#" style="line-height:0.8;background-color: white;border-radius:10px;box-shadow:5px 10px 10px gray;" class="list-group-item list-group-item-action mb-3">Kayıt Koşulları</a>
+          <a href="/transportlayover" style="line-height:0.8;background-color: white;border-radius:10px;box-shadow:5px 10px 10px gray;" class="list-group-item list-group-item-action mb-3">Seyahat ve Konaklama</a>
+          <a href="#pastCongress" style="line-height:0.8;background-color: white;border-radius:10px;box-shadow:5px 10px 10px gray;" class="list-group-item list-group-item-action mb-3">Geçmiş Kongreler</a>
+          <a href="/topic" style="line-height:0.8;background-color: white;border-radius:10px;box-shadow:5px 10px 10px gray;" class="list-group-item list-group-item-action mb-3">Ana Konular</a>
+          <a href="#" style="line-height:0.8;background-color: white;border-radius:10px;box-shadow:5px 10px 10px gray;" class="list-group-item list-group-item-action">İletişim</a>
+        </div>
+
     </div>
     <div  class="col-9">
     
-      <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner rounded-3">
+      <div  id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div style="border-radius:15px;"   class="carousel-inner ">
           <div class="carousel-item active">
-            <img width="100%" height="550px%" src="https://i.hizliresim.com/1iqzgza.png" class="d-block w-100" alt="...">
+            <img width="100%" height="400px%" src="https://i.hizliresim.com/1iqzgza.png" class="d-block w-100" alt="...">
           </div>
           <div class="carousel-item">
-            <img width="100%" height="550px%" src="https://i.hizliresim.com/1iqzgza.png" class="d-block w-100" alt="...">
+            <img width="100%" height="400px%" src="https://i.hizliresim.com/1iqzgza.png" class="d-block w-100" alt="...">
           </div>
           <div class="carousel-item">
-            <img width="100%" height="550px%" src="https://i.hizliresim.com/1iqzgza.png" class="d-block w-100" alt="...">
+            <img width="100%" height="400px%" src="https://i.hizliresim.com/1iqzgza.png" class="d-block w-100" alt="...">
           </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">

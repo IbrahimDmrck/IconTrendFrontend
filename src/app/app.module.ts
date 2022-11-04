@@ -55,6 +55,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { RegulatoryBoardComponent } from './components/regulatory-board/regulatory-board.component';
 import { SideNavComponent } from './components/side-nav/side-nav.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { SeeAllAnnounceComponent } from './components/see-all-announce/see-all-announce.component';
+import { TransportLayoverComponent } from './components/transport-layover/transport-layover.component';
 
 
 
@@ -105,6 +107,8 @@ import { FooterComponent } from './components/footer/footer.component';
     RegulatoryBoardComponent,
     SideNavComponent,
     FooterComponent,
+    SeeAllAnnounceComponent,
+    TransportLayoverComponent,
   
   ],
   imports: [

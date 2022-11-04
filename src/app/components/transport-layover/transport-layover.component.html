@@ -1,0 +1,24 @@
+<div *ngIf="transportdataloaded == false" class="spinner-border text-success" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+
+  <table style="margin-top: 70px;" id="announce"  *ngIf="transportdataloaded == true" class="table table-hover">
+    <thead>
+        <tr>
+            <th>ıd</th>
+            <th>başlık</th>
+            <th>içerik</th>
+            <th>durumu</th>
+            <th>tarih</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let transpotLayover of transpotLayovers">
+            <td>{{transpotLayover.transportId}}</td>
+            <td>{{transpotLayover.capacity}}</td>
+            <td>{{transpotLayover.minDemand}}</td>
+            <td>{{transpotLayover.price}}</td>
+            <td>{{transpotLayover.description.substring(0,50)}}</td>
+        </tr>
+    </tbody>
+  </table>

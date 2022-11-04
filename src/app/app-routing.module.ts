@@ -14,6 +14,9 @@ import { AdminTransportLayoverManagerComponent } from './components/admin/admin-
 import { CongressDetailsComponent } from './components/congress-details/congress-details.component';
 import { HomeComponent } from './components/home/home.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { SeeAllAnnounceComponent } from './components/see-all-announce/see-all-announce.component';
+import { TopicComponent } from './components/topic/topic.component';
+import { TransportLayoverComponent } from './components/transport-layover/transport-layover.component';
 import { LoginGuard } from './guards/login.guard';
 import { RoleGuard } from './guards/role.guard';
 
@@ -21,6 +24,9 @@ const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomeComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [LoginGuard] },
   { path: 'congress-details/:congressid', component: CongressDetailsComponent },
+  { path: 'announcement/seeallannounce', component: SeeAllAnnounceComponent },
+  { path: 'transportlayover', component: TransportLayoverComponent },
+  { path: 'topic', component: TopicComponent },
   {
     path: 'admin', component: AdminLayoutComponent, children: [
       { path: 'announcement/manager', component: AdminAnnouncementManagerComponent, canActivate: [LoginGuard, RoleGuard], data: { expectedRole: 'Admin' } },
@@ -30,6 +36,7 @@ const routes: Routes = [
       { path: 'scienceboard/manager', component: AdminScienceBoardManagerComponent, canActivate: [LoginGuard, RoleGuard], data: { expectedRole: 'Admin' } },
       { path: 'topic/manager', component: AdminTopicManagerComponent, canActivate: [LoginGuard, RoleGuard], data: { expectedRole: 'Admin' } },
       { path: 'transportlayvoer/manager', component: AdminTransportLayoverManagerComponent, canActivate: [LoginGuard, RoleGuard], data: { expectedRole: 'Admin' } },
+      { path: 'user/manager', component: AdminTransportLayoverManagerComponent, canActivate: [LoginGuard, RoleGuard], data: { expectedRole: 'Admin' } }
     ]
   },
   {
