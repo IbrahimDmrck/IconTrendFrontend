@@ -1,7 +1,7 @@
-<body class="text-center account-page">
+<body class="container text-center account-page col-6" style="margin-top:116px ;">
     <main class="form-account account-card">
         <div class="card-body">
-            <div class="logo" style="font-size: 40px;"><span>Golden</span><span><span>Car</span></span></div>
+            <div class="logo" style="font-size: 40px;"><span>Icon</span><span><span>Trends</span></span></div>
             <hr class="solid">
             <form [formGroup]="registerForm" class="mt-4">
                 <div class="form-floating mb-2">
@@ -31,8 +31,8 @@
                 </div>
 
                 <div class="checkbox mb-3 mt-3 text-light">
-                    <label>
-                        <input type="checkbox" value="remember-me" [(ngModel)]="rememberMe"
+                    <label  style="color: black;">
+                        <input  type="checkbox" value="remember-me" [(ngModel)]="rememberMe"
                             [ngModelOptions]="{standalone: true}"> E-postamı hatırla
                     </label>
                 </div>

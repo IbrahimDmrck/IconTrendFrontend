@@ -54,6 +54,7 @@ import { NgxMaskModule } from 'ngx-mask';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { RegulatoryBoardComponent } from './components/regulatory-board/regulatory-board.component';
 import { SideNavComponent } from './components/side-nav/side-nav.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 
@@ -103,6 +104,7 @@ import { SideNavComponent } from './components/side-nav/side-nav.component';
     RegisterComponent,
     RegulatoryBoardComponent,
     SideNavComponent,
+    FooterComponent,
   
   ],
   imports: [

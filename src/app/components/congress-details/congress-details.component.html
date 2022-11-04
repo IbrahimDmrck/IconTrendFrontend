@@ -1,1 +1,15 @@
-<p>congress-details works!</p>
+<div *ngIf="congressImages">
+    <div *ngFor="let congressImage of congressImages">
+        <img [src]="getImagePath(congressDetails.congressImages[0].imagePath)" alt="">
+    </div>
+   <div *ngIf="congressDetails">
+    <p>{{congressDetails.congressId}}</p>
+    <p>{{congressDetails.congressName}}</p>
+    <p>{{congressDetails.congressAbout}}</p>
+    <p>{{congressDetails.congressCity}}</p>
+    <p>{{congressDetails.congressPlace}}</p>
+    <p>{{congressDetails.congressPresidentId}}</p>
+    <p>{{congressDetails.congressDate}}</p>
+   </div>
+       
+ </div>

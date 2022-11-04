@@ -4,7 +4,7 @@
 
 <app-announcement></app-announcement>
 
-<div class="container-fluid" id="baslik">Kongrelerimiz...</div>
+<div class="container-fluid" id="baslik">Geçmiş Kongrelerimiz...</div>
 <div *ngIf="congressDataLoaded==true" class="container-fluid" style="margin-top: 20px;">
  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
   <div class="col"  *ngFor="let congress of congress ">
@@ -14,7 +14,7 @@
         <figcaption class="card__caption">
           <h2 class="card__title">{{ congress.congressName }} aaaa aaaa aaaa</h2>
           <p class="card__snippet">{{ congress.congressAbout.substring(0,100) }}...</p>
-          <a href="" class="card__button">Kongre Detayı</a>
+          <a href="" class="card__button" routerLink="/congress-details/{{congress.congressId}}">Kongre Detayı</a>
         </figcaption>
       </figure>
     </div>
@@ -23,7 +23,7 @@
 </div>
 
 
-<br><br><br>
+<!-- <br><br><br>
 <app-topic></app-topic>
 <br><br><br>
 <app-regulatory-board></app-regulatory-board>
@@ -51,4 +51,4 @@
    
     </tr>
   </tbody>
-</table>
+</table> -->

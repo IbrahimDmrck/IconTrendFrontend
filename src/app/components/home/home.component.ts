@@ -2,9 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Announcement } from 'src/app/models/entities/announcement';
 import { Congress } from 'src/app/models/entities/congress';
+import { CongressDetailDto } from 'src/app/models/entities/congressDetailDTos';
 import { ScienceBoard } from 'src/app/models/entities/science-board';
 import { Topic } from 'src/app/models/entities/topic';
 import { AnnouncementService } from 'src/app/services/announcement.service';
+import { CongressDetailsService } from 'src/app/services/congress-details.service';
 import { CongressImageService } from 'src/app/services/congress-image.service';
 import { CongressService } from 'src/app/services/congress.service';
 import { ScienceBoardService } from 'src/app/services/science-board.service';
@@ -16,6 +18,7 @@ import { TopicService } from 'src/app/services/topic.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+congressDetailDtos:CongressDetailDto[];
 
   congress:Congress[];
   scienceBoard:ScienceBoard[];
@@ -31,6 +34,7 @@ export class HomeComponent implements OnInit {
   constructor(
     private congressService:CongressService,
     private scienceBoardService:ScienceBoardService,
+    private congressDetailService:CongressDetailsService,
     private router:Router
   ) { }
 
@@ -46,6 +50,8 @@ export class HomeComponent implements OnInit {
       this.congressDataLoaded = true;
     })   
   }
+
+
 
   getScienceBoard(){
     this.scienceBoardService.getScienceBoards().subscribe(response=>{
