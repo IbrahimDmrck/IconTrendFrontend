@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
+import { TransportLayover } from 'src/app/models/entities/transport-layover';
+import { TransportLayoverService } from 'src/app/services/transport-layover.service';
 
 @Component({
   selector: 'app-admin-transport-layover-manager',
@@ -7,9 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminTransportLayoverManagerComponent implements OnInit {
 
-  constructor() { }
+  transportlayovers:TransportLayover[];
+  DataLoadded:boolean=false;
+
+  constructor(
+    private transportLayoverService:TransportLayoverService,
+    private toastrService:ToastrService
+  ) { }
 
   ngOnInit(): void {
+    this.getTransportLayover();
   }
 
+  getTransportLayover(){
+    this.transportLayoverService.getTransportLayovers().subscribe(response=>{
+      this.transportlayovers=response.data;
+      this.DataLoadded=true;
+      this.toastrService.success("İşlem Başarılı","Ulaşım ve Konaklama Bilgileri Listelendi");
+    })
+  }
 }

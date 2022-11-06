@@ -1,0 +1,21 @@
+<h3 style="margin-top: 70px;background-color:crimson;" class="text-center text-white">KULLANICILAR</h3>
+<table style="border-radius:10px;" class="table table-hover text-center bg-dark text-white">
+    <thead style="font-weight: bolder;text-decoration:underline;">
+        <tr>
+            <th>ID</th>
+            <th>Adı</th>
+            <th>Soyadı</th>
+            <th>E-posta</th>
+            <th><a type="button" class="btn btn-outline-success" href="#">Kullanıcı Ekle</a></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users">
+            <td>{{user.id}}</td>
+            <td>{{user.firstName}}</td>
+            <td>{{user.lastName}}</td>
+            <td>{{user.email}}</td>
+            <td><button class="btn btn-sm btn-outline-warning">Düzenle</button> | <button class="btn btn-sm btn-outline-danger">Sil</button></td>
+        </tr>
+    </tbody>
+</table>

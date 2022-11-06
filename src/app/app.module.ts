@@ -57,6 +57,10 @@ import { SideNavComponent } from './components/side-nav/side-nav.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SeeAllAnnounceComponent } from './components/see-all-announce/see-all-announce.component';
 import { TransportLayoverComponent } from './components/transport-layover/transport-layover.component';
+import { AdminUserManagerComponent } from './components/admin/admin-user-manager/admin-user-manager.component';
+import { AdminUserAddComponent } from './components/admin/admin-user-add/admin-user-add.component';
+import { AdminUserDeleteComponent } from './components/admin/admin-user-delete/admin-user-delete.component';
+import { AdminUserUpdateComponent } from './components/admin/admin-user-update/admin-user-update.component';
 
 
 
@@ -109,6 +113,10 @@ import { TransportLayoverComponent } from './components/transport-layover/transp
     FooterComponent,
     SeeAllAnnounceComponent,
     TransportLayoverComponent,
+    AdminUserManagerComponent,
+    AdminUserAddComponent,
+    AdminUserDeleteComponent,
+    AdminUserUpdateComponent,
   
   ],
   imports: [

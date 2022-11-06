@@ -1,1 +1,26 @@
-<p>admin-topic-manager works!</p>
+<div *ngIf="Dataloadded == false" class="spinner-border text-success" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+<h3 style="margin-top: 70px;" class="text-center bg-success text-white">Konular</h3>
+
+
+  <table style="border-radius:10px;"  id="announce"  *ngIf="Dataloadded == true" class="table table-hover bg-dark text-white text-center">
+    <thead style="font-weight: bolder;text-decoration:underline;" >
+        <tr>
+            <th>ıd</th>
+            <th>Kongre Adı</th>
+            <th>Konu</th>
+            <th>Alt Konular</th>
+            <th><a type="button" class="btn btn-outline-success" href="#">Başkan Ekle</a></th>
+        </tr>
+    </thead>
+    <tbody> 
+        <tr *ngFor="let topic of topics">
+            <td>{{topic.id}}</td>
+            <td>{{topic.congressId}}</td>
+            <td>{{topic.topicName}}</td>
+            <td>{{topic.category}}</td>
+            <td><button class="btn btn-sm btn-outline-warning">Düzenle</button> | <button class="btn btn-sm btn-outline-danger">Sil</button></td>
+        </tr>
+    </tbody>
+  </table>

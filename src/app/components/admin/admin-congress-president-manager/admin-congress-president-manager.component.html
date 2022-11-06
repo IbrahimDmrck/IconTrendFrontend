@@ -1,1 +1,24 @@
-<p>admin-congress-president-manager works!</p>
+<div *ngIf="DataLoaded == false" class="spinner-border text-success" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+<h3 style="margin-top: 70px;" class="text-center bg-primary">KONGRE BAŞKANLARI</h3>
+
+
+  <table style="border-radius:10px;"  id="announce"  *ngIf="DataLoaded == true" class="table table-hover bg-dark text-white text-center">
+    <thead style="font-weight: bolder;text-decoration:underline;">
+        <tr>
+            <th>ıd</th>
+            <th>Kongre Adı</th>
+            <th>kongre Başkanı Adı</th>
+            <th><a type="button" class="btn btn-outline-success" href="#">Başkan Ekle</a></th>
+        </tr>
+    </thead>
+    <tbody> 
+        <tr *ngFor="let president of congressPresidents">
+            <td>{{president.id}}</td>
+            <td>{{president.congressId}}</td>
+            <td>{{president.congressPresidentName}}</td>
+            <td><button class="btn btn-sm btn-outline-warning">Düzenle</button> | <button class="btn btn-sm btn-outline-danger">Sil</button></td>
+        </tr>
+    </tbody>
+  </table>
