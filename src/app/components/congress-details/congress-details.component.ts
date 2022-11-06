@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Congress } from 'src/app/models/entities/congress';
 import { CongressImage } from 'src/app/models/entities/congress-image';
 import { CongressDetailDto } from 'src/app/models/entities/congressDetailDTos';
 import { CongressDetailsService } from 'src/app/services/congress-details.service';
 import { CongressImageService } from 'src/app/services/congress-image.service';
+import { CongressService } from 'src/app/services/congress.service';
 
 @Component({
   selector: 'app-congress-details',
@@ -12,10 +14,11 @@ import { CongressImageService } from 'src/app/services/congress-image.service';
 })
 export class CongressDetailsComponent implements OnInit {
 
-  congressDetails:CongressDetailDto;
+  currentCongress:Congress;
   congressImages:CongressImage[];
 
   constructor(
+    private congressService:CongressService,
     private congressDetailService:CongressDetailsService,
     private congressImageService:CongressImageService,
     private activatedRoute:ActivatedRoute
@@ -32,10 +35,12 @@ export class CongressDetailsComponent implements OnInit {
 getCongressDetailsByCongressId(congressId:number){
 return new Promise<void>((resolve,recejct)=>{
   this.congressDetailService.getCongressDetails(congressId).subscribe((response)=>{
-    this.congressDetails=response.data;
+    this.currentCongress=response.data;
     resolve();
+
   });
 });
+
 }
 
 getImagePath(imagePath:string){

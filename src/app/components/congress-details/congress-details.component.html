@@ -1,17 +1,34 @@
-<div >
-    <div *ngIf="congressImages">
-        <div *ngFor="let congressImage of congressImages">
-            <img [src]="getImagePath(congressDetails.congressImages[0].imagePath)" alt="">
-        </div>
-       <div *ngIf="congressDetails">
-        <p>{{congressDetails.congressId}}</p>
-        <p>{{congressDetails.congressName}}</p>
-        <p>{{congressDetails.congressAbout}}</p>
-        <p>{{congressDetails.congressCity}}</p>
-        <p>{{congressDetails.congressPlace}}</p>
-        <p>{{congressDetails.congressPresidentId}}</p>
-        <p>{{congressDetails.congressDate}}</p>
-       </div>
-           
-     </div>
-</div>
+<table style="margin-top: 70px;" class="table table-hover">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>başkan adı</th>
+            <th>kongre hakkında</th>
+            <th>kongre yeri</th>
+            <th>kongre tarihi</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngIf=" currentCongress">
+            <td>{{currentCongress.congressId}}</td>
+            <td>{{currentCongress.congressName}}</td>
+            <td>{{currentCongress.congressPresidentName}}</td>
+            <td>{{currentCongress.congressAbout.substring(0,50)}}</td>
+            <td>{{currentCongress.congressPlace}}</td>
+            <td>{{currentCongress.congressDate}}</td>
+
+        </tr>
+    </tbody>
+</table>
+<!-- 
+
+      congressId:number;
+    congressName:string;
+    congressPresidentId:number;
+    congressAbout:string;
+    congressCity:string;
+    congressPlace:string;
+    congressDate:Date;
+    congressImages:CongressImage[];
+ -->

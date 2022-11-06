@@ -24,7 +24,7 @@ import { RoleGuard } from './guards/role.guard';
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomeComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [LoginGuard] },
-  { path: 'congress-details/:congressid', component: CongressDetailsComponent },
+  { path: 'congress-details/:congressId', component: CongressDetailsComponent },
   { path: 'announcement/seeallannounce', component: SeeAllAnnounceComponent },
   { path: 'transportlayover', component: TransportLayoverComponent },
   { path: 'topic', component: TopicComponent },

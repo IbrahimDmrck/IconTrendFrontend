@@ -25,25 +25,20 @@
 </table> -->
 
 <div class="coniner-fluid" style="margin-top: 70px;">
-    <div class="row" style="background-color: rgb(226, 226, 226);padding:5px;border-radius:15px;">
+    <div class="row" style="padding:5px;border-radius:15px;">
     <div class="col-3">
-        <!-- <h5 id="">DUYURULAR</h5>
-        <div  id="announceArea"  *ngFor="let announce of announcement ">
-            <span id="announceDate">{{announce.announceDate.toString().substring(0,10)}}</span> - 
-            <span id="announceTitle"> {{announce.announceTitle}}</span>
-            <p id="announceContent">{{announce.announceContent.substring(0,70)}}</p>    
-            <hr> 
-        </div> -->
+
         
         <div class="list-group text-center mt-5" style="padding:5px;border-radius:5px;" >
-
-          <a href="announcement/seeallannounce" style="line-height:0.8;background-color: white;border-radius:10px;box-shadow:5px 10px 10px gray;" class="list-group-item list-group-item-action mb-3 ">Duyurular</a>
-          <a href="#" style="line-height:0.8;background-color: white;border-radius:10px;box-shadow:5px 10px 10px gray;" class="list-group-item list-group-item-action mb-3">Kongreler</a>
-          <a href="#" style="line-height:0.8;background-color: white;border-radius:10px;box-shadow:5px 10px 10px gray;" class="list-group-item list-group-item-action mb-3">Kayıt Koşulları</a>
-          <a href="/transportlayover" style="line-height:0.8;background-color: white;border-radius:10px;box-shadow:5px 10px 10px gray;" class="list-group-item list-group-item-action mb-3">Seyahat ve Konaklama</a>
-          <a href="#pastCongress" style="line-height:0.8;background-color: white;border-radius:10px;box-shadow:5px 10px 10px gray;" class="list-group-item list-group-item-action mb-3">Geçmiş Kongreler</a>
-          <a href="/topic" style="line-height:0.8;background-color: white;border-radius:10px;box-shadow:5px 10px 10px gray;" class="list-group-item list-group-item-action mb-3">Ana Konular</a>
-          <a href="#" style="line-height:0.8;background-color: white;border-radius:10px;box-shadow:5px 10px 10px gray;" class="list-group-item list-group-item-action">İletişim</a>
+         
+          <button routerLink="" class="btn  btn-outline-primary">Genel Bilgiler</button>
+          <button routerLink="announcement/seeallannounce" class="btn  btn-outline-primary mt-2">Duyurular</button>
+          <button routerLink="" class="btn  btn-outline-primary mt-2">Kayıt Koşulları</button>
+          <button routerLink="/transportlayover" class="btn  btn-outline-primary mt-2">Seyahat ve Konaklama</button>
+          <a href="#pastCongress" class="btn  btn-outline-primary mt-2">Geçmiş Kongreler</a>
+          <button routerLink="/topic"  class="btn  btn-outline-primary mt-2">Ana Konular</button>
+          <button routerLink="" class="btn btn-outline-primary mt-2">İletişim</button>
+         
         </div>
 
     </div>

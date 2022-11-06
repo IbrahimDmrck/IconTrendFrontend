@@ -13,7 +13,7 @@ export class CongressDetailsService {
   apiURL="https://localhost:44320/api/Congresses/";
 
   getCongressDetails(congressId:number):Observable<SingleResponseModel<Congress>>{
-    let newPath=this.apiURL+'getcongressdetails?congressId='+congressId;
+    let newPath=this.apiURL+'getcongressdetails?congressId=' + congressId;
     return this.httpClient.get<SingleResponseModel<Congress>>(newPath);
   }
 
