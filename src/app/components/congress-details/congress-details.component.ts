@@ -15,10 +15,11 @@ import { CongressService } from 'src/app/services/congress.service';
 export class CongressDetailsComponent implements OnInit {
 
   currentCongress:Congress;
+  DataLoadded:boolean=false;
+
   congressImages:CongressImage[];
 
   constructor(
-    private congressService:CongressService,
     private congressDetailService:CongressDetailsService,
     private congressImageService:CongressImageService,
     private activatedRoute:ActivatedRoute
@@ -36,6 +37,7 @@ getCongressDetailsByCongressId(congressId:number){
 return new Promise<void>((resolve,recejct)=>{
   this.congressDetailService.getCongressDetails(congressId).subscribe((response)=>{
     this.currentCongress=response.data;
+    this.DataLoadded=true;
     resolve();
 
   });

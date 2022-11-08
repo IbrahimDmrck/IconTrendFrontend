@@ -1,1 +1,26 @@
-<p>admin-congress-president-add works!</p>
+<div class="card">
+    <div class="card-header">
+        <div class="d-flex justify-content-between">
+            <h5>Kongre Başkanı Ekle</h5>
+        </div>
+    </div>
+    <div class="card-body">
+        <form [formGroup]="congressPresidentAddForm">
+            <div class="align-items-center">
+                <div class="form-group">
+                    <input type="text" id="brandName" formControlName="presidentName" class="form-control"
+                        placeholder="Kongre Başkan Adı" />
+                        <input type="text" id="brandName" formControlName="congressId" class="form-control"
+                        placeholder="Kongre Adı Yazın" />
+                </div>
+            </div>
+        </form>
+        
+        <div class="row mt-3">
+            <div class="d-flex justify-content-end">
+                <button (click)="add()" type="button" class="btn btn-success me-2">Ekle</button>
+                <button (click)="closeCongressPresidentAddModal()" type="button" class="btn btn-danger">İptal</button>
+            </div>
+        </div>
+    </div>
+</div>

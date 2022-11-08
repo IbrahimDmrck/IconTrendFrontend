@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CongressImage } from '../models/entities/congress-image';
+import { ListResponseModel } from '../models/responseModels/listResponseModel';
 import { ResponseModel } from '../models/responseModels/responseModel';
 import { CongressService } from './congress.service';
 
@@ -14,6 +15,11 @@ private apiUrl="https://localhost:44320/";
 
   getImagePath(imagePath:string){
     return this.apiUrl+imagePath;
+  }
+
+  getCongressImagesByCongressId(congressId:number):Observable<ListResponseModel<CongressImage>>{
+    let newPath=this.apiUrl+"api/CongressImageses/getallbycongressid?congressId="+congressId;
+    return this.httpClient.get<ListResponseModel<CongressImage>>(newPath);
   }
 
   uploadImage(image:File,congressId:number):Observable<ResponseModel>{
