@@ -6,6 +6,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatDialogModule } from '@angular/material/dialog';
+import { NgxMaskModule } from 'ngx-mask';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -50,8 +52,6 @@ import { AccountLayoutComponent } from './components/account/account-layout/acco
 import { LoginComponent } from './components/account/account-login/account-login.component';
 import { RegisterComponent } from './components/account/account-register/account-register.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
-import { NgxMaskModule } from 'ngx-mask';
-import { NgxSpinnerModule } from 'ngx-spinner';
 import { RegulatoryBoardComponent } from './components/regulatory-board/regulatory-board.component';
 import { SideNavComponent } from './components/side-nav/side-nav.component';
 import { FooterComponent } from './components/footer/footer.component';

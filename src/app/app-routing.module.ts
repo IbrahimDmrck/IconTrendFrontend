@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 import { RouterModule, Routes } from '@angular/router';
 import { AccountLayoutComponent } from './components/account/account-layout/account-layout.component';
 import { LoginComponent } from './components/account/account-login/account-login.component';
@@ -49,7 +50,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes, {
+    scrollPositionRestoration: 'enabled', //This configuration automatically displays the top of the page when the route changes.
+  })],
+  exports: [RouterModule],
 })
 export class AppRoutingModule { }

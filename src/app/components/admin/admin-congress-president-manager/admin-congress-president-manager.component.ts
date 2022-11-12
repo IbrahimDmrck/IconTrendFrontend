@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ComponentRef, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ToastrService } from 'ngx-toastr';
 import { CongressPresident } from 'src/app/models/entities/congress-president';
 import { CongressPresidentService } from 'src/app/services/congress-president.service';
 import { AdminCongressPresidentAddComponent } from '../admin-congress-president-add/admin-congress-president-add.component';
@@ -17,7 +16,6 @@ export class AdminCongressPresidentManagerComponent implements OnInit {
 
   constructor(
     private congressPresidentService:CongressPresidentService,
-    private toastrService:ToastrService,
     private dialog:MatDialog
   ) { }
 
@@ -29,14 +27,14 @@ export class AdminCongressPresidentManagerComponent implements OnInit {
     this.congressPresidentService.getCongressPresidents().subscribe(response=>{
       this.congressPresidents=response.data;
       this.DataLoaded=true;
-      this.toastrService.success("İşlem Başarılı","Kongre Başkanları Listelendi");
     })
   }
 
   showCongressPresidentAddModal(){
     const presidentAddModal=this.dialog.open(AdminCongressPresidentAddComponent,{
       disableClose:true,
-      width:"25%"
+      width:'25%'
+      
     });
 
     presidentAddModal.afterClosed().subscribe(result=>{
@@ -44,3 +42,4 @@ export class AdminCongressPresidentManagerComponent implements OnInit {
     })
   }
 }
+

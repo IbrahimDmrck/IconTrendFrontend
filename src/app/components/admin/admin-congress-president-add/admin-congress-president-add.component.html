@@ -1,4 +1,4 @@
-<div class="card">
+<div id="maincard" class="card">
     <div class="card-header">
         <div class="d-flex justify-content-between">
             <h5>Kongre Başkanı Ekle</h5>
@@ -8,9 +8,11 @@
         <form [formGroup]="congressPresidentAddForm">
             <div class="align-items-center">
                 <div class="form-group">
-                    <input type="text" id="brandName" formControlName="presidentName" class="form-control"
+                    <input type="text"  formControlName="presidentName" class="form-control"
                         placeholder="Kongre Başkan Adı" />
-                        <input type="text" id="brandName" formControlName="congressId" class="form-control"
+                </div>
+                <div class="form-group">
+                    <input type="text"  formControlName="congressId" class="form-control"
                         placeholder="Kongre Adı Yazın" />
                 </div>
             </div>

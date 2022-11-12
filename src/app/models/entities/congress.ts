@@ -12,9 +12,13 @@ export interface Congress{
     congressCity:string;
     congressPlace:string;
     congressDate:Date;
-    congressStatus:boolean;
-    topics:Topic[];
-    regulatoryBoards:RegulatoryBoard[];
-    scienceBoards:ScienceBoard[];
+    topicId:number;
+    topicName:string;
+    scienceBoardId:number;
+    scienceBoardMemberName:string;
+    regulatoryBoardId:number;
+    regulatoryBoardMemberName:string;
+    regulatoryBoardMemberUnivercity:string;
+    scienceBoardMemberUnivercity:string;
     congressImages:CongressImage[];
 }

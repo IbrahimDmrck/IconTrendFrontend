@@ -30,8 +30,8 @@ export class FormService {
   createCongressPresidentForm():FormGroup{
     return this.formBuilder.group({
       congressId:["",[Validators.required,Validators.pattern("^[0-9]*$"),Validators.min(1)]],
-      presidentName:["",[Validators.required,Validators.minLength(2)]]
-    });
+      presidentName:["",[Validators.required,Validators.minLength(2),Validators.maxLength(50)]]
+    })
   }
 
   createRegulatoryBoardForm():FormGroup{

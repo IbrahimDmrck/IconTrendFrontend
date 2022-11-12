@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Congress } from '../models/entities/congress';
+import { CongressDetailDto } from '../models/entities/congressDetailDTos';
 import { SingleResponseModel } from '../models/responseModels/singleResponseModel';
 
 @Injectable({

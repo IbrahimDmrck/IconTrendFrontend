@@ -34,7 +34,7 @@ congressDetailDtos:CongressDetailDto[];
   constructor(
     private congressService:CongressService,
     private scienceBoardService:ScienceBoardService,
-    private congressDetailService:CongressDetailsService,
+    private congressImageService:CongressImageService,
     private router:Router
   ) { }
 
@@ -58,6 +58,10 @@ congressDetailDtos:CongressDetailDto[];
       this.scienceBoard=response.data;
       this.scienceBoardDataLoaded=true;
     })
+  }
+
+  getImagePath(imagePath:string){
+    return this.congressImageService.getImagePath(imagePath);
   }
 
 }

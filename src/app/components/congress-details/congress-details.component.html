@@ -61,25 +61,43 @@
     <div>
         {{currentCongress.congressAbout}}
     </div>
-    <h4>Konger Başkanı - {{currentCongress.congressPresidentId}}</h4>
+    <h4>Konger Başkanı - {{currentCongress.congressPresidentName}}</h4>
 
     <!-- Düzenleme Kurulu bu tabloda listelenecek -->
-    <!-- <table>
+     <table class="table table-hover">
         <thead>
             <tr>
-                <th></th>
+                <th>Kongre Adı</th>
+                <th>Üye Adı</th>
+                <th>Üye Okulu</th>
             </tr>
         </thead>
-    </table> -->
+        <tbody>
+          <tr>
+            <td>{{currentCongress.congressName}}</td>
+            <td>{{currentCongress.regulatoryBoardMemberName}}</td>
+            <td>{{currentCongress.regulatoryBoardMemberUnivercity}}</td>
+          </tr>
+        </tbody>
+    </table> 
 
-        <!-- Düzenleme Kurulu bu tabloda listelenecek -->
-    <!-- <table>
+         <!-- Bilim Kurulu bu tabloda listelenecek  -->
+     <table class="table table-hover">
         <thead>
             <tr>
-                <th></th>
+                <th>Kongre Adı</th>
+                <th>Üye Adı</th>
+                <th>Üye Okulu</th>
             </tr>
         </thead>
-    </table> -->
+        <tbody>
+          <tr>
+            <td>{{currentCongress.congressName}}</td>
+            <td>{{currentCongress.scienceBoardMemberName}}</td>
+            <td>{{currentCongress.scienceBoardMemberUnivercity}}</td>
+          </tr>
+        </tbody>
+    </table>
 
     <h4>Kongre yeri ve Zamanı</h4>
     <div>{{currentCongress.congressDate.toString().substring(0,10)}}  ||  {{currentCongress.congressCity}} || {{currentCongress.congressPlace}} - Saat {{currentCongress.congressDate.toString().substring(11,16)}}</div>

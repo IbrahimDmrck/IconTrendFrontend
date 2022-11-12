@@ -36,20 +36,24 @@ export class AdminCongressPresidentAddComponent implements OnInit {
     this.presidentAddModal.close();
   }
 
-  add(){
+  add() {
     if (this.congressPresidentAddForm.valid) {
-      let congressPresidentModel=Object.assign({},this.congressPresidentAddForm.value);
-      this.congressPresidentService.add(congressPresidentModel).subscribe(()=>{
+      let congressPresidentModel = Object.assign({}, this.congressPresidentAddForm.value);
+      this.congressPresidentService.add(congressPresidentModel).subscribe(() => {
         this.toastrService.success(congressPresidentModel.name,"Kongre Başkanı  Eklendi");
         this.closeCongressPresidentAddModal();
-      },errorResponse=>{
-        this.errorService.showBackendError(errorResponse,"Kongre Başkanı Eklenemedi");
+      }, errorResponse => {
+        this.errorService.showBackendError(errorResponse, "Kongre Başkanı Eklenemedi");
       })
-    }else{
+    } else {
       this.toastrService.error("Konge başkanı adı 2-50 karakter arasında olmalıdır","Geçersiz form");
       this.congressPresidentAddForm.reset();
-
     }
   }
+
+  /*
+  
+
+  */
 
 }
