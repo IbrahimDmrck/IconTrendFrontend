@@ -1,3 +1,7 @@
 #footerTitle{
     color: rgb(76, 243, 246);
 }
+#deep{
+    position: fixed;
+    bottom: 0px;
+}

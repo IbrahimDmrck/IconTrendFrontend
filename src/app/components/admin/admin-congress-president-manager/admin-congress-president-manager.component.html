@@ -18,7 +18,7 @@
             <td>{{president.id}}</td>
             <td>{{president.congressId}}</td>
             <td>{{president.congressPresidentName}}</td>
-            <td><button class="btn btn-sm btn-outline-warning">Düzenle</button> | <button class="btn btn-sm btn-outline-danger">Sil</button></td>
+            <td><button class="btn btn-sm btn-outline-warning">Düzenle</button> | <button (click)="showCongressPresidentDeleteModal(president)" class="btn btn-sm btn-outline-danger">Sil</button></td>
         </tr>
     </tbody>
   </table>

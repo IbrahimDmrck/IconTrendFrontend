@@ -39,7 +39,7 @@ return new Promise<void>((resolve,recejct)=>{
     this.currentCongress=response.data;
     this.DataLoadded=true;
     resolve();
-
+    console.log(this.currentCongress.congressPresidentName);
   });
 });
 

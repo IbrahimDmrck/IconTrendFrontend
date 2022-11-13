@@ -10,7 +10,7 @@ import { SingleResponseModel } from '../models/responseModels/singleResponseMode
   providedIn: 'root'
 })
 export class CongressPresidentService {
-private apiUrl="https://localhost:44320/api/CoongressPresidents/";
+private apiUrl="https://localhost:44320/api/CongressPresidents/";
   constructor(private httpClient:HttpClient) { }
 
   getCongressPresidents():Observable<ListResponseModel<CongressPresident>>{

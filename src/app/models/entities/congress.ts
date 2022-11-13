@@ -1,7 +1,4 @@
 import { CongressImage } from "./congress-image";
-import { RegulatoryBoard } from "./regulatory-board";
-import { ScienceBoard } from "./science-board";
-import { Topic } from "./topic";
 
 export interface Congress{
     congressId:number;
