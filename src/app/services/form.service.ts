@@ -23,7 +23,11 @@ export class FormService {
       congressAbout:["",[Validators.required,Validators.minLength(50)]],
       congressCity:["",[Validators.required,Validators.minLength(3)]],
       congressPlace:["",[Validators.required,Validators.minLength(3)]],
-      congressStatus:["",[Validators.required]]
+      congressStatus:["",[Validators.required]],
+      congressDate:["",[Validators.required]],
+      regulatoryBoardId:["",[Validators.required,Validators.pattern("^[0-9]*$"),Validators.min(1)]],
+      scienceBoardId:["",[Validators.required,Validators.pattern("^[0-9]*$"),Validators.min(1)]],
+      topicId:["",[Validators.required,Validators.pattern("^[0-9]*$"),Validators.min(1)]],
     });
   }
 
