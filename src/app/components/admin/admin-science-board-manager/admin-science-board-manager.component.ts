@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
 import { ScienceBoard } from 'src/app/models/entities/science-board';
 import { ScienceBoardService } from 'src/app/services/science-board.service';
+import { AdminScienceBoardAddComponent } from '../admin-science-board-add/admin-science-board-add.component';
+import { AdminScienceBoardDeleteComponent } from '../admin-science-board-delete/admin-science-board-delete.component';
+import { AdminScienceBoardUpdateComponent } from '../admin-science-board-update/admin-science-board-update.component';
 
 @Component({
   selector: 'app-admin-science-board-manager',
@@ -15,7 +19,7 @@ export class AdminScienceBoardManagerComponent implements OnInit {
 
   constructor(
     private scienceBoardService:ScienceBoardService,
-    private toastrService:ToastrService
+    private dialog:MatDialog
   
   ) { }
 
@@ -27,8 +31,41 @@ export class AdminScienceBoardManagerComponent implements OnInit {
     this.scienceBoardService.getScienceBoards().subscribe(response=>{
       this.scienceBoards=response.data;
       this.DataLoadded=true;
-     this.toastrService.success("İşlem Başarılı","Bilim Kurulları Listelendi");
     })
 
+  }
+
+  showScienceBoardUpdateModal(scienceBoard:ScienceBoard){
+    const scienceBoardUpdateModal=this.dialog.open(AdminScienceBoardUpdateComponent,{
+
+      disableClose:true,
+      width:'25%'
+    });
+
+    scienceBoardUpdateModal.componentInstance.currentScienceBoard=scienceBoard;
+    scienceBoardUpdateModal.afterClosed().subscribe(result=>{
+      this.ngOnInit();
+    })
+  }
+
+  showScienceBoardAddModal(){
+    const scienceBoardAddModal=this.dialog.open(AdminScienceBoardAddComponent,{
+      disableClose:true,
+      width:'30%'
+    });
+    scienceBoardAddModal.afterClosed().subscribe(result=>{
+      this.ngOnInit();
+    })
+  }
+
+  showScienceBoardDeleteModal(scienceBoard:ScienceBoard){
+    const scienceBoardDeleteModal=this.dialog.open(AdminScienceBoardDeleteComponent,{
+      disableClose:true,
+      width:'30%'
+    });
+    scienceBoardDeleteModal.componentInstance.deletedScienceBoard=scienceBoard;
+    scienceBoardDeleteModal.afterClosed().subscribe(result=>{
+      this.ngOnInit();
+    })
   }
 }

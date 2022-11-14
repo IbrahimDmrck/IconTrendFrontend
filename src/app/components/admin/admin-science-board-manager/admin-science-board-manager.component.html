@@ -11,7 +11,7 @@
             <th>Kongre Adı</th>
             <th>Üye Adı</th>
             <th>Üniversite</th>
-            <th><a type="button" class="btn btn-outline-success" href="#">Başkan Ekle</a></th>
+            <th><button (click)="showScienceBoardAddModal()" type="button" class="btn btn-outline-success">Başkan Ekle</button></th>
         </tr>
     </thead>
     <tbody> 
@@ -20,7 +20,7 @@
             <td>{{scienceBoard.congressId}}</td>
             <td>{{scienceBoard.scienceBoardMemberName}}</td>
             <td>{{scienceBoard.univercity}}</td>
-            <td><button class="btn btn-sm btn-outline-warning">Düzenle</button> | <button class="btn btn-sm btn-outline-danger">Sil</button></td>
+            <td><button (click)="showScienceBoardUpdateModal(scienceBoard)" type="button" class="btn btn-sm btn-outline-warning">Düzenle</button> | <button (click)="showScienceBoardDeleteModal(scienceBoard)" type="button" class="btn btn-sm btn-outline-danger">Sil</button></td>
         </tr>
     </tbody>
   </table>

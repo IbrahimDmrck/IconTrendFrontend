@@ -1,1 +1,32 @@
-<p>admin-science-board-add works!</p>
+<div id="maincard" class="card">
+    <div class="card-header">
+        <div class="d-flex justify-content-between">
+            <h5>Kongre Başkanı Ekle</h5>
+        </div>
+    </div>
+    <div class="card-body">
+        <form [formGroup]="scienceBoardAddForm">
+            <div class="align-items-center">
+                <div class="form-group">
+                    <input type="text"  formControlName="congressId" class="form-control"
+                        placeholder="Kongre  Adı" />
+                </div>
+                <div class="form-group">
+                    <input type="text"  formControlName="memberName" class="form-control"
+                        placeholder="Üye Adlarını Yazın" />
+                </div>
+                <div class="form-group">
+                    <input type="text"  formControlName="univercity" class="form-control"
+                        placeholder="Üye üniversiteleri" />
+                </div>
+            </div>
+        </form>
+        
+        <div class="row mt-3">
+            <div class="d-flex justify-content-end">
+                <button (click)="add()" type="button" class="btn btn-success me-2">Ekle</button>
+                <button (click)="closeScienceBoardAddModal()" type="button" class="btn btn-danger">İptal</button>
+            </div>
+        </div>
+    </div>
+</div>

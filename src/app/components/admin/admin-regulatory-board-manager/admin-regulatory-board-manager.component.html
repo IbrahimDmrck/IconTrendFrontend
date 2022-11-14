@@ -11,7 +11,7 @@
             <th>Kongre Adı</th>
             <th>Üye Adı</th>
             <th>Üniversite</th>
-            <th><a type="button" class="btn btn-outline-success" href="#">Başkan Ekle</a></th>
+            <th><button (click)="showRegulatoryBoardAddModal()" type="button" class="btn btn-outline-success" >Başkan Ekle</button></th>
         </tr>
     </thead>
     <tbody> 
@@ -20,7 +20,7 @@
             <td>{{regulatoryBoard.congressId}}</td>
             <td>{{regulatoryBoard.regulatoryBoardMemberName}}</td>
             <td>{{regulatoryBoard.univercity}}</td>
-            <td><button class="btn btn-sm btn-outline-warning">Düzenle</button> | <button class="btn btn-sm btn-outline-danger">Sil</button></td>
+            <td><button (click)="showRegulatoryBoardUpdateModal(regulatoryBoard)" type="button" class="btn btn-sm btn-outline-warning">Düzenle</button> | <button (click)="showRegulatoryBoardDeleteModal(regulatoryBoard)"  type="button" class="btn btn-sm btn-outline-danger">Sil</button></td>
         </tr>
     </tbody>
   </table>

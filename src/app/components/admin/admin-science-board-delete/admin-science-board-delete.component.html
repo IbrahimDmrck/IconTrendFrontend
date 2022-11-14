@@ -1,1 +1,17 @@
-<p>admin-science-board-delete works!</p>
+<div  *ngIf="deletedScienceBoard" class="card">
+    <div class="card-header">
+        <div class="d-flex justify-content-between">
+            <h5>{{deletedScienceBoard.scienceBoardMemberName}} Düzenleme Kurulunu Sil</h5>
+        </div>
+
+    </div>
+    <div class="card-body">
+        <strong>{{deletedScienceBoard.id}}</strong> id değerine sahip ve <strong>{{deletedScienceBoard.congressId}}</strong> kongreye başkanlık eden  <strong>{{deletedScienceBoard.scienceBoardMemberName}}</strong> Kongre Başkanını silmek istediğinizden emin misiniz?{{deletedScienceBoard.univercity}}
+        <div class="row mt-3">
+            <div class="d-flex justify-content-end">
+                <button (click)="delete(deletedScienceBoard)" type="button" class="btn btn-success me-2">Sil</button>
+                <button (click)="closeScienceBoardDeleteModal()" type="button" class="btn btn-danger">İptal</button>
+            </div>
+        </div>
+    </div>
+</div>

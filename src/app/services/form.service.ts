@@ -54,7 +54,7 @@ export class FormService {
     return this.formBuilder.group({
       congressId:["",[Validators.required,Validators.pattern("^[0-9]*$"),Validators.min(1)]],
       topicName:["",[Validators.required,Validators.minLength(2)]],
-      category:["",[Validators.required,Validators.minLength(5)]]
+      category:["",[Validators.required,Validators.minLength(2)]]
     });
   }
 
