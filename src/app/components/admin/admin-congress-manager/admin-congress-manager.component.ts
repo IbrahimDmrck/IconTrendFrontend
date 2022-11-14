@@ -7,6 +7,7 @@ import { CongressImageService } from 'src/app/services/congress-image.service';
 import { CongressService } from 'src/app/services/congress.service';
 import { AdminCongressAddComponent } from '../admin-congress-add/admin-congress-add.component';
 import { AdminCongressDeleteComponent } from '../admin-congress-delete/admin-congress-delete.component';
+import { AdminCongressUpdateComponent } from '../admin-congress-update/admin-congress-update.component';
 
 @Component({
   selector: 'app-admin-congress-manager',
@@ -39,6 +40,18 @@ export class AdminCongressManagerComponent implements OnInit {
 
   getImagePath(imagePath:string){
     return this.congressImageService.getImagePath(imagePath);
+  }
+
+  showCongressUpdateModal(congress: Congress) {
+    const congressUpdateModal = this.dialog.open(AdminCongressUpdateComponent, {
+      disableClose: true,
+      width: "90%"
+    });
+    congressUpdateModal.componentInstance.currentCongress = congress;
+
+    congressUpdateModal.afterClosed().subscribe(result => {
+      this.ngOnInit();
+    })
   }
 
   showCongressDeleteModal(congress: Congress) {

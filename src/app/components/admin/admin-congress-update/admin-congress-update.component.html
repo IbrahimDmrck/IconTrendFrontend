@@ -1,1 +1,210 @@
-<p>admin-congress-update works!</p>
+<div *ngIf=" currentCongress && congressPresidents && regulatoryBoards && scienceBoards && topics " class="card">
+    <div class="card-header">
+
+        <div class="d-flex justify-content-between">
+            <h5>Kongre Güncelle</h5>
+        </div>
+    </div>
+    <div class="card-body">
+        <form [formGroup]="congressUpdateForm">
+            <div class="align-items-center">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div *ngIf="congressImages.length>0" class="row">
+                                    <div id="AddCongressImagesCarousel" class="carousel carousel-dark slide"
+                                        data-bs-ride="carousel">
+                                        <div class="carousel-indicators">
+                                            <button *ngFor="let carImage of congressImages; let i = index" type="button"
+                                                data-bs-target="#AddCongressImagesCarousel" attr.data-bs-slide-to="{{i}}"
+                                                class="{{(i == 0) ? 'active' : ''}}"
+                                                attr.aria-label="Slide {{i}}"></button>
+                                        </div>
+                                        <div class="carousel-inner">
+                                            <div *ngFor="let congressImage of congressImages; let i = index"
+                                                class="{{(i == 0) ? 'carousel-item active' : 'carousel-item' }}">
+                                                <img [src]="congressImage" height="200" alt="image not found">
+                                            </div>
+                                        </div>
+                                        <div *ngIf="congressImages.length>1">
+                                            <button class="carousel-control-prev" type="button"
+                                                data-bs-target="#AddCongressImagesCarousel" data-bs-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Previous</span>
+                                            </button>
+                                            <button class="carousel-control-next" type="button"
+                                                data-bs-target="#AddCongressImagesCarousel" data-bs-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Next</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div *ngIf="congressImages.length===0">
+                                    <img src="/src/assets/Adsız.png" height="200" alt="image not found">
+                                </div>
+                                <div class="row mt-2 ms-2">
+                                    <input #file class="form-control" type="file" id="carImagesFiles" accept="image/*"
+                                        (change)="addCongressImagesToUploadAndPathList(file.files)">
+                                </div>
+                            </div>
+                            <div class="col-md-1"></div>
+                            <div class="col-md-5">
+                                <div *ngIf="congressImages.length>0 || uploadImagesPaths.length>0" class="row">
+                                    <ul class="list-group">
+                                        <li *ngFor="let congressImage of congressImages" class="list-group-item">
+                                            <div class="d-flex justify-content-between">
+                                                <img [src]="getImagePath(congressImage.imagePath)" height="30"
+                                                alt="image not found">
+                                                <span>
+                                                    <svg (click)="deleteImageFromCongressImages(congressImage)"
+                                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                        fill="red" class="bi bi-x-square-fill" viewBox="0 0 16 16">
+                                                        <path
+                                                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.354 4.646L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 1 1 .708-.708z" />
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <p class="text-center text-muted">
+                                        <small>{{congressImages.length + uploadImagesPaths.length}}/10 dosya</small>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="row mt-3">
+                                <div class="col-md-4">
+                                    <div class="form-group row align-items-center">
+                                        <div class="col-md-3 text-center">
+                                            <label for="carBrandId">Kongre Başkanı:</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <select class="form-select"  formControlName="congressPresidentId">
+                                                <option value="" selected disabled hidden>{{currentCongress.congressPresidentName}}</option>
+                                                <option *ngFor="let congressPresident of congressPresidents" [value]="congressPresident.id">
+                                                    {{congressPresident.congressPresidentName}}
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group row align-items-center">
+                                        <div class="col-md-3 text-center">
+                                            <label for="carColorId">Düzenleme Kurulu:</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <select class="form-select" id="carColorId" formControlName="regulatoryBoardId">
+                                                <option value="" selected disabled hidden>{{currentCongress.regulatoryBoardMemberName}}</option>
+                                                <option *ngFor="let regulatoryBoard of regulatoryBoards" [value]="regulatoryBoard.id">
+                                                    {{regulatoryBoard.regulatoryBoardMemberName}}
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group row align-items-center">
+                                        <div class="col-md-4 text-center">
+                                            <label class="text-nowrap" >Bilim Kurulu:</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <select class="form-select" formControlName="scienceBoardId">
+                                                <option value="" selected disabled hidden>{{currentCongress.scienceBoardMemberName}}</option>
+                                                <option *ngFor="let scienceBoard of scienceBoards" [value]="scienceBoard.id">
+                                                    {{scienceBoard.scienceBoardMemberName}}
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-md-6">
+                                    <div class="form-group row align-items-center">
+                                        <div class="col-md-3 text-center">
+                                            <label for="carBrandId">Konu:</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <select class="form-select" formControlName="topicId">
+                                                <option value="" selected disabled hidden>{{currentCongress.topicName}}</option>
+                                                <option *ngFor="let topic of topics" [value]="topic.id">
+                                                    {{topic.topicName}}
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group row align-items-center">
+                                        <div class="col-md-4">
+                                            <label for="carColorId" class="text-nowrap">kongre Adı:</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="text" id="carDailyPrice" formControlName="congressName"
+                                                class="form-control float-end" [placeholder]="currentCongress.congressName"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group row align-items-center">
+                                        <div class="col-md-4">
+                                            <label for="carColorId" class="text-nowrap">kongre Şehri:</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="text" id="carDailyPrice" formControlName="congressCity"
+                                                class="form-control float-end" [placeholder]="currentCongress.congressCity" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group row align-items-center">
+                                        <div class="col-md-4">
+                                            <label for="carColorId" class="text-nowrap">kongre yeri:</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="text" id="carDailyPrice" formControlName="congressPlace"
+                                                class="form-control float-end" [placeholder]="currentCongress.congressPlace" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group row align-items-center">
+                                        <div class="col-md-4">
+                                            <label for="carColorId" class="text-nowrap">kongre Tarihi ve saati:</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="datetime-local" id="carDailyPrice" formControlName="congressDate"
+                                                class="form-control float-end" />
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="row mt-3 align-items-end">
+                                <div class="form-group row align-items-center">
+                                    <div class="col-md-2">
+                                        <label for="carColorId">Kongre Hakkında:</label>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <input type="text" id="carDescription" formControlName="congressAbout"
+                                            class="form-control" [placeholder]="currentCongress.congressAbout" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="row mt-3">
+            <div class="d-flex justify-content-end">
+                <button (click)="update()" type="button" class="btn btn-success me-2">Ekle</button>
+                <button (click)="closeCongressUpdateModal()" type="button" class="btn btn-danger">İptal</button>
+            </div>
+        </div>
+    </div>
+</div>
