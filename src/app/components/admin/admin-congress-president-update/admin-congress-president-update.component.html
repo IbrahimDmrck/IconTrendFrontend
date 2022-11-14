@@ -1,1 +1,51 @@
-<p>admin-congress-president-update works!</p>
+<div *ngIf="currentPresident && congressPresidentUpdateForm">
+    <div class="card">
+        <div class="card-header">
+            <div class="d-flex justify-content-between">
+                <h5>{{currentPresident.congressPresidentName}} Kongre Başkanını Güncelle</h5>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="row align-items-center">
+                        <div class="col-md-4">
+                            <strong>ID:</strong>
+                        </div>
+                        <div class="col-md-8">
+                            <input class="form-control text-center" [placeholder]="currentPresident.id" disabled />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="row align-items-center">
+                        <div class="col-md-4">
+                            <strong class="float-end"><label for="brandName">Marka Adı:</label></strong>
+                        </div>
+                        <div class="col-md-8">
+                            <form [formGroup]="congressPresidentUpdateForm">
+                                <div class="align-items-center">
+                                    <div class="form-group">
+                                        <input type="text"  formControlName="presidentName" class="form-control"
+                                            placeholder="Kongre Başkan Adı" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text"  formControlName="congressId" class="form-control"
+                                            placeholder="Kongre Adı Yazın" />
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="card-footer mt-1">
+            <div class="d-flex justify-content-end">
+                <button (click)="update()" type="button" class="btn btn-success me-3">Güncelle</button>
+                <button (click)="closeUpdateModal()" type="button" class="btn btn-danger">İptal</button>
+            </div>
+        </div>
+    </div>
+</div>

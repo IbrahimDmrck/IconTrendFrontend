@@ -10,15 +10,15 @@
             <th>ıd</th>
             <th>Kongre Adı</th>
             <th>kongre Başkanı Adı</th>
-            <th><button (click)="showCongressPresidentAddModal()" class="btn btn-outline-success" href="#">Başkan Ekle</button></th>
+            <th><button (click)="showCongressPresidentAddModal()" type="button" class="btn btn-outline-success" >Başkan Ekle</button></th>
         </tr>
     </thead>
     <tbody> 
-        <tr *ngFor="let president of congressPresidents">
-            <td>{{president.id}}</td>
-            <td>{{president.congressId}}</td>
-            <td>{{president.congressPresidentName}}</td>
-            <td><button class="btn btn-sm btn-outline-warning">Düzenle</button> | <button (click)="showCongressPresidentDeleteModal(president)" class="btn btn-sm btn-outline-danger">Sil</button></td>
+        <tr *ngFor="let congressPresident of congressPresidents">
+            <td>{{congressPresident.id}}</td>
+            <td>{{congressPresident.congressId}}</td>
+            <td>{{congressPresident.congressPresidentName}}</td>
+            <td><button (click)="showCongressPresidentUpdateModal(congressPresident)" type="button" class="btn btn-sm btn-outline-warning">Düzenle</button> | <button (click)="showCongressPresidentDeleteModal(congressPresident)" type="button" class="btn btn-sm btn-outline-danger">Sil</button></td>
         </tr>
     </tbody>
   </table>

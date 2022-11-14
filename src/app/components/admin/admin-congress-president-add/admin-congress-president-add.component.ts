@@ -51,9 +51,6 @@ export class AdminCongressPresidentAddComponent implements OnInit {
     }
   }
 
-  /*
-  
 
-  */
 
 }
