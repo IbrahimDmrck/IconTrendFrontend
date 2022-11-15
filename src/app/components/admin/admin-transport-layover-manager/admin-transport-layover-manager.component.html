@@ -12,7 +12,7 @@
             <th>En Az Talep</th>
             <th>Ücret</th>
             <th>Açıklama</th>
-            <th><a type="button" class="btn btn-outline-success" href="#">Başkan Ekle</a></th>
+            <th><button (click)="showTransportAddModal()" type="button" class="btn btn-outline-success" href="#">Ekle</button></th>
         </tr>
     </thead>
     <tbody> 
@@ -22,7 +22,7 @@
             <td>{{transportlayover.minDemand}}</td>
             <td>{{transportlayover.price}}</td>
             <td>{{transportlayover.description.substring(0,20)}}</td>
-            <td><button class="btn btn-sm btn-outline-warning">Düzenle</button> | <button class="btn btn-sm btn-outline-danger">Sil</button></td>
+            <td><button (click)="showTransportUpdateModal(transportlayover)" type="button" class="btn btn-sm btn-outline-warning">Düzenle</button> | <button (click)="showTransportDeleteModal(transportlayover)" type="button" class="btn btn-sm btn-outline-danger">Sil</button></td>
         </tr>
     </tbody>
   </table>

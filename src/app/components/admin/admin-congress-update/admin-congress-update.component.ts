@@ -58,32 +58,32 @@ export class AdminCongressUpdateComponent implements OnInit {
     this.getCongressImages();
   }
 
-  update(){
+  update() {
     if (!this.congressUpdateForm.valid) {
-      this.toastrService.error("Formunuz hatalı","Geçersiz form")
-    }else{
-      let congressUpdateModel=Object.assign({},this.congressUpdateForm.value);
-      congressUpdateModel.congressId=this.currentCongress.congressId;
-      let deletedImages=this.currentCongress.congressImages.filter(image=>image.id!=-1 && this.congressImages.indexOf(image)==-1)
-      let congressInfoChanged:boolean=this.checkIfCongressObjectChanged(congressUpdateModel,this.currentCongress);
-      let congressImagesChanged:boolean=this.checkIfCongressImagesChanged(this.uploadFiles,deletedImages);
+      this.toastrService.error("Formunuz hatalı", "Geçersiz form")
+    } else {
+      let congressUpdateModel = Object.assign({}, this.congressUpdateForm.value);
+      congressUpdateModel.Id = this.currentCongress.congressId;
+      let deletedImages = this.currentCongress.congressImages.filter(image => image.id != -1 && this.congressImages.indexOf(image) == -1)
+      let congressInfoChanged: boolean = this.checkIfCongressObjectChanged(congressUpdateModel, this.currentCongress);
+      let congressImagesChanged: boolean = this.checkIfCongressImagesChanged(this.uploadFiles, deletedImages)
       if (!congressInfoChanged && !congressImagesChanged) {
-        this.toastrService.error("Herhangi bir değişiklik yapmadınız","Güncellenmedi");
-      }else{
-        if ((this.congressImages.length + this.uploadFiles.length)>10) {
-          this.toastrService.error("En fazla 10 görsel yükleyebilirsiniz","Kongre eklenmedi");
-        }else{
-          this.updateCongressImages(deletedImages,this.uploadFiles).then((updateCongressImageResult)=>{
-            this.congressService.update(congressUpdateModel).subscribe(updateSuccess=>{
-              if (updateCongressImageResult.length>0) {
-                this.toastrService.warning("Kongre başarıyla güncellendi fakat bazı görseller güncellenemedi . " + updateCongressImageResult,"Kongre kısmen güncellendi");
+        this.toastrService.error("Herhangi bir değişiklik yapmadınız", "Güncellenmedi")
+      } else {
+        if ((this.congressImages.length + this.uploadFiles.length) > 10) { //Max 5 Image
+          this.toastrService.error("En fazla 10 resim yükleyebilirsiniz", "Kongre eklenmedi");
+        } else {
+          this.updateCongressImages(deletedImages, this.uploadFiles).then((updateCongressImageResult) => {
+            this.congressService.update(congressUpdateModel).subscribe(updateSuccess => {
+              if (updateCongressImageResult.length > 0) {
+                this.toastrService.warning("Kongre başarıyla güncellendi fakat bazı resimler güncellenemedi. " + updateCongressImageResult, "Kongre kısmen güncellendi")
                 this.closeCongressUpdateModal();
-              }else{
-                this.toastrService.success("Kongre başarıyla güncellendi","Kongre güncellendi");
+              } else {
+                this.toastrService.success("Kongre başarıyla güncellendi", "Kongre güncellendi")
                 this.closeCongressUpdateModal();
               }
-            },errorResponse=>{
-              this.errorService.showBackendError(errorResponse,"Kongre Güncellenemedi");
+            }, errorResponse => {
+              this.errorService.showBackendError(errorResponse, "Kongre güncellenemedi");
             })
           });
         }
@@ -91,8 +91,8 @@ export class AdminCongressUpdateComponent implements OnInit {
     }
   }
 
-  private checkIfCongressImagesChanged(uploadList:UploadFile[],deletedList:CongressImage[]){
-    return !(uploadList.length===0 && deletedList.length===0)
+  private checkIfCongressImagesChanged(uploadList: UploadFile[], deleteList: CongressImage[]) {
+    return !(uploadList.length === 0 && deleteList.length === 0)
   }
 
   private checkIfCongressObjectChanged(newCongressObject:any,oldCongressObject:Congress){
@@ -107,47 +107,49 @@ export class AdminCongressUpdateComponent implements OnInit {
       newCongressObject.congressDate==oldCongressObject.congressDate)
   }
 
-  private updateCongressImages(deletedImages:CongressImage[],uploadFiles:UploadFile[]):Promise<string>{
-    return new Promise<string>((methodResolve)=>{
-      if (this.congressImages.length<this.currentCongress.congressImages.length) {
-        deletedImages=this.currentCongress.congressImages.filter(image=>image.id!=-1 && this.congressImages.indexOf(image)==-1);
-
+  private updateCongressImages(deletedImages: CongressImage[], uploadFiles: UploadFile[]): Promise<string> {
+    return new Promise<string>((methodResolve) => {
+      if (this.congressImages.length < this.currentCongress.congressImages.length) { 
+        deletedImages = this.currentCongress.congressImages.filter(image => image.id != -1 && this.congressImages.indexOf(image) == -1);
       }
-      let unDeletedImagesList:string="";
-      let unUploadedFileList:string="";
-      let deletePromise=new Promise<void>((deletePromiseResolve)=>{
-        this.deleteAllSelectedImagesFromServer(deletedImages).then((deleteResolve)=>{
-          if (deleteResolve.length>0) {
-            for(let i=0;i<deleteResolve.length;i++){
-              unDeletedImagesList+=deleteResolve[i].id+', ';
-              if (i===deleteResolve.length - 1) {
+      let unDeletedImagesList: string = "";
+      let unUploadedFileList: string = "";
+      let deletePromise = new Promise<void>((deletePromiseResolve) => {
+        this.deleteAllSelectedImagesFromServer(deletedImages).then((deleteResolve) => {
+          if (deleteResolve.length > 0) {
+            for (let i = 0; i < deleteResolve.length; i++) {
+              unDeletedImagesList += deleteResolve[i].id + ', ';
+              if (i === deleteResolve.length - 1) {
                 deletePromiseResolve();
               }
             }
-          }else{
+          } else {
             deletePromiseResolve();
           }
         })
       })
-      deletePromise.then(()=>{
-        let uploadPromise=new Promise<void>((uploadPromiseResolve)=>{
-          this.uploadAllImagesToServer(uploadFiles).then((uploadResolve)=>{
-            if (uploadResolve.length>0) {
+      deletePromise.then(() => {
+        let uploadPromise = new Promise<void>((uploadPromiseResolve) => {
+          this.uploadAllImagesToServer(uploadFiles).then((uploadResolve) => {
+            if (uploadResolve.length > 0) {
               for (let i = 0; i < uploadResolve.length; i++) {
-                unUploadedFileList+=uploadResolve[i].file.name + ', ';
-                if (i===uploadResolve.length - 1) {
+                unUploadedFileList += uploadResolve[i].file.name + ', ';
+                if (i === uploadResolve.length - 1) {
                   uploadPromiseResolve();
                 }
               }
-            }else{
+            } else {
               uploadPromiseResolve();
             }
           })
         })
-        uploadPromise.then(()=>{
-          let resultString="";
-          if (unDeletedImagesList.length>0) {
-            resultString+="Silinemeyen resimler : "+ unUploadedFileList
+        uploadPromise.then(() => {
+          let resultString = "";
+          if (unDeletedImagesList.length > 0) {
+            resultString += "Silinemeyen resim ID'leri: " + unDeletedImagesList
+          }
+          if (unUploadedFileList.length > 0) {
+            resultString += "Yüklenemeyen resimler: " + unUploadedFileList
           }
           methodResolve(resultString);
         })
@@ -155,41 +157,39 @@ export class AdminCongressUpdateComponent implements OnInit {
     })
   }
 
-  private deleteAllSelectedImagesFromServer(deletedImages:CongressImage[]):Promise<CongressImage[]>{
-    return new Promise<CongressImage[]>((methodResolve)=>{
-      if (deletedImages.length>0) {
-        let unDeletedImages:CongressImage[]=[];
-        const allDelets=new Promise<void>(async (resolveAllDelets)=>{
-          let counter=0;
+  private deleteAllSelectedImagesFromServer(deletedImages: CongressImage[]): Promise<CongressImage[]> {
+    return new Promise<CongressImage[]>((methodResolve) => {
+      if (deletedImages.length > 0) {
+        let unDeletedImages: CongressImage[] = [];
+        const allDelets = new Promise<void>(async (resolveAllDelets) => {
+          let counter = 0;
           for (const image of deletedImages) {
-          await this.deleteImageFromServer(image).then((deleteSuccessFile)=>{
-          },(deleteFailFile)=>{
-            unDeletedImages.push(deleteFailFile);
-          }).then(()=>{
-            counter+=1;
-            if (counter===deletedImages.length) {
-              resolveAllDelets();
-            }
-          })
-            
+            await this.deleteImageFromServer(image).then((deleteSuccessFile) => {
+            }, (deleteFailFile) => {
+              unDeletedImages.push(deleteFailFile);
+            }).then(() => {
+              counter += 1;
+              if (counter === deletedImages.length) {
+                resolveAllDelets();
+              }
+            })
           }
         });
-        allDelets.then(()=>{
+        allDelets.then(() => {
           methodResolve(unDeletedImages);
         })
-      }else{
-        let emptyArray:CongressImage[]=[];
+      } else {
+        let emptyArray: CongressImage[] = [];
         methodResolve(emptyArray);
       }
     })
-
   }
 
-  private deleteImageFromServer(deletedImage:CongressImage):Promise<CongressImage>{
-    return new Promise<CongressImage>((resolve,reject)=>{
-      this.congressImageService.deleteImage(deletedImage).subscribe(deleteSuccess=>{
+  private deleteImageFromServer(deletedImage: CongressImage): Promise<CongressImage> {
+    return new Promise<CongressImage>((resolve, reject) => {
+      this.congressImageService.deleteImage(deletedImage).subscribe(deleteSuccess => {
         resolve(deletedImage);
-      },deleteFail=>{
+      }, deleteFail => {
         reject(deletedImage);
       })
     })
@@ -252,16 +252,16 @@ export class AdminCongressUpdateComponent implements OnInit {
               }
             });
           } else {
-            this.toastrService.warning("Bu görsel daha önce listeye eklediniz", "Zaten listede");
+            this.toastrService.warning("Bu resmi daha önce listeye eklediniz", "Zaten listede");
           }
         }
       } else {
-        this.toastrService.error("En fazla 10 görsel ekleyebilirsiniz", "Görsel eklenemiyor");
+        this.toastrService.error("En fazla 10 resim ekleyebilirsiniz", "Resim eklenemiyor");
       }
     }
   }
 
-  private addCongressImageToUploadImagesPath(image: any): Promise<boolean> {
+  private addCongressImageToUploadImagesPath(image: any): Promise<boolean> { 
     return new Promise<boolean>((result) => {
       this.checkFileMimeType(image).then((successStatus) => {
         if (successStatus) {
@@ -272,7 +272,7 @@ export class AdminCongressUpdateComponent implements OnInit {
             result(true);
           }
         } else {
-          this.toastrService.error("Yalnızca görsel dosyası yükleyebilirsiniz", "Dosya eklenmedi");
+          this.toastrService.error("Yalnızca resim dosyası yükleyebilirsiniz", "Dosya eklenmedi");
           result(false);
         }
       })
@@ -323,11 +323,12 @@ export class AdminCongressUpdateComponent implements OnInit {
   }
 
   private getCongressImages() {
-  this.currentCongress.congressImages.forEach(image=>{
-    if (image.id!=-1) {
-      this.congressImages.push(image);
-    }
-  })
+    this.currentCongress.congressImages.forEach(image => {
+      if (image.id != -1) { //Do not add the default vehicle image to the list.
+        this.congressImages.push(image);
+      }
+    });
+   
   }
 
   private getTopics(){

@@ -12,7 +12,7 @@
             <th>içerik</th>
             <th>durumu</th>
             <th>tarih</th>
-            <th><a type="button" class="btn btn-outline-success" href="#">Duyuru Oluştur</a></th>
+            <th><button (click)="showAnnounceAddModal()" type="button" class="btn btn-outline-success" href="#">Duyuru Oluştur</button></th>
         </tr>
     </thead>
     <tbody>
@@ -23,7 +23,7 @@
             <td *ngIf="announcement.announceStatus==true">Güncel Duyuru</td>
             <td *ngIf="announcement.announceStatus==false">Geçmiş Duyuru</td>
             <td>{{announcement.announceDate.toString().substring(0,10)}}</td>
-            <td><button class="btn btn-sm btn-outline-warning">Düzenle</button> | <button class="btn btn-sm btn-outline-danger">Sil</button></td>
+            <td><button (click)="showAnnounceUpdateModal(announcement)" type="button" class="btn btn-sm btn-outline-warning">Düzenle</button> | <button (click)="showAnnounceDeleteModal(announcement)" type="button" class="btn btn-sm btn-outline-danger">Sil</button></td>
         </tr>
     </tbody>
   </table>

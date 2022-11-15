@@ -24,9 +24,9 @@ private apiUrl="https://localhost:44320/api/Announcements/";
     return this.httpClient.get<SingleResponseModel<Announcement>>(newPath);
   }
 
-  add(announcement:Announcement):Observable<ResponseModel>{
+  add(announcement:Announcement):Observable<SingleResponseModel<number>>{
     let newPaht=this.apiUrl+'add';
-    return this.httpClient.post<ResponseModel>(newPaht,announcement);
+    return this.httpClient.post<SingleResponseModel<number>>(newPaht,announcement);
   }
 
   delete(announcement:Announcement):Observable<ResponseModel>{
@@ -34,7 +34,7 @@ private apiUrl="https://localhost:44320/api/Announcements/";
     return this.httpClient.post<ResponseModel>(newPath,announcement);
   }
 
-  updata(announcement:Announcement):Observable<ResponseModel>{
+  update(announcement:Announcement):Observable<ResponseModel>{
     let newPath=this.apiUrl+'update';
     return this.httpClient.post<ResponseModel>(newPath,announcement);
   }

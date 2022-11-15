@@ -24,9 +24,9 @@ export class TransportLayoverService {
     return this.httpClient.get<SingleResponseModel<TransportLayover>>(newPaht);
   }
 
-  add(transportLayover:TransportLayover):Observable<ResponseModel>{
+  add(transportLayover:TransportLayover):Observable<SingleResponseModel<number>>{
     let newPath=this.apiURL+'add';
-    return this.httpClient.post<ResponseModel>(newPath,transportLayover);
+    return this.httpClient.post<SingleResponseModel<number>>(newPath,transportLayover);
   }
 
   delete(transportLayover:TransportLayover):Observable<ResponseModel>{

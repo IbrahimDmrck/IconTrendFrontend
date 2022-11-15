@@ -1,1 +1,49 @@
-<p>admin-announcement-delete works!</p>
+<div *ngIf="deletedAnnounce" class="card">
+    <div class="card-header">
+        <div class="d-flex justify-content-between">
+            <h5>{{deletedAnnounce.announceTitle}} Duyrusunu Sil</h5>
+        </div>
+
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="text-center">
+                            <img [src]="getImagePath(deletedAnnounce.announceImages[0].imagePath)" height="200">
+                        </div>
+                    </div>
+                    <div class="row text-center">
+                        <ul class="list-group list-group-horizontal d-flex">
+                            <li class="list-group-item flex-fill">
+                                <strong><ins>Marka</ins></strong><br>{{deletedAnnounce.announceTitle}}</li>
+                            <li class="list-group-item flex-fill">
+                                <strong><ins>Model</ins></strong><br>{{deletedAnnounce.announceDate}}</li>
+                            <li class="list-group-item flex-fill">
+                                <strong><ins>Renk</ins></strong><br>{{deletedAnnounce.announceStatus}}</li>
+                        </ul>
+                        <ul class="list-group list-group-horizontal d-flex">
+                            <!-- <li class="list-group-item flex-fill"><strong><ins>Model
+                                        Yılı</ins></strong><br>{{deletedAnnounce.modelYear}}</li>
+                            <li class="list-group-item flex-fill"><strong><ins>Günlük
+                                        Ücreti</ins></strong><br>{{deletedAnnounce.dailyPrice}} ₺</li> -->
+                            <li class="list-group-item flex-fill">
+                                <strong><ins>Açıklama</ins></strong><br>{{deletedAnnounce.announceContent}}</li>
+
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div><br>
+        <strong>{{deletedAnnounce.id}}</strong> id değerine sahip <strong>
+            {{deletedAnnounce.announceTitle}}</strong> Duyurusunu silmek istediğinizden emin misiniz?
+        <div class="row mt-3">
+            <div class="d-flex justify-content-end">
+                <button (click)="delete(deletedAnnounce)" type="button" class="btn btn-success me-2">Sil</button>
+                <button (click)="closeAnnounceDeleteModal()" type="button" class="btn btn-danger">İptal</button>
+            </div>
+        </div>
+    </div>
+</div>
