@@ -56,76 +56,76 @@ congressImagespaths:any[]=[]
   }
 
 
-  add(){
+  add() {
     if (!this.congressAddForm.valid) {
-      this.toastrService.error("Formunuz hatalı","Geçersiz Form");
-    }else{
-      let congressModel=Object.assign({},this.congressAddForm.value);
-
-      this.congressService.add(congressModel).subscribe(congressAddSuccessResponse=>{
-        if (this.congressImagesFiles.length===0) {
-        this.toastrService.success("Yeni kongre başarıyla eklendi","İşlem başarılı");
-        this.closeCongressAddModal();
+      this.toastrService.error("Formunuz hatalı", "Geçersiz form");
+    } else {
+      let congressModel = Object.assign({}, this.congressAddForm.value);
+ 
+      this.congressService.add(congressModel).subscribe(congressAddSuccessResponse => {
+        if (this.congressImagesFiles.length === 0) {  //No pictures, just car added
+          this.toastrService.success("Yeni kongre başarıyla eklendi", "İşlem başarılı");
+          this.closeCongressAddModal();
         }
-        else{
-          if (this.congressImagesFiles.length>10) {
-            this.toastrService.success("En fazla 10 görsel yükleyebilirsiniz","Kongre Eklenmedi");
-          }else{
-            this.uploadAllImagesToServer(this.congressImagesFiles, congressAddSuccessResponse.data).then((unUploadFileList)=>{
-let unUploadFiles:UploadFile[]=unUploadFileList;
-if (unUploadFiles.length===0) {
-  this.toastrService.success("Yeni kongre görselleri başarıyla eklendi","İşlem başarılı");
-  this.closeCongressAddModal();
-}else{
-  let failFileNameMessage:string=""
-  unUploadFiles.forEach(file=>{
-    failFileNameMessage+=file.file.name+","
-  });
-  this.toastrService.warning("Yeni kongre görselleri başarıyla eklendi fakat bazı görseller yüklenemedi. Yükelenemeyen dosyalar : " + failFileNameMessage , "İşlem kısmen başarılı")
-  this.closeCongressAddModal();
-}
-
+        else {  
+          if (this.congressImagesFiles.length > 5) { //Max 5 Image
+            this.toastrService.error("En fazla 5 resim yükleyebilirsiniz", "Kongre eklenmedi");
+          } else {
+            this.uploadAllImagesToServer(this.congressImagesFiles, congressAddSuccessResponse.data).then((unUploadFileList) => {
+              let unUploadedFiles: UploadFile[] = unUploadFileList;
+              if (unUploadedFiles.length === 0) {
+                this.toastrService.success("Yeni kongre ve resimleri başarıyla eklendi", "İşlem başarılı");
+                this.closeCongressAddModal();
+              } else {
+                let failFileNameMessage: string = ""
+                unUploadedFiles.forEach(file => {
+                  failFileNameMessage += file.file.name + ", "
+                });
+                this.toastrService.warning("Yeni kongre başarıyla eklendi fakat bazı resimler yüklenemedi. Yüklenemeyen dosyalar: " + failFileNameMessage, "İşlem kısmen başarılı");
+                this.closeCongressAddModal();
+              }
             })
+
           }
         }
-      },errorResponse=>{
-        this.errorService.showBackendError(errorResponse,"Kongre Eklenemedi");
+      }, errorResponse => {
+        this.errorService.showBackendError(errorResponse, "Kongre eklenemedi");
       })
     }
   }
 
-  private uploadAllImagesToServer(uploadFiles:UploadFile[],congressId:number):Promise<UploadFile[]>{
-    return new Promise<UploadFile[]>((methodResolve)=>{
-      if (uploadFiles.length>0) {
-        let unUploadFiles:UploadFile[]=[]
-        const allUploads=new Promise<void>(async (resolveAllUploads)=>{
-          let counter:number=0;
-          for(const file of uploadFiles){
-            await this.uploadImageToServer(file,congressId).then(fileStatus=>{
-              if (fileStatus.uploadStatus===false) {
-                unUploadFiles.push(fileStatus);
+  private uploadAllImagesToServer(uploadFiles: UploadFile[], carId: number): Promise<UploadFile[]> {
+    return new Promise<UploadFile[]>((methodResolve) => {
+      if (uploadFiles.length > 0) {
+        let unUploadedFiles: UploadFile[] = []
+        const allUploads = new Promise<void>(async (resolveAllUploads) => {
+          let counter: number = 0;
+          for (const file of uploadFiles) {
+            await this.uploadImageToServer(file, carId).then(fileStatus => {
+              if (fileStatus.uploadStatus === false) {
+                unUploadedFiles.push(fileStatus);
               }
-            }).then(()=>{
-              counter+=1;
-              if (counter===uploadFiles.length) {
+            }).then(() => {
+              counter += 1;
+              if (counter === uploadFiles.length) {
                 resolveAllUploads();
               }
             })
           }
         })
-        allUploads.then(()=>{
-          methodResolve(unUploadFiles);
+        allUploads.then(() => {
+          methodResolve(unUploadedFiles);
         })
-      }else{
-        let emptyArray:UploadFile[]=[];
+      } else {
+        let emptyArray: UploadFile[] = [];
+        methodResolve(emptyArray);
       }
     })
-
   }
 
-  private uploadImageToServer(uploadFile: UploadFile, carId: number): Promise<UploadFile> {
+  private uploadImageToServer(uploadFile: UploadFile, congrssId: number): Promise<UploadFile> {
     return new Promise<UploadFile>((result) => {
-      this.congressImageService.uploadImage(uploadFile.file, carId).subscribe((uploadSuccess) => {
+      this.congressImageService.uploadImage(uploadFile.file, congrssId).subscribe((uploadSuccess) => {
         uploadFile.uploadStatus = true;
         result(uploadFile);
       }, (uploadFail) => {
@@ -140,43 +140,45 @@ if (unUploadFiles.length===0) {
     this.congressImagespaths.splice(this.congressImagespaths.indexOf(selectedImage),1);
   }
 
-  addCongressImagesToCongressImagesAndPathList(imageList:any){
-    if (imageList.length!==0) {
-      if (this.congressImagesFiles.length<10) {
-        for(let i=0;i<imageList.length;i++){
-          let uploadFile=new UploadFile();
-          let image=imageList[i];
-          uploadFile.file=image;
-          uploadFile.uploadStatus=false;
-          let preselectedFile=this.congressImagesFiles.find(uploadFile=>uploadFile.file.name===image.name);
-          if (preselectedFile===undefined) {
-           this.addCongressImageToCongressImagesAndPaths(image).then((success)=>{
-            if(success){
-              this.congressImagesFiles.push();
-            }
-           });
-          }else{
-            this.toastrService.warning("Bu görseli daha öncelisteye ekledininz","Listede Mevcut");
+  addCongressImagesToCongressImagesAndPathList(imageList: any) {
+    if (imageList.length !== 0) {
+      if (this.congressImagesFiles.length < 5) {
+        for (let i = 0; i < imageList.length; i++) {
+          let uploadFile = new UploadFile();
+          let image = imageList[i];
+          uploadFile.file = image;
+          uploadFile.uploadStatus = false;
+          let preselectedFile = this.congressImagesFiles.find(uploadFile => uploadFile.file.name === image.name);
+          if (preselectedFile === undefined) {
+            this.addCongressImageToCongressImagesPaths(image).then((success) => {
+              if (success) {
+                this.congressImagesFiles.push(uploadFile);
+              }
+            });
+          } else {
+            this.toastrService.warning("Bu resmi daha önce listeye eklediniz", "Zaten listede");
           }
         }
-      }else{
-        this.toastrService.error("En fazka 10 görsel ekleyebilirsiniz","Görsel Eklenemiyor");
+      } else {
+        this.toastrService.error("En fazla 5 resim ekleyebilirsiniz", "Resim eklenemiyor");
       }
+
     }
   }
 
-  private  addCongressImageToCongressImagesAndPaths(image:any):Promise<boolean>{
-    return new Promise<boolean>((result)=>{
-      this.checkFileMimeType(image).then((successStatus)=>{
+
+  private addCongressImageToCongressImagesPaths(image: any): Promise<boolean> { //Source: https://www.talkingdotnet.com/show-image-preview-before-uploading-using-angular-7/
+    return new Promise<boolean>((result) => {
+      this.checkFileMimeType(image).then((successStatus) => {
         if (successStatus) {
-          var reader=new FileReader();
+          var reader = new FileReader();
           reader.readAsDataURL(image);
-          reader.onload=(_event)=>{
+          reader.onload = (_event) => {
             this.congressImagespaths.push(reader.result);
             result(true);
           }
-        }else{
-          this.toastrService.error("yalnızca görsel doyası yükleyebilirsiniz","Dosya eklenmedi");
+        } else {
+          this.toastrService.error("Yalnızca resim dosyası yükleyebilirsiniz", "Dosya eklenmedi");
           result(false);
         }
       })
