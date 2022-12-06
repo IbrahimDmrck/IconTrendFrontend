@@ -21,7 +21,7 @@ export class AdminAnnouncementAddComponent implements OnInit {
 
   constructor(
     private announceService:AnnouncementService,
-    private announceAddModal:MatDialogRef<AdminAnnouncementAddComponent>,
+    private announceAddModal:MatDialogRef<AdminAnnouncementAddComponent>, 
     private announceImageService:AnnouncementImageService,
     private toastrService:ToastrService,
     private errorService:ErrorService,

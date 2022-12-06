@@ -1,7 +1,7 @@
 <div  class="card">
     <div class="card-header">
         <div class="d-flex justify-content-between">
-            <h5>Araç ekle</h5>
+            <h5>Duyuru ekle</h5>
         </div>
     </div>
     <div class="card-body">
@@ -12,28 +12,28 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div *ngIf="announceImagesPaths.length>0" class="row">
-                                    <div id="AddCarImagesCarousel" class="carousel carousel-dark slide"
+                                    <div id="AddAnnounceImagesCarousel" class="carousel carousel-dark slide"
                                         data-bs-ride="carousel">
                                         <div class="carousel-indicators">
-                                            <button *ngFor="let carImage of announceImagesPaths; let i = index" type="button"
-                                                data-bs-target="#AddCarImagesCarousel" attr.data-bs-slide-to="{{i}}"
+                                            <button *ngFor="let announceImage of announceImagesPaths; let i = index" type="button"
+                                                data-bs-target="#AddAnnounceImagesCarousel" attr.data-bs-slide-to="{{i}}"
                                                 class="{{(i == 0) ? 'active' : ''}}"
                                                 attr.aria-label="Slide {{i}}"></button>
                                         </div>
                                         <div class="carousel-inner">
-                                            <div *ngFor="let carImage of announceImagesPaths; let i = index"
+                                            <div *ngFor="let announceImage of announceImagesPaths; let i = index"
                                                 class="{{(i == 0) ? 'carousel-item active' : 'carousel-item' }}">
-                                                <img [src]="carImage" height="200" alt="image not found">
+                                                <img [src]="announceImage" height="200" alt="image not found">
                                             </div>
                                         </div>
                                         <div *ngIf="announceImagesPaths.length>1">
                                             <button class="carousel-control-prev" type="button"
-                                                data-bs-target="#AddCarImagesCarousel" data-bs-slide="prev">
+                                                data-bs-target="#AddAnnounceImagesCarousel" data-bs-slide="prev">
                                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                                 <span class="visually-hidden">Previous</span>
                                             </button>
                                             <button class="carousel-control-next" type="button"
-                                                data-bs-target="#AddCarImagesCarousel" data-bs-slide="next">
+                                                data-bs-target="#AddAnnounceImagesCarousel" data-bs-slide="next">
                                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                                 <span class="visually-hidden">Next</span>
                                             </button>
@@ -41,10 +41,10 @@
                                     </div>
                                 </div>
                                 <div *ngIf="announceImagesPaths.length===0">
-                                    <img src="/assets/images/addcarimage.png" height="200" alt="image not found">
+                                    <img src="" height="200" alt="image not found">
                                 </div>
                                 <div class="row mt-2 ms-2">
-                                    <input #file class="form-control" type="file" id="carImagesFiles" accept="image/*"
+                                    <input #file class="form-control" type="file" id="announceImagesFiles" accept="image/*"
                                         (change)="addAnnounceImagesToAnnounceImagesAndPathList(file.files)">
                                 </div>
                             </div>
@@ -73,87 +73,52 @@
                             </div>
                         </div>
                         <div class="row">
-                            <!-- <div class="row mt-3">
-                                <div class="col-md-4">
-                                    <div class="form-group row align-items-center">
-                                        <div class="col-md-3 text-center">
-                                            <label for="carBrandId">Marka:</label>
-                                        </div>
-                                        <div class="col-md-9">
-                                            <select class="form-select" id="carBrandId" formControlName="brandId">
-                                                <option value="" selected disabled hidden>Marka seçiniz</option>
-                                                <option *ngFor="let brand of brands" [value]="brand.id">
-                                                    {{brand.name}}
-                                                </option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group row align-items-center">
-                                        <div class="col-md-3 text-center">
-                                            <label for="carColorId">Renk:</label>
-                                        </div>
-                                        <div class="col-md-9">
-                                            <select class="form-select" id="carColorId" formControlName="colorId">
-                                                <option value="" selected disabled hidden>Renk seçiniz</option>
-                                                <option *ngFor="let color of colors" [value]="color.id">
-                                                    {{color.name}}
-                                                </option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group row align-items-center">
-                                        <div class="col-md-4 text-center">
-                                            <label class="text-nowrap" for="carColorId">Model Yılı:</label>
-                                        </div>
-                                        <div class="col-md-8">
-                                            <select class="form-select" id="carModelYear" formControlName="modelYear">
-                                                <option value="" selected disabled hidden>Yıl seçiniz</option>
-                                                <option *ngFor="let year of years" [value]="year">{{year}}
-                                                </option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> -->
                             <div class="row mt-3">
                                 <div class="col-md-6">
                                     <div class="form-group row align-items-center">
                                         <div class="col-md-3 text-center">
-                                            <label for="carBrandId">Duyuru Başlığı:</label>
+                                            <label for="announceTitle">Duyuru Başlığı:</label>
                                         </div>
                                         <div class="col-md-9">
-                                            <input type="text" id="carModelName" formControlName="announceTitle"
+                                            <input type="text" id="announceTitle" formControlName="announceTitle"
                                                 class="form-control" placeholder="Duyuru başlığı" />
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <!-- <div class="col-md-6">
                                     <div class="form-group row align-items-center">
                                         <div class="col-md-4">
-                                            <label for="carColorId" class="text-nowrap">Duyuru Tarihi:</label>
+                                            <label for="announceDate" class="text-nowrap">Duyuru Tarihi:</label>
                                         </div>
                                         <div class="col-md-8">
-                                            <input type="datetime-local" id="carDailyPrice" formControlName="dailyPrice"
+                                            <input type="datetime-local" id="announceDate" formControlName="announceDate"
                                                 class="form-control float-end"  />
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                             <div class="row mt-3 align-items-end">
                                 <div class="form-group row align-items-center">
                                     <div class="col-md-2">
-                                        <label for="carColorId">Açıklama:</label>
+                                        <label for="announceContent">Duyuru İçeriği:</label>
                                     </div>
                                     <div class="col-md-10">
-                                        <input type="text" id="carDescription" formControlName="announceContent"
-                                            class="form-control" placeholder="Açıklama" />
+                                        <input type="text" id="announceContent" formControlName="announceContent"
+                                            class="form-control" placeholder="Duyuru..." />
                                     </div>
                                 </div>
                             </div>
+                            <!-- <div class="row mt-3 align-items-end">
+                                <div class="form-group row align-items-center">
+                                    <div class="col-md-2">
+                                        <label for="announceStatus">Duyuru Durumu:</label>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <input type="text"  id="announceStatus" formControlName="announceStatus"
+                                            class="form-control" placeholder="Durumu" />
+                                    </div>
+                                </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>

@@ -15,9 +15,8 @@
         <img width="100%"height="450px" class="rounded-3"  [src]="getImagePath(currentCongress.congressImages[0].imagePath)" >
         <div class="container rounded-3">
           <div class="carousel-caption text-start">
-            <h1>Example headline.</h1>
-            <p>Some representative placeholder content for the first slide of the carousel.</p>
-            <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
+            <h1>{{currentCongress.congressName}}</h1>
+            <p><a class="btn btn-lg btn-primary">Daha Fazla</a></p>
           </div>
         </div>
       </div>
@@ -26,9 +25,8 @@
 
         <div class="container rounded-3">
           <div class="carousel-caption">
-            <h1>Another example headline.</h1>
-            <p>Some representative placeholder content for the second slide of the carousel.</p>
-            <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
+            <h1>{{currentCongress.congressName}}</h1>
+            <p><a class="btn btn-lg btn-primary">Learn more</a></p>
           </div>
         </div>
       </div>
@@ -37,9 +35,8 @@
 
         <div class="container rounded-3" >
           <div class="carousel-caption text-end">
-            <h1>One more for good measure.</h1>
-            <p>Some representative placeholder content for the third slide of this carousel.</p>
-            <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
+            <h1>{{currentCongress.congressName}}</h1>
+            <p><a class="btn btn-lg btn-primary" >Browse gallery</a></p>
           </div>
         </div>
       </div>
@@ -56,51 +53,54 @@
 
   <br>
 
-  <div class="container-fluid" *ngIf=" currentCongress">
-    <h3>Kongre Adı-{{currentCongress.congressName}}</h3>
-    <div>
-        {{currentCongress.congressAbout}}
+  <div  class="container-fluid" *ngIf=" currentCongress">
+    <div id="contentCongress">
+        <p ><h4 id="congressTitle">Kongre Adı-{{currentCongress.congressName}}</h4><p>
+        <div>
+            {{currentCongress.congressAbout}}
+        </div>
     </div>
-    <h4>Konger Başkanı - {{currentCongress.congressPresidentName}}</h4>
+    
+    <div id="informations">
+      <p ><h4 id="congressTitle">Konger Başkanı - {{currentCongress.congressPresidentName}}</h4><p>
+     
+      <p ><h4 id="congressTitle">Düzenleme Kurulu</h4><p>
+       <table class="table table-hover">
+          <thead>
+              <tr>
+                  <th>Üye Adı</th>
+                  <th>Üye Okulu</th>
+              </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{currentCongress.regulatoryBoardMemberName}}</td>
+              <td>{{currentCongress.regulatoryBoardMemberUnivercity}}</td>
+            </tr>
+          </tbody>
+      </table> 
   
-    <h4>Düzenleme Kurulu</h4>
-     <table class="table table-hover">
-        <thead>
+        <p><h4 id="congressTitle">Bilim Kurulu</h4> <p>
+       <table class="table table-hover ">
+          <thead>
+              <tr>
+                  <th class="text-center">Üye Adı</th>
+                  <th>Üye Okulu</th>
+              </tr>
+          </thead>
+          <tbody >
             <tr>
-                <th>Kongre Adı</th>
-                <th>Üye Adı</th>
-                <th>Üye Okulu</th>
+              <td>{{currentCongress.scienceBoardMemberName}}</td>
+              <td>{{currentCongress.scienceBoardMemberUnivercity}}</td>
             </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>{{currentCongress.congressName}}</td>
-            <td>{{currentCongress.regulatoryBoardMemberName}}</td>
-            <td>{{currentCongress.regulatoryBoardMemberUnivercity}}</td>
-          </tr>
-        </tbody>
-    </table> 
+          </tbody>
+      </table>
+    </div>
+   
 
-      <h4>Bilim Kurulu</h4>
-     <table class="table table-hover">
-        <thead>
-            <tr>
-                <th>Kongre Adı</th>
-                <th>Üye Adı</th>
-                <th>Üye Okulu</th>
-            </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>{{currentCongress.congressName}}</td>
-            <td>{{currentCongress.scienceBoardMemberName}}</td>
-            <td>{{currentCongress.scienceBoardMemberUnivercity}}</td>
-          </tr>
-        </tbody>
-    </table>
 
-    <h4>Kongre yeri ve Zamanı</h4>
-    <div>{{currentCongress.congressDate.toString().substring(0,10)}}  ||  {{currentCongress.congressCity}} || {{currentCongress.congressPlace}} - Saat {{currentCongress.congressDate.toString().substring(11,16)}}</div>
+    <p><h4 id="congressTitle">Kongre Yeri Ve Zamanı</h4> <p></p>
+    <div id="address">{{currentCongress.congressDate.toString().substring(0,10)}}  ||  {{currentCongress.congressCity}} || {{currentCongress.congressPlace}} - Saat {{currentCongress.congressDate.toString().substring(11,16)}}</div>
   </div>
   
 

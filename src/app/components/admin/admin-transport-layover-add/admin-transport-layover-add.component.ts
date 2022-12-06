@@ -166,7 +166,7 @@ export class AdminTransportLayoverAddComponent implements OnInit {
   }
 
   private createTransportAddForm() {
-    this.transportAddForm = this.formService.createAnnounceForm();
+    this.transportAddForm = this.formService.createTransportLayoverForm();
   }
 
   closeTransportAddModal() {

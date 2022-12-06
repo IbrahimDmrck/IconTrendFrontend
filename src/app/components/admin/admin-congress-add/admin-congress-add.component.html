@@ -13,10 +13,10 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div *ngIf="congressImagespaths.length>0" class="row">
-                                    <div id="AddCarImagesCarousel" class="carousel carousel-dark slide"
+                                    <div id="AddCongressImagesCarousel" class="carousel carousel-dark slide"
                                         data-bs-ride="carousel">
                                         <div class="carousel-indicators">
-                                            <button *ngFor="let carImage of congressImagespaths; let i = index" type="button"
+                                            <button *ngFor="let congressImage of congressImagespaths; let i = index" type="button"
                                                 data-bs-target="#AddCongressImagesCarousel" attr.data-bs-slide-to="{{i}}"
                                                 class="{{(i == 0) ? 'active' : ''}}"
                                                 attr.aria-label="Slide {{i}}"></button>
@@ -42,10 +42,10 @@
                                     </div>
                                 </div>
                                 <div *ngIf="congressImagespaths.length===0">
-                                    <img src="/src/assets/Adsız.png" height="200" alt="image not found">
+                                    <img src="" height="200" alt="image not found">
                                 </div>
                                 <div class="row mt-2 ms-2">
-                                    <input #file class="form-control" type="file" id="carImagesFiles" accept="image/*"
+                                    <input #file class="form-control" type="file" id="congressImagesFiles" accept="image/*"
                                         (change)="addCongressImagesToCongressImagesAndPathList(file.files)">
                                 </div>
                             </div>
@@ -68,7 +68,7 @@
                                         </li>
                                     </ul>
                                     <p class="text-center text-muted">
-                                        <small>{{congressImagesFiles.length}}/10 dosya</small>
+                                        <small>{{congressImagesFiles.length}}/5 dosya</small>
                                     </p>
                                 </div>
                             </div>
@@ -78,7 +78,7 @@
                                 <div class="col-md-4">
                                     <div class="form-group row align-items-center">
                                         <div class="col-md-3 text-center">
-                                            <label for="carBrandId">Kongre Başkanı:</label>
+                                            <label for="congressPresidentId">Kongre Başkanı:</label>
                                         </div>
                                         <div class="col-md-9">
                                             <select class="form-select"  formControlName="congressPresidentId">
@@ -93,10 +93,10 @@
                                 <div class="col-md-4">
                                     <div class="form-group row align-items-center">
                                         <div class="col-md-3 text-center">
-                                            <label for="carColorId">Düzenleme Kurulu:</label>
+                                            <label for="regulatoryBoardId">Düzenleme Kurulu:</label>
                                         </div>
                                         <div class="col-md-9">
-                                            <select class="form-select" id="carColorId" formControlName="regulatoryBoardId">
+                                            <select class="form-select" id="regulatoryBoardId" formControlName="regulatoryBoardId">
                                                 <option value="" selected disabled hidden>Düzenleme Kurulunu seçiniz</option>
                                                 <option *ngFor="let regulatoryBoard of regulatoryBoards" [value]="regulatoryBoard.id">
                                                     {{regulatoryBoard.regulatoryBoardMemberName}}
@@ -108,7 +108,7 @@
                                 <div class="col-md-4">
                                     <div class="form-group row align-items-center">
                                         <div class="col-md-4 text-center">
-                                            <label class="text-nowrap" >Bilim Kurulu:</label>
+                                            <label for="scienceBoardId" class="text-nowrap" >Bilim Kurulu:</label>
                                         </div>
                                         <div class="col-md-8">
                                             <select class="form-select" formControlName="scienceBoardId">
@@ -125,7 +125,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group row align-items-center">
                                         <div class="col-md-3 text-center">
-                                            <label for="carBrandId">Konu:</label>
+                                            <label for="topicId">Konu:</label>
                                         </div>
                                         <div class="col-md-9">
                                             <select class="form-select" formControlName="topicId">
@@ -140,10 +140,10 @@
                                 <div class="col-md-6">
                                     <div class="form-group row align-items-center">
                                         <div class="col-md-4">
-                                            <label for="carColorId" class="text-nowrap">kongre Adı:</label>
+                                            <label for="congressName" class="text-nowrap">kongre Adı:</label>
                                         </div>
                                         <div class="col-md-8">
-                                            <input type="text" id="carDailyPrice" formControlName="congressName"
+                                            <input type="text" id="congressName" formControlName="congressName"
                                                 class="form-control float-end" placeholder="Kongre Adı" />
                                         </div>
                                     </div>
@@ -151,10 +151,10 @@
                                 <div class="col-md-6">
                                     <div class="form-group row align-items-center">
                                         <div class="col-md-4">
-                                            <label for="carColorId" class="text-nowrap">kongre Şehri:</label>
+                                            <label for="congressCity" class="text-nowrap">kongre Şehri:</label>
                                         </div>
                                         <div class="col-md-8">
-                                            <input type="text" id="carDailyPrice" formControlName="congressCity"
+                                            <input type="text" id="congressCity" formControlName="congressCity"
                                                 class="form-control float-end" placeholder="Kongre Şehri" />
                                         </div>
                                     </div>
@@ -162,34 +162,34 @@
                                 <div class="col-md-6">
                                     <div class="form-group row align-items-center">
                                         <div class="col-md-4">
-                                            <label for="carColorId" class="text-nowrap">kongre yeri:</label>
+                                            <label for="congressPlace" class="text-nowrap">kongre yeri:</label>
                                         </div>
                                         <div class="col-md-8">
-                                            <input type="text" id="carDailyPrice" formControlName="congressPlace"
+                                            <input type="text" id="congressPlace" formControlName="congressPlace"
                                                 class="form-control float-end" placeholder="Kongre Yeri" />
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <!-- <div class="col-md-6">
                                     <div class="form-group row align-items-center">
                                         <div class="col-md-4">
-                                            <label for="carColorId" class="text-nowrap">kongre Tarihi ve saati:</label>
+                                            <label for="congressStatus" class="text-nowrap">Durum:</label>
                                         </div>
                                         <div class="col-md-8">
-                                            <input type="datetime-local" id="carDailyPrice" formControlName="congressDate"
+                                            <input type="text" id="congressStatus" formControlName="congressStatus"
                                                 class="form-control float-end" />
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                                 
                             </div>
                             <div class="row mt-3 align-items-end">
                                 <div class="form-group row align-items-center">
                                     <div class="col-md-2">
-                                        <label for="carColorId">Kongre Hakkında:</label>
+                                        <label for="congressAbout">Kongre Hakkında:</label>
                                     </div>
                                     <div class="col-md-10">
-                                        <input type="text" id="carDescription" formControlName="congressAbout"
+                                        <input type="text" id="congressAbout" formControlName="congressAbout"
                                             class="form-control" placeholder="Açıklama" />
                                     </div>
                                 </div>

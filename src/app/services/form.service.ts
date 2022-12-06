@@ -10,9 +10,10 @@ export class FormService {
 
   createAnnounceForm():FormGroup{
     return this.formBuilder.group({
-      title:["",[Validators.required,Validators.minLength(2),Validators.maxLength(200)]],
-      content:["",[Validators.required,Validators.minLength(3)]],
-      status:[ "",[Validators.required]]
+      announceTitle:["",[Validators.required,Validators.minLength(2),Validators.maxLength(200)]],
+      announceContent:["",[Validators.required,Validators.minLength(3)]],
+      // announceStatus:[ "",[Validators.required]],
+      // announceDate:["",[Validators.required]]
     });
   }
 
@@ -34,14 +35,14 @@ export class FormService {
   createCongressPresidentForm():FormGroup{
     return this.formBuilder.group({
       congressId:["",[Validators.required,Validators.pattern("^[0-9]*$"),Validators.min(1)]],
-      presidentName:["",[Validators.required,Validators.minLength(2),Validators.maxLength(50)]]
+      congressPresidentName:["",[Validators.required,Validators.minLength(2),Validators.maxLength(50)]]
     })
   }
 
   createRegulatoryBoardForm():FormGroup{
     return this.formBuilder.group({
       congressId:["",[Validators.required,Validators.pattern("^[0-9]*$"),Validators.min(1)]],
-      memberName:["",[Validators.required,Validators.minLength(2)]],
+      regulatoryBoardMemberName:["",[Validators.required,Validators.minLength(2)]],
       univercity:["",[Validators.required,Validators.minLength(5)]]
     });
   }
@@ -49,7 +50,7 @@ export class FormService {
   createScienceBoardForm():FormGroup{
     return this.formBuilder.group({
       congressId:["",[Validators.required,Validators.pattern("^[0-9]*$"),Validators.min(1)]],
-      memberName:["",[Validators.required,Validators.minLength(2)]],
+      scienceBoardMemberName:["",[Validators.required,Validators.minLength(2)]],
       univercity:["",[Validators.required,Validators.minLength(5)]]
     });
   }
@@ -66,7 +67,8 @@ export class FormService {
     return this.formBuilder.group({
       capacity:["",[Validators.required,Validators.pattern("^[0-9]*$"),Validators.min(1)]],
       minDemand:["",[Validators.required,Validators.minLength(2)]],
-      description:["",[Validators.required,Validators.minLength(5)]]
+      description:["",[Validators.required,Validators.minLength(5)]],
+      Price: ["", [Validators.required, Validators.pattern("^[0-9]*$"), Validators.min(1)]],
     });
   }
 }

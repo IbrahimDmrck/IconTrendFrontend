@@ -1,7 +1,7 @@
 <div  class="card">
     <div class="card-header">
         <div class="d-flex justify-content-between">
-            <h5>Araç ekle</h5>
+            <h5>Ulaşım Bilgisi Ekle</h5>
         </div>
     </div>
     <div class="card-body">
@@ -12,28 +12,28 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div *ngIf="transportImagesPaths.length>0" class="row">
-                                    <div id="AddCarImagesCarousel" class="carousel carousel-dark slide"
+                                    <div id="AddTransportImagesCarousel" class="carousel carousel-dark slide"
                                         data-bs-ride="carousel">
                                         <div class="carousel-indicators">
-                                            <button *ngFor="let carImage of transportImagesPaths; let i = index" type="button"
-                                                data-bs-target="#AddCarImagesCarousel" attr.data-bs-slide-to="{{i}}"
+                                            <button *ngFor="let transportImage of transportImagesPaths; let i = index" type="button"
+                                                data-bs-target="#AddTransportImagesCarousel" attr.data-bs-slide-to="{{i}}"
                                                 class="{{(i == 0) ? 'active' : ''}}"
                                                 attr.aria-label="Slide {{i}}"></button>
                                         </div>
                                         <div class="carousel-inner">
-                                            <div *ngFor="let carImage of transportImagesPaths; let i = index"
+                                            <div *ngFor="let transportImage of transportImagesPaths; let i = index"
                                                 class="{{(i == 0) ? 'carousel-item active' : 'carousel-item' }}">
-                                                <img [src]="carImage" height="200" alt="image not found">
+                                                <img [src]="transportImage" height="200" alt="image not found">
                                             </div>
                                         </div>
                                         <div *ngIf="transportImagesPaths.length>1">
                                             <button class="carousel-control-prev" type="button"
-                                                data-bs-target="#AddCarImagesCarousel" data-bs-slide="prev">
+                                                data-bs-target="#AddTransportImagesCarousel" data-bs-slide="prev">
                                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                                 <span class="visually-hidden">Previous</span>
                                             </button>
                                             <button class="carousel-control-next" type="button"
-                                                data-bs-target="#AddCarImagesCarousel" data-bs-slide="next">
+                                                data-bs-target="#AddTransportImagesCarousel" data-bs-slide="next">
                                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                                 <span class="visually-hidden">Next</span>
                                             </button>
@@ -41,10 +41,10 @@
                                     </div>
                                 </div>
                                 <div *ngIf="transportImagesPaths.length===0">
-                                    <img src="/assets/images/addcarimage.png" height="200" alt="image not found">
+                                    <img src="" height="200" alt="image not found">
                                 </div>
                                 <div class="row mt-2 ms-2">
-                                    <input #file class="form-control" type="file" id="carImagesFiles" accept="image/*"
+                                    <input #file class="form-control" type="file" id="transportImagesFiles" accept="image/*"
                                         (change)="addTransportImagesToTransportImagesAndPathList(file.files)">
                                 </div>
                             </div>
@@ -73,60 +73,14 @@
                             </div>
                         </div>
                         <div class="row">
-                            <!-- <div class="row mt-3">
-                                <div class="col-md-4">
-                                    <div class="form-group row align-items-center">
-                                        <div class="col-md-3 text-center">
-                                            <label for="carBrandId">Marka:</label>
-                                        </div>
-                                        <div class="col-md-9">
-                                            <select class="form-select" id="carBrandId" formControlName="brandId">
-                                                <option value="" selected disabled hidden>Marka seçiniz</option>
-                                                <option *ngFor="let brand of brands" [value]="brand.id">
-                                                    {{brand.name}}
-                                                </option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group row align-items-center">
-                                        <div class="col-md-3 text-center">
-                                            <label for="carColorId">Renk:</label>
-                                        </div>
-                                        <div class="col-md-9">
-                                            <select class="form-select" id="carColorId" formControlName="colorId">
-                                                <option value="" selected disabled hidden>Renk seçiniz</option>
-                                                <option *ngFor="let color of colors" [value]="color.id">
-                                                    {{color.name}}
-                                                </option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group row align-items-center">
-                                        <div class="col-md-4 text-center">
-                                            <label class="text-nowrap" for="carColorId">Model Yılı:</label>
-                                        </div>
-                                        <div class="col-md-8">
-                                            <select class="form-select" id="carModelYear" formControlName="modelYear">
-                                                <option value="" selected disabled hidden>Yıl seçiniz</option>
-                                                <option *ngFor="let year of years" [value]="year">{{year}}
-                                                </option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> -->
                             <div class="row mt-3">
                                 <div class="col-md-6">
                                     <div class="form-group row align-items-center">
                                         <div class="col-md-3 text-center">
-                                            <label for="carBrandId">Kapasite:</label>
+                                            <label for="capacity">Kapasite:</label>
                                         </div>
                                         <div class="col-md-9">
-                                            <input type="text" id="carModelName" formControlName="capacity"
+                                            <input type="number" id="capacity" formControlName="capacity"
                                                 class="form-control" placeholder="kapasite" />
                                         </div>
                                     </div>
@@ -134,15 +88,11 @@
                                 <div class="col-md-6">
                                     <div class="form-group row align-items-center">
                                         <div class="col-md-4">
-                                            <label for="carColorId" class="text-nowrap">En Az İstek:</label>
+                                            <label for="minDemand" class="text-nowrap">En Az İstek:</label>
                                         </div>
-                                        <div class="col-md-8">
-                                            <input type="text" id="carDailyPrice" formControlName="minDemand"
-                                                class="form-control float-end"  />
-                                        </div>
-                                        <div class="col-md-8">
-                                            <input type="text" id="carDailyPrice" formControlName="price"
-                                                class="form-control float-end"  />
+                                        <div class="col-md-10">
+                                            <input type="text" id="description" formControlName="minDemand"
+                                                class="form-control" placeholder="" />
                                         </div>
                                     </div>
                                 </div>
@@ -150,11 +100,22 @@
                             <div class="row mt-3 align-items-end">
                                 <div class="form-group row align-items-center">
                                     <div class="col-md-2">
-                                        <label for="carColorId">Açıklama:</label>
+                                        <label for="description">Açıklama:</label>
                                     </div>
                                     <div class="col-md-10">
-                                        <input type="text" id="carDescription" formControlName="description"
+                                        <input type="text" id="description" formControlName="description"
                                             class="form-control" placeholder="Açıklama" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-3 align-items-end">
+                                <div class="form-group row align-items-center">
+                                    <div class="col-md-2">
+                                        <label for="price">Fiyat:</label>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <input type="number" id="price" formControlName="Price"
+                                            class="form-control" placeholder="Ücret" />
                                     </div>
                                 </div>
                             </div>

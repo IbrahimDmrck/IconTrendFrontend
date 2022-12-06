@@ -37,7 +37,7 @@ congressImagespaths:any[]=[]
   constructor(
     private congressService:CongressService,
     private congressAddModal:MatDialogRef<AdminCongressAddComponent>,
-    private congressPresidentServie:CongressPresidentService,
+    private congressPresidentService:CongressPresidentService,
     private regulatoryBoardService:RegulatoryBoardService,
     private scienceBoardSevice:ScienceBoardService,
     private topcService:TopicService,
@@ -63,7 +63,7 @@ congressImagespaths:any[]=[]
       let congressModel = Object.assign({}, this.congressAddForm.value);
  
       this.congressService.add(congressModel).subscribe(congressAddSuccessResponse => {
-        if (this.congressImagesFiles.length === 0) {  //No pictures, just car added
+        if (this.congressImagesFiles.length === 0) {  //Resim yok sadece kongre eklendi
           this.toastrService.success("Yeni kongre başarıyla eklendi", "İşlem başarılı");
           this.closeCongressAddModal();
         }
@@ -167,7 +167,7 @@ congressImagespaths:any[]=[]
   }
 
 
-  private addCongressImageToCongressImagesPaths(image: any): Promise<boolean> { //Source: https://www.talkingdotnet.com/show-image-preview-before-uploading-using-angular-7/
+  private addCongressImageToCongressImagesPaths(image: any): Promise<boolean> {
     return new Promise<boolean>((result) => {
       this.checkFileMimeType(image).then((successStatus) => {
         if (successStatus) {
@@ -214,7 +214,7 @@ congressImagespaths:any[]=[]
   }
 
   private getCongressPresident(){
-    this.congressPresidentServie.getCongressPresidents().subscribe(response=>{
+    this.congressPresidentService.getCongressPresidents().subscribe(response=>{
       this.congressPresidents=response.data;
     })
   }
