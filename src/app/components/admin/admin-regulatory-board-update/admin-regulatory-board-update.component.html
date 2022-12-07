@@ -2,7 +2,7 @@
     <div class="card">
         <div class="card-header">
             <div class="d-flex justify-content-between">
-                <h5>{{currentRegulatoryBoard.regulatoryBoardMemberName}} Kongre Başkanını Güncelle</h5>
+                <p class="text-center"><h5>Düzenleme Kurulu Güncelle --> {{currentRegulatoryBoard.regulatoryBoardMemberName}}</h5><p>
             </div>
         </div>
         <div class="card-body">
@@ -20,17 +20,19 @@
                 <div class="col-md-9">
                     <div class="row align-items-center">
                         <div class="col-md-4">
-                            <strong class="float-end"><label for="brandName">Marka Adı:</label></strong>
+                            <strong class="float-end mb-3"><label for="congressId">Kongre Seç:</label></strong>
+                            <strong class="float-end  mb-4"><label for="regulatoryBoardMemberName">Üye Adları:</label></strong>
+                            <strong class="float-end"><label for="univercity">Üye Kurumları:</label></strong>
                         </div>
                         <div class="col-md-8">
                             <form [formGroup]="regulatoryBoardUpdateForm">
                                 <div class="align-items-center">
-                                    <div class="form-group">
+                                    <div class="form-group mb-3">
                                         <input type="text"  formControlName="congressId" class="form-control"
                                             placeholder="Kongre  Adı" />
                                     </div>
-                                    <div class="form-group">
-                                        <input type="text"  formControlName="memberName" class="form-control"
+                                    <div class="form-group  mb-3">
+                                        <input type="text"  formControlName="regulatoryBoardMemberName" class="form-control"
                                             placeholder="Üye Adlarını Yazın" />
                                     </div>
                                     <div class="form-group">

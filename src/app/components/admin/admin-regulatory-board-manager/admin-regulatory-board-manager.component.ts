@@ -37,7 +37,7 @@ export class AdminRegulatoryBoardManagerComponent implements OnInit {
     const regulatoryBoardUpdateModal=this.dialog.open(AdminRegulatoryBoardUpdateComponent,{
 
       disableClose:true,
-      width:'25%'
+      width:'50%'
     });
 
     regulatoryBoardUpdateModal.componentInstance.currentRegulatoryBoard=regulatoryBoard;

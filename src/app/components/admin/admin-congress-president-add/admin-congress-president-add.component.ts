@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
+import { CongressPresident } from 'src/app/models/entities/congress-president';
 import { CongressPresidentService } from 'src/app/services/congress-president.service';
 import { ErrorService } from 'src/app/services/error.service';
 import { FormService } from 'src/app/services/form.service';
@@ -13,7 +14,6 @@ import { FormService } from 'src/app/services/form.service';
   styleUrls: ['./admin-congress-president-add.component.css']
 })
 export class AdminCongressPresidentAddComponent implements OnInit {
-
   congressPresidentAddForm:FormGroup;
 
   constructor(
@@ -39,6 +39,7 @@ export class AdminCongressPresidentAddComponent implements OnInit {
   add() {
     if (this.congressPresidentAddForm.valid) {
       let congressPresidentModel = Object.assign({}, this.congressPresidentAddForm.value);
+
       this.congressPresidentService.add(congressPresidentModel).subscribe(() => {
         this.toastrService.success(congressPresidentModel.name,"Kongre Başkanı  Eklendi");
         this.closeCongressPresidentAddModal();

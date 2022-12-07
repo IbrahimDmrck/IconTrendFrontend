@@ -1,21 +1,24 @@
 <div id="maincard" class="card">
     <div class="card-header">
         <div class="d-flex justify-content-between">
-            <h5>Kongre Başkanı Ekle</h5>
+            <h5>Düzenleme Kurulu Ekle</h5>
         </div>
     </div>
     <div class="card-body">
         <form  [formGroup]="regulatoryBoardAddForm">
             <div  class="align-items-center">
                 <div  class="form-group">
+                    <div class="mb-2 fw-bold"><Label>Kongre Seçin :</Label></div>
                     <input type="text"  formControlName="congressId" class="form-control"
                         placeholder="Kongre  Adı" />
                 </div><br>
                 <div  class="form-group">
+                    <div class="mb-2 fw-bold"><Label>Üye Adları :</Label></div>
                     <input type="text"  formControlName="regulatoryBoardMemberName" class="form-control"
                         placeholder="Üye Adlarını Yazın" />
                 </div><br>
                 <div class="form-group">
+                    <div class="mb-2 fw-bold"><Label>Üye Kurumları :</Label></div>
                     <input type="text"  formControlName="univercity" class="form-control"
                         placeholder="Üye üniversiteleri" />
                 </div>

@@ -37,6 +37,7 @@ export class AdminScienceBoardUpdateComponent implements OnInit {
         this.toastrService.error("Bilim kurulu üyelerinde bir değişiklik yapmadınız","Güncellem yapılmadı");
         return;
       }
+     
       this.scienceBoardService.update(newScienceBoard).subscribe(()=>{
         this.toastrService.success("Bilim Kurulu Güncellendi","Güncellem Başarılı");
         this.closeUpdateModal();

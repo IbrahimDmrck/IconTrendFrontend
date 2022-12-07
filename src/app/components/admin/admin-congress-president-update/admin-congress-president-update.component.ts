@@ -32,7 +32,7 @@ congressPresidentUpdateForm:FormGroup
       let newPresident=Object.assign({},this.congressPresidentUpdateForm.value);
       newPresident.id=this.currentPresident.id;
 
-      if (newPresident.congressPresidentName==this.currentPresident.congressPresidentName || newPresident.congressId==this.currentPresident.congressId) {
+      if (newPresident.congressPresidentName==this.currentPresident.congressPresidentName ) {
         this.toastrService.error("Kongre Başkanı Adı Eskisiyle Aynı","Güncelleme Yapılmadı");
         return;
       }

@@ -36,7 +36,7 @@ export class AdminTopicManagerComponent implements OnInit {
     const topicUpdateModal=this.dialog.open(AdminTopicUpdateComponent,{
 
       disableClose:true,
-      width:'25%'
+      width:'50%'
     });
 
     topicUpdateModal.componentInstance.currentTopic=topic;

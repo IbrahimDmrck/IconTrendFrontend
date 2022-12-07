@@ -35,7 +35,7 @@ export class AdminCongressPresidentManagerComponent implements OnInit {
   showCongressPresidentUpdateModal(congressPresident:CongressPresident){
 const presidentUpdateModal=this.dialog.open(AdminCongressPresidentUpdateComponent,{
   disableClose:true,
-  width:'30%'
+  width:'50%'
 });
 presidentUpdateModal.componentInstance.currentPresident=congressPresident;
 presidentUpdateModal.afterClosed().subscribe(result=>{

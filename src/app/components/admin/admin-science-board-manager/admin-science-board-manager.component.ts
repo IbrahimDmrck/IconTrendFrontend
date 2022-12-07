@@ -39,7 +39,7 @@ export class AdminScienceBoardManagerComponent implements OnInit {
     const scienceBoardUpdateModal=this.dialog.open(AdminScienceBoardUpdateComponent,{
 
       disableClose:true,
-      width:'25%'
+      width:'50%'
     });
 
     scienceBoardUpdateModal.componentInstance.currentScienceBoard=scienceBoard;

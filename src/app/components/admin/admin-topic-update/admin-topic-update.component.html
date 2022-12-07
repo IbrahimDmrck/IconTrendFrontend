@@ -2,7 +2,7 @@
     <div class="card">
         <div class="card-header">
             <div class="d-flex justify-content-between">
-                <h5>{{currentTopic.topicName}} Kongre Başkanını Güncelle</h5>
+                <h5>Konu Güncelle --> {{currentTopic.topicName}}</h5>
             </div>
         </div>
         <div class="card-body">
@@ -20,7 +20,9 @@
                 <div class="col-md-9">
                     <div class="row align-items-center">
                         <div class="col-md-4">
-                            <strong class="float-end"><label for="brandName">Marka Adı:</label></strong>
+                            <strong class="float-end mb-4"><label for="congressId">Kongre Seçin:</label></strong>
+                            <strong class="float-end mb-3"><label for="topicName">Ana Konu:</label></strong>
+                            <strong class="float-end mt-3"><label for="category">Alt Konular:</label></strong>
                         </div>
                         <div class="col-md-8">
                             <form [formGroup]="topicUpdateForm">
@@ -29,10 +31,10 @@
                                         <input type="text"  formControlName="congressId" class="form-control"
                                             placeholder="kongre" />
                                     </div>
-                                    <br>
-                                    <div class="form-group">
+                                    
+                                    <div class="form-group mt-4">
                                         <input type="text"  formControlName="topicName" class="form-control"
-                                            placeholder="Konu Adı" />
+                                            placeholder="Ana Konu" />
                                     </div>
                                     <br>
                                     <div class="form-group">

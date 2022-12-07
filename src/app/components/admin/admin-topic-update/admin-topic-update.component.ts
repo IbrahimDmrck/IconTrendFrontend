@@ -31,12 +31,13 @@ topicUpdateForm:FormGroup;
   update(){
     if (this.topicUpdateForm.valid) {
       let newTopic=Object.assign({},this.topicUpdateForm.value);
-      newTopic.id==this.currentTopic.id;
+      newTopic.id=this.currentTopic.id;
 
-      if (newTopic.topicName==this.currentTopic.topicName) {
+      if (newTopic.topicName==this.currentTopic.topicName && newTopic.category==this.currentTopic.category) {
         this.toastrService.error("Konularda bir değişiklik yapmadınız","Güncellem Yapılmadı");
         return;
       }
+      console.log(newTopic);
       this.topicSevice.update(newTopic).subscribe(()=>{
         this.toastrService.success("Konu Güncellendi","Güncelleme Yapıldı");
         this.closeUpdateModal();
