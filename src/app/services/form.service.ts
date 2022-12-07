@@ -12,8 +12,8 @@ export class FormService {
     return this.formBuilder.group({
       announceTitle:["",[Validators.required,Validators.minLength(2),Validators.maxLength(200)]],
       announceContent:["",[Validators.required,Validators.minLength(3)]],
-      // announceStatus:[ "",[Validators.required]],
-      // announceDate:["",[Validators.required]]
+     //  announceStatus:[ "",[Validators.required]],
+    //   announceDate:["",[Validators.required]]
     });
   }
 
@@ -24,13 +24,13 @@ export class FormService {
       congressAbout:["",[Validators.required,Validators.minLength(50)]],
       congressCity:["",[Validators.required,Validators.minLength(3)]],
       congressPlace:["",[Validators.required,Validators.minLength(3)]],
-      congressStatus:["",[Validators.required]],
-      congressDate:["",[Validators.required]],
+     // congressStatus:["",[Validators.required]],
+     // congressDate:["",[Validators.required]],
       regulatoryBoardId:["",[Validators.required,Validators.pattern("^[0-9]*$"),Validators.min(1)]],
       scienceBoardId:["",[Validators.required,Validators.pattern("^[0-9]*$"),Validators.min(1)]],
       topicId:["",[Validators.required,Validators.pattern("^[0-9]*$"),Validators.min(1)]],
     });
-  }
+  } 
 
   createCongressPresidentForm():FormGroup{
     return this.formBuilder.group({

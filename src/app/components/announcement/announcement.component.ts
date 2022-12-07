@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Announcement } from 'src/app/models/entities/announcement';
+import { AnnouncementImageService } from 'src/app/services/announcement-image.service';
 import { AnnouncementService } from 'src/app/services/announcement.service';
 
 @Component({
@@ -14,7 +15,7 @@ export class AnnouncementComponent implements OnInit {
   announcementDataLoad:boolean=false;
   constructor(
     private announcementService:AnnouncementService,
-    private router:Router
+    private announceImagesService:AnnouncementImageService
   ) { }
 
   ngOnInit(): void {
@@ -27,6 +28,11 @@ this.announcementService.getAnnouncements().subscribe(response=>{
   this.announcementDataLoad=true;
 
 })
+  }
+
+  getImagePath(imagePath:string){
+  return this.announceImagesService.getImagePath(imagePath);
+
   }
 
 }

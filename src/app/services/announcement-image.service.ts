@@ -22,15 +22,15 @@ export class AnnouncementImageService {
   }
 
   uploadImage(image:File,announceId:number):Observable<ResponseModel>{
-    let newpPath=this.apiUrl+"/api/AnnounceImages/add";
+    let newpPath=this.apiUrl+"api/AnnounceImages/add";
     const sendForm=new FormData();
     sendForm.append('announceId',JSON.stringify(announceId))
-    sendForm.append('AnnounceImage',image,image.name)
+    sendForm.append('announceImage',image,image.name)
     return this.httpClient.post<ResponseModel>(newpPath,sendForm);
   }
 
   deleteImage(announceImage:AnnounceImage):Observable<ResponseModel>{
-    let newpPath=this.apiUrl+'/api/AnnounceImages/delete';
+    let newpPath=this.apiUrl+'api/AnnounceImages/delete';
     return this.httpClient.post<ResponseModel>(newpPath,announceImage);
   }
 

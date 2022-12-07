@@ -105,7 +105,7 @@ export class AdminAnnouncementAddComponent implements OnInit {
       this.announceImageService.uploadImage(uploadFile.file, announceId).subscribe((uploadSuccess) => {
         uploadFile.uploadStatus = true;
         result(uploadFile);
-      }, (uploadFail) => {
+      }, (_uploadFail) => {
         uploadFile.uploadStatus = false;
         result(uploadFile);
       })

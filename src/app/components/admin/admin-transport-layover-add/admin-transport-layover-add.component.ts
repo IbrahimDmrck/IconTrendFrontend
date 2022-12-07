@@ -36,7 +36,7 @@ export class AdminTransportLayoverAddComponent implements OnInit {
     } else {
       let transportModel = Object.assign({}, this.transportAddForm.value);
       //Add Announce to Server
-      this.transportLayoverService.add(transportModel).subscribe(announceAddSuccessResponse => {
+      this.transportLayoverService.add(transportModel).subscribe(transportAddSuccessResponse => {
         if (this.transportImagesFiles.length === 0) {  
           this.toastrService.success("Yeni ulaşım bilgisi başarıyla eklendi", "İşlem başarılı");
           this.closeTransportAddModal();
@@ -45,7 +45,7 @@ export class AdminTransportLayoverAddComponent implements OnInit {
           if (this.transportImagesFiles.length > 5) { //Max 5 Image
             this.toastrService.error("En fazla 5 resim yükleyebilirsiniz", "Ulaşım bilgisi eklenmedi");
           } else {
-            this.uploadAllImagesToServer(this.transportImagesFiles, announceAddSuccessResponse.data).then((unUploadFileList) => {
+            this.uploadAllImagesToServer(this.transportImagesFiles, transportAddSuccessResponse.data).then((unUploadFileList) => {
               let unUploadedFiles: UploadFile[] = unUploadFileList;
               if (unUploadedFiles.length === 0) {
                 this.toastrService.success("Yeni Ulaşım bilgisi ve resimleri başarıyla eklendi", "İşlem başarılı");
@@ -102,7 +102,7 @@ export class AdminTransportLayoverAddComponent implements OnInit {
       this.transportImageService.uploadImage(uploadFile.file, transportId).subscribe((uploadSuccess) => {
         uploadFile.uploadStatus = true;
         result(uploadFile);
-      }, (uploadFail) => {
+      }, (_uploadFail) => {
         uploadFile.uploadStatus = false;
         result(uploadFile);
       })

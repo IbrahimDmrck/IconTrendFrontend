@@ -2,29 +2,9 @@
 <div *ngIf="announcementDataLoad == false" class="spinner-border text-success" role="status">
     <span class="visually-hidden">Loading...</span>
   </div>
-<!-- <table *ngIf="announcementDataLoad==true" class="table table-hover">
-    <thead>
 
-        <tr>
-            <th>ID</th>
-            <th>Title</th>
-            <th>Content</th>
-            <th>Date</th>
-            <th>Status</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let announce of announcement ">
-            <td>{{announce.id}}</td>
-            <td>{{announce.announceTitle}}</td>
-            <td>{{announce.announceContent}}</td>
-            <td>{{announce.announceDate.toString().substring(0,10)}}</td>
-            <td>{{announce.announceStatus}}</td>
-        </tr>
-    </tbody>
-</table> -->
 
-<div class="coniner-fluid" style="margin-top: 70px;">
+<div *ngIf="announcementDataLoad == true" class="coniner-fluid" style="margin-top: 70px;">
     <div class="row" style="padding:5px;border-radius:15px;">
     <div class="col-3">
 
@@ -44,17 +24,17 @@
     </div>
     <div  class="col-9">
     
-      <div  id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+      <div *ngFor="let announcements of announcement" id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
         <div style="border-radius:15px;"   class="carousel-inner ">
           <div class="carousel-item active">
+            <img  [src]="getImagePath(announcements.announceImages[0].imagePath)" width="100%" height="400px%" class="d-block w-100" alt="...">
+          </div>
+          <!-- <div class="carousel-item">
             <img width="100%" height="400px%" src="https://i.hizliresim.com/1iqzgza.png" class="d-block w-100" alt="...">
           </div>
           <div class="carousel-item">
             <img width="100%" height="400px%" src="https://i.hizliresim.com/1iqzgza.png" class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img width="100%" height="400px%" src="https://i.hizliresim.com/1iqzgza.png" class="d-block w-100" alt="...">
-          </div>
+          </div> -->
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
