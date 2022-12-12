@@ -32,7 +32,7 @@ scienceBoards:ScienceBoard[];
 topics:Topic[];
 
 congressImagesFiles:UploadFile[]=[];
-congressImagespaths:any[]=[]
+congressImagesPaths:any[]=[]
 
   constructor(
     private congressService:CongressService,
@@ -61,7 +61,7 @@ congressImagespaths:any[]=[]
       this.toastrService.error("Formunuz hatalı", "Geçersiz form");
     } else {
       let congressModel = Object.assign({}, this.congressAddForm.value);
- 
+        
       this.congressService.add(congressModel).subscribe(congressAddSuccessResponse => {
         if (this.congressImagesFiles.length === 0) {  //Resim yok sadece kongre eklendi
           this.toastrService.success("Yeni kongre başarıyla eklendi", "İşlem başarılı");
@@ -72,8 +72,10 @@ congressImagespaths:any[]=[]
             this.toastrService.error("En fazla 5 resim yükleyebilirsiniz", "Kongre eklenmedi");
           } else {
             this.uploadAllImagesToServer(this.congressImagesFiles, congressAddSuccessResponse.data).then((unUploadFileList) => {
+              
               let unUploadedFiles: UploadFile[] = unUploadFileList;
               if (unUploadedFiles.length === 0) {
+               
                 this.toastrService.success("Yeni kongre ve resimleri başarıyla eklendi", "İşlem başarılı");
                 this.closeCongressAddModal();
               } else {
@@ -94,14 +96,14 @@ congressImagespaths:any[]=[]
     }
   }
 
-  private uploadAllImagesToServer(uploadFiles: UploadFile[], carId: number): Promise<UploadFile[]> {
+  private uploadAllImagesToServer(uploadFiles: UploadFile[], congressId: number): Promise<UploadFile[]> {
     return new Promise<UploadFile[]>((methodResolve) => {
       if (uploadFiles.length > 0) {
         let unUploadedFiles: UploadFile[] = []
         const allUploads = new Promise<void>(async (resolveAllUploads) => {
           let counter: number = 0;
           for (const file of uploadFiles) {
-            await this.uploadImageToServer(file, carId).then(fileStatus => {
+            await this.uploadImageToServer(file, congressId).then(fileStatus => {
               if (fileStatus.uploadStatus === false) {
                 unUploadedFiles.push(fileStatus);
               }
@@ -137,7 +139,7 @@ congressImagespaths:any[]=[]
 
   deleteImageFromCongressImagesList(selectedImage:UploadFile){
     this.congressImagesFiles.splice(this.congressImagesFiles.indexOf(selectedImage),1);
-    this.congressImagespaths.splice(this.congressImagespaths.indexOf(selectedImage),1);
+    this.congressImagesPaths.splice(this.congressImagesPaths.indexOf(selectedImage),1);
   }
 
   addCongressImagesToCongressImagesAndPathList(imageList: any) {
@@ -174,7 +176,7 @@ congressImagespaths:any[]=[]
           var reader = new FileReader();
           reader.readAsDataURL(image);
           reader.onload = (_event) => {
-            this.congressImagespaths.push(reader.result);
+            this.congressImagesPaths.push(reader.result);
             result(true);
           }
         } else {
