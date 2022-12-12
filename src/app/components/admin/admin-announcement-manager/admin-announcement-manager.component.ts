@@ -45,7 +45,7 @@ export class AdminAnnouncementManagerComponent implements OnInit {
   showAnnounceUpdateModal(announce:Announcement){
     const announceUpdateModal=this.dialog.open(AdminAnnouncementUpdateComponent,{
       disableClose:true,
-      width:'40%'
+      width:'50%'
     });
 
     announceUpdateModal.afterClosed().subscribe(result=>{
@@ -68,7 +68,7 @@ export class AdminAnnouncementManagerComponent implements OnInit {
   showAnnounceAddModal() {
     const announceAddModal = this.dialog.open(AdminAnnouncementAddComponent, {
       disableClose: true,
-      width: "40%",
+      width: "50%",
     });
 
     announceAddModal.afterClosed().subscribe(result => {

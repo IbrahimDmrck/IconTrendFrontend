@@ -69,7 +69,7 @@ export class AdminCongressManagerComponent implements OnInit {
   showCongressAddModal() {
     const congressAddModal = this.dialog.open(AdminCongressAddComponent, {
       disableClose: true,
-      width: "50%",
+      width: "90%",
     });
 
     congressAddModal.afterClosed().subscribe(result => {

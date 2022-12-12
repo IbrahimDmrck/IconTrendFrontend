@@ -12,22 +12,22 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-6">
-                                <div *ngIf="congressImagespaths.length>0" class="row">
+                                <div *ngIf="congressImagesPaths.length>0" class="row">
                                     <div id="AddCongressImagesCarousel" class="carousel carousel-dark slide"
                                         data-bs-ride="carousel">
                                         <div class="carousel-indicators">
-                                            <button *ngFor="let congressImage of congressImagespaths; let i = index" type="button"
+                                            <button *ngFor="let congressImage of congressImagesPaths; let i = index" type="button"
                                                 data-bs-target="#AddCongressImagesCarousel" attr.data-bs-slide-to="{{i}}"
                                                 class="{{(i == 0) ? 'active' : ''}}"
                                                 attr.aria-label="Slide {{i}}"></button>
                                         </div>
                                         <div class="carousel-inner">
-                                            <div *ngFor="let congressImage of congressImagespaths; let i = index"
+                                            <div *ngFor="let congressImage of congressImagesPaths; let i = index"
                                                 class="{{(i == 0) ? 'carousel-item active' : 'carousel-item' }}">
                                                 <img [src]="congressImage" height="200" alt="image not found">
                                             </div>
                                         </div>
-                                        <div *ngIf="congressImagespaths.length>1">
+                                        <div *ngIf="congressImagesPaths.length>1">
                                             <button class="carousel-control-prev" type="button"
                                                 data-bs-target="#AddCongressImagesCarousel" data-bs-slide="prev">
                                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -41,7 +41,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div *ngIf="congressImagespaths.length===0">
+                                <div *ngIf="congressImagesPaths.length===0">
                                     <img src="" height="200" alt="image not found">
                                 </div>
                                 <div class="row mt-2 ms-2">
@@ -81,7 +81,7 @@
                                             <label for="congressPresidentId">Kongre Başkanı:</label>
                                         </div>
                                         <div class="col-md-9">
-                                            <select class="form-select"  formControlName="congressPresidentId">
+                                            <select class="form-select" id="congressPresidentId"  formControlName="congressPresidentId">
                                                 <option value="" selected disabled hidden>Kongre Başkanı seçiniz</option>
                                                 <option *ngFor="let congressPresident of congressPresidents" [value]="congressPresident.id">
                                                     {{congressPresident.congressPresidentName}}
@@ -111,7 +111,7 @@
                                             <label for="scienceBoardId" class="text-nowrap" >Bilim Kurulu:</label>
                                         </div>
                                         <div class="col-md-8">
-                                            <select class="form-select" formControlName="scienceBoardId">
+                                            <select class="form-select" id="scienceBoardId" formControlName="scienceBoardId">
                                                 <option value="" selected disabled hidden>Bilim kurulunu seçiniz</option>
                                                 <option *ngFor="let scienceBoard of scienceBoards" [value]="scienceBoard.id">
                                                     {{scienceBoard.scienceBoardMemberName}}
@@ -122,6 +122,79 @@
                                 </div>
                             </div>
                             <div class="row mt-3">
+                                <div class="col-md-4">
+                                    <div class="form-group row align-items-center">
+                                        <div class="col-md-3 text-center">
+                                            <label for="topicId">Kongre Konusu:</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <select class="form-select" id="topicId"  formControlName="topicId">
+                                                <option value="" selected disabled hidden>Kongre Konusu seçiniz</option>
+                                                <option *ngFor="let topic of topics" [value]="topic.id">
+                                                    {{topic.topicName}}
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group row align-items-center">
+                                        <div class="col-md-3 text-center">
+                                            <label for="congressName">Kongre Adı :</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <div class="col-md-8">
+                                                <input type="text" id="congressName" formControlName="congressName"
+                                                    class="form-control float-end" placeholder="Kongre Adı" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group row align-items-center">
+                                        <div class="col-md-4">
+                                            <label for="congressCity" class="text-nowrap">kongre Şehri:</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="text" id="congressCity" formControlName="congressCity"
+                                                class="form-control float-end" placeholder="Kongre Şehri" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group row align-items-center">
+                                        <div class="col-md-4">
+                                            <label for="congressPlace" class="text-nowrap">kongre Adresi:</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="text" id="congressPlace" formControlName="congressPlace"
+                                                class="form-control float-end" placeholder="Kongre Adresi" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="margin-left: 20px;" class="col-md-6 mt-3">
+                                    <div class="form-group row align-items-center">
+                                        <div class="form-group row align-items-center">
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked formControlName="congressStatus">
+                                                <label class="form-check-label" for="flexSwitchCheckChecked"><b>Durum --> Aktif / Pasif</b></label>
+                                              </div>
+                                        </div>
+                                    </div>
+                                </div> 
+                                <div class="col-md-5">
+                                    <div class="form-group row align-items-center">
+                                        <div class="col-md-4">
+                                            <label for="congressDate" class="text-nowrap">Kongre Tarihi:</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="datetime-local" id="congressDate" formControlName="congressDate"
+                                                class="form-control float-end"  />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                             <!-- <div class="row mt-3">
                                 <div class="col-md-6">
                                     <div class="form-group row align-items-center">
                                         <div class="col-md-3 text-center">
@@ -170,7 +243,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- <div class="col-md-6">
+                                <div class="col-md-6">
                                     <div class="form-group row align-items-center">
                                         <div class="col-md-4">
                                             <label for="congressStatus" class="text-nowrap">Durum:</label>
@@ -180,9 +253,9 @@
                                                 class="form-control float-end" />
                                         </div>
                                     </div>
-                                </div> -->
+                                </div> 
                                 
-                            </div>
+                            </div>  -->
                             <div class="row mt-3 align-items-end">
                                 <div class="form-group row align-items-center">
                                     <div class="col-md-2">

@@ -9,6 +9,7 @@ export interface Congress{
     congressCity:string;
     congressPlace:string;
     congressDate:Date;
+    congressStatus:boolean;
     topicId:number;
     topicName:string;
     scienceBoardId:number;

@@ -41,7 +41,7 @@ uploadImagesPaths:any[]=[];
       this.toastrService.error("Formunuz hatalı", "Geçersiz form")
     } else {
       let announceUpdateModel = Object.assign({}, this.announceUpdateForm.value);
-      announceUpdateModel.Id = this.currentAnnounce.id;
+      announceUpdateModel.id = this.currentAnnounce.id;
       let deletedImages = this.currentAnnounce.announceImages.filter(image => image.id != -1 && this.announceImages.indexOf(image) == -1)
       let announceInfoChanged: boolean = this.checkIfAnnounceObjectChanged(announceUpdateModel, this.currentAnnounce);
       let announceImagesChanged: boolean = this.checkIfAnnounceImagesChanged(this.uploadFiles, deletedImages)
@@ -76,7 +76,8 @@ uploadImagesPaths:any[]=[];
   private checkIfAnnounceObjectChanged(newAnnounceObject: any, oldAnnounceObject: Announcement,) {
     return !(newAnnounceObject.announceTitle == oldAnnounceObject.announceTitle &&
       newAnnounceObject.announceContent==oldAnnounceObject.announceContent &&
-      newAnnounceObject.announceDate==oldAnnounceObject.announceDate
+      newAnnounceObject.announceDate==oldAnnounceObject.announceDate &&
+      newAnnounceObject.announceStatus==oldAnnounceObject.announceStatus
      )
   }
 
@@ -271,8 +272,8 @@ uploadImagesPaths:any[]=[];
       if (keyErrors != null) {
         let errorList = Object.keys(keyErrors);
         if (errorList.indexOf("required") != -1) {
-          let car = Object.entries(this.currentAnnounce);
-          car.forEach(entries => {
+          let announce = Object.entries(this.currentAnnounce);
+          announce.forEach(entries => {
             if (entries[0] == key) {
               this.announceUpdateForm.get(key)?.setValue(entries[1])
             }

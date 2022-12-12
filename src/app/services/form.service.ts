@@ -1,19 +1,20 @@
 import { Injectable } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FormService {
-
+  datetime= new Date();
+  status:boolean;
   constructor(private formBuilder:FormBuilder) { }
-
+  
   createAnnounceForm():FormGroup{
     return this.formBuilder.group({
       announceTitle:["",[Validators.required,Validators.minLength(2),Validators.maxLength(200)]],
       announceContent:["",[Validators.required,Validators.minLength(3)]],
-     //  announceStatus:[ "",[Validators.required]],
-    //   announceDate:["",[Validators.required]]
+       announceStatus:["",[Validators.required]],
+       announceDate:new FormControl(this.datetime.toISOString().substring(0, 16)),
     });
   }
 
@@ -24,8 +25,8 @@ export class FormService {
       congressAbout:["",[Validators.required,Validators.minLength(50)]],
       congressCity:["",[Validators.required,Validators.minLength(3)]],
       congressPlace:["",[Validators.required,Validators.minLength(3)]],
-     // congressStatus:["",[Validators.required]],
-     // congressDate:["",[Validators.required]],
+      congressStatus:["",[Validators.required]],
+      congressDate:new FormControl(this.datetime.toISOString().substring(0, 16)),
       regulatoryBoardId:["",[Validators.required,Validators.pattern("^[0-9]*$"),Validators.min(1)]],
       scienceBoardId:["",[Validators.required,Validators.pattern("^[0-9]*$"),Validators.min(1)]],
       topicId:["",[Validators.required,Validators.pattern("^[0-9]*$"),Validators.min(1)]],
