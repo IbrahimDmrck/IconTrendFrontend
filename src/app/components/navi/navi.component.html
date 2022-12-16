@@ -35,8 +35,8 @@
     </div>
     <div class="me-3">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <div class="me-3">
-          <!-- <app-cart-summary></app-cart-summary> -->
+        <div class="me-3" *ngIf="isAdmin">
+          <button routerLink="/admin/contact/manager" class="btn btn-warning">Mesajlar</button>
         </div>
 
         <div *ngIf="!(isLoggedIn | async)">

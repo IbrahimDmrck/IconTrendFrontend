@@ -1,8 +1,7 @@
-<div *ngIf=" congressPresidents && regulatoryBoards && scienceBoards && topics " class="card">
+<div *ngIf="congressPresidents && regulatoryBoards && scienceBoards && topics" class="card">
     <div class="card-header">
-
         <div class="d-flex justify-content-between">
-            <h5>Kongre ekle</h5>
+            <h5>Araç ekle</h5>
         </div>
     </div>
     <div class="card-body">
@@ -17,7 +16,7 @@
                                         data-bs-ride="carousel">
                                         <div class="carousel-indicators">
                                             <button *ngFor="let congressImage of congressImagesPaths; let i = index" type="button"
-                                                data-bs-target="#AddCongressImagesCarousel" attr.data-bs-slide-to="{{i}}"
+                                                data-bs-target="#AddCarImagesCarousel" attr.data-bs-slide-to="{{i}}"
                                                 class="{{(i == 0) ? 'active' : ''}}"
                                                 attr.aria-label="Slide {{i}}"></button>
                                         </div>
@@ -45,7 +44,7 @@
                                     <img src="" height="200" alt="image not found">
                                 </div>
                                 <div class="row mt-2 ms-2">
-                                    <input #file class="form-control" type="file" id="congressImagesFiles" accept="image/*"
+                                    <input #file class="form-control" type="file" id="carImagesFiles" accept="image/*"
                                         (change)="addCongressImagesToCongressImagesAndPathList(file.files)">
                                 </div>
                             </div>
@@ -81,8 +80,8 @@
                                             <label for="congressPresidentId">Kongre Başkanı:</label>
                                         </div>
                                         <div class="col-md-9">
-                                            <select class="form-select" id="congressPresidentId"  formControlName="congressPresidentId">
-                                                <option value="" selected disabled hidden>Kongre Başkanı seçiniz</option>
+                                            <select class="form-select" id="congressPresidentId" formControlName="congressPresidentId">
+                                                <option value="" selected disabled hidden>Başkan seçiniz</option>
                                                 <option *ngFor="let congressPresident of congressPresidents" [value]="congressPresident.id">
                                                     {{congressPresident.congressPresidentName}}
                                                 </option>
@@ -194,68 +193,6 @@
                                     </div>
                                 </div>
                             </div>
-                             <!-- <div class="row mt-3">
-                                <div class="col-md-6">
-                                    <div class="form-group row align-items-center">
-                                        <div class="col-md-3 text-center">
-                                            <label for="topicId">Konu:</label>
-                                        </div>
-                                        <div class="col-md-9">
-                                            <select class="form-select" formControlName="topicId">
-                                                <option value="" selected disabled hidden>Konu seçiniz</option>
-                                                <option *ngFor="let topic of topics" [value]="topic.id">
-                                                    {{topic.topicName}}
-                                                </option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group row align-items-center">
-                                        <div class="col-md-4">
-                                            <label for="congressName" class="text-nowrap">kongre Adı:</label>
-                                        </div>
-                                        <div class="col-md-8">
-                                            <input type="text" id="congressName" formControlName="congressName"
-                                                class="form-control float-end" placeholder="Kongre Adı" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group row align-items-center">
-                                        <div class="col-md-4">
-                                            <label for="congressCity" class="text-nowrap">kongre Şehri:</label>
-                                        </div>
-                                        <div class="col-md-8">
-                                            <input type="text" id="congressCity" formControlName="congressCity"
-                                                class="form-control float-end" placeholder="Kongre Şehri" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group row align-items-center">
-                                        <div class="col-md-4">
-                                            <label for="congressPlace" class="text-nowrap">kongre yeri:</label>
-                                        </div>
-                                        <div class="col-md-8">
-                                            <input type="text" id="congressPlace" formControlName="congressPlace"
-                                                class="form-control float-end" placeholder="Kongre Yeri" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group row align-items-center">
-                                        <div class="col-md-4">
-                                            <label for="congressStatus" class="text-nowrap">Durum:</label>
-                                        </div>
-                                        <div class="col-md-8">
-                                            <input type="text" id="congressStatus" formControlName="congressStatus"
-                                                class="form-control float-end" />
-                                        </div>
-                                    </div>
-                                </div> 
-                                
-                            </div>  -->
                             <div class="row mt-3 align-items-end">
                                 <div class="form-group row align-items-center">
                                     <div class="col-md-2">

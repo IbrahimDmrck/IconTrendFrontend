@@ -1,0 +1,25 @@
+<div *ngIf="DataLoadded == false" class="spinner-border text-success" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+<h3 style="margin-top: 70px;" class="text-center bg-success text-white">Konular</h3>
+
+
+  <table style="border-radius:10px;"  id="contact"  *ngIf="DataLoadded == true" class="table table-hover bg-dark text-white text-center">
+    <thead style="font-weight: bolder;text-decoration:underline;" >
+        <tr>
+            <th>ID</th>
+            <th>Ad-Soyad</th>
+            <th>E-posta</th>
+            <th>Mesaj</th>
+        </tr>
+    </thead>
+    <tbody> 
+        <tr *ngFor="let contact of contacts">
+            <td>{{contact.id}}</td>
+            <td>{{contact.nameSurname}}</td>
+            <td>{{contact.email}}</td>
+            <td>{{contact.message}}</td>
+            <td><button  type="button" class="btn btn-sm btn-outline-success">Mesajı Gör</button> | <button (click)="showContactDeleteModal(contact)" type="button" class="btn btn-sm btn-outline-danger">Sil</button></td>
+        </tr>
+    </tbody>
+  </table>

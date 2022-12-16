@@ -1,0 +1,21 @@
+<div  *ngIf="deletedContact" class="card">
+    <div class="card-header">
+        <div class="d-flex justify-content-between">
+            <h5>Gönderen --> {{deletedContact.nameSurname}}</h5>
+        </div>
+
+    </div>
+     <div class="card-body">
+        <strong>{{deletedContact.id}}</strong> id değerine sahip  
+        <strong>{{deletedContact.email}}</strong>
+        <div class="alert alert-success">{{deletedContact.message}}</div>
+        <p>Mesajı Silemk istediğinizden Emin misiniz ?</p>
+        <div class="row mt-3">
+            <div class="d-flex justify-content-end">
+                <button (click)="delete(deletedContact)" type="button" class="btn btn-success me-2">Sil</button>
+                <button (click)="closeContactDeleteModal()" type="button" class="btn btn-danger">İptal</button>
+            </div>
+        </div>
+    </div>
+</div> 
+

@@ -9,6 +9,14 @@ export class FormService {
   status:boolean;
   constructor(private formBuilder:FormBuilder) { }
   
+createContactForm():FormGroup{
+  return this.formBuilder.group({
+    nameSurname:["",[Validators.required,Validators.minLength(2),Validators.maxLength(50)]],
+    email:["",[Validators.required,Validators.email]],
+    message:["",[Validators.required,Validators.minLength(10),Validators.maxLength(200)]]
+  })
+}
+
   createAnnounceForm():FormGroup{
     return this.formBuilder.group({
       announceTitle:["",[Validators.required,Validators.minLength(2),Validators.maxLength(200)]],

@@ -4,7 +4,7 @@
 
 <app-announcement></app-announcement>
 
-<div  class="container-fluid" id="baslik">Geçmiş Kongrelerimiz...</div>
+<!-- <div  class="container-fluid" id="baslik">Geçmiş Kongrelerimiz...</div>
 <div *ngIf="congressDataLoaded==true" class="container-fluid" style="margin-top: 20px;">
  <div id="pastCongress" class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
   <div class="col"  *ngFor="let congress of congress ">
@@ -20,7 +20,20 @@
     </div>
   </div>
   </div>
-</div>
+</div> -->
 
 
-
+<section style="background-color: whitesmoke;" *ngIf="congressDataLoaded==true" class="cards-wrapper">
+  <div *ngFor="let congress of congress " class="card-grid-space">
+    <a class="card" href="" routerLink="/congress-details/{{congress.congressId}}" style="--bg-img: url('https://images1-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&resize_w=1500&url=https://codetheweb.blog/assets/img/posts/basic-types-of-html-tags/cover.jpg')">
+      <div>
+        <h1>{{congress.congressName}}</h1>
+        <p>{{congress.congressAbout.substring(0,100)}}</p>
+        <div class="date">{{congress.congressDate.toString().substring(0,10)}}</div>
+        <div class="tags">
+          <div class="tag">İncele</div>
+        </div>
+      </div>
+    </a>
+  </div> 
+</section>

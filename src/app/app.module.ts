@@ -61,6 +61,10 @@ import { AdminUserManagerComponent } from './components/admin/admin-user-manager
 import { AdminUserAddComponent } from './components/admin/admin-user-add/admin-user-add.component';
 import { AdminUserDeleteComponent } from './components/admin/admin-user-delete/admin-user-delete.component';
 import { AdminUserUpdateComponent } from './components/admin/admin-user-update/admin-user-update.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { AdminContactDeleteComponent } from './components/admin/admin-contact-delete/admin-contact-delete.component';
+import { AdminContactManagerComponent } from './components/admin/admin-contact-manager/admin-contact-manager.component';
+import { AdminShowContactComponent } from './components/admin/admin-show-contact/admin-show-contact.component';
 
 
 
@@ -117,6 +121,10 @@ import { AdminUserUpdateComponent } from './components/admin/admin-user-update/a
     AdminUserAddComponent,
     AdminUserDeleteComponent,
     AdminUserUpdateComponent,
+    ContactComponent,
+    AdminContactDeleteComponent,
+    AdminContactManagerComponent,
+    AdminShowContactComponent,
   
   ],
   imports: [

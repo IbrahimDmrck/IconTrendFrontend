@@ -1,15 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { async } from '@angular/core/testing';
 import { FormGroup } from '@angular/forms';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatDialogRef } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
-import { Announcement } from 'src/app/models/entities/announcement';
 import { CongressPresident } from 'src/app/models/entities/congress-president';
 import { RegulatoryBoard } from 'src/app/models/entities/regulatory-board';
 import { ScienceBoard } from 'src/app/models/entities/science-board';
 import { Topic } from 'src/app/models/entities/topic';
 import { UploadFile } from 'src/app/models/uploadFile';
-import { AnnouncementService } from 'src/app/services/announcement.service';
 import { CongressImageService } from 'src/app/services/congress-image.service';
 import { CongressPresidentService } from 'src/app/services/congress-president.service';
 import { CongressService } from 'src/app/services/congress.service';
@@ -18,7 +15,7 @@ import { FormService } from 'src/app/services/form.service';
 import { RegulatoryBoardService } from 'src/app/services/regulatory-board.service';
 import { ScienceBoardService } from 'src/app/services/science-board.service';
 import { TopicService } from 'src/app/services/topic.service';
-
+ 
 @Component({
   selector: 'app-admin-congress-add',
   templateUrl: './admin-congress-add.component.html',
@@ -48,11 +45,11 @@ congressImagesPaths:any[]=[]
   ) { }
 
   ngOnInit(): void {
+    this.createcongressAddForm();
     this.getCongressPresident();
     this.getRegulatoryBoard();
     this.getScienceBoard();
     this.getTopics();
-    this.createcongressAddForm();
   }
 
 
@@ -61,10 +58,10 @@ congressImagesPaths:any[]=[]
       this.toastrService.error("Formunuz hatalı", "Geçersiz form");
     } else {
       let congressModel = Object.assign({}, this.congressAddForm.value);
-        
+      //Add Congress to Server
       this.congressService.add(congressModel).subscribe(congressAddSuccessResponse => {
-        if (this.congressImagesFiles.length === 0) {  //Resim yok sadece kongre eklendi
-          this.toastrService.success("Yeni kongre başarıyla eklendi", "İşlem başarılı");
+        if (this.congressImagesFiles.length === 0) {  
+          this.toastrService.success("Yeni Kongre başarıyla eklendi", "İşlem başarılı");
           this.closeCongressAddModal();
         }
         else {  
@@ -72,11 +69,9 @@ congressImagesPaths:any[]=[]
             this.toastrService.error("En fazla 5 resim yükleyebilirsiniz", "Kongre eklenmedi");
           } else {
             this.uploadAllImagesToServer(this.congressImagesFiles, congressAddSuccessResponse.data).then((unUploadFileList) => {
-              
               let unUploadedFiles: UploadFile[] = unUploadFileList;
               if (unUploadedFiles.length === 0) {
-               
-                this.toastrService.success("Yeni kongre ve resimleri başarıyla eklendi", "İşlem başarılı");
+                this.toastrService.success("Yeni Kongre ve resimleri başarıyla eklendi", "İşlem başarılı");
                 this.closeCongressAddModal();
               } else {
                 let failFileNameMessage: string = ""
@@ -87,7 +82,6 @@ congressImagesPaths:any[]=[]
                 this.closeCongressAddModal();
               }
             })
-
           }
         }
       }, errorResponse => {
@@ -125,19 +119,19 @@ congressImagesPaths:any[]=[]
     })
   }
 
-  private uploadImageToServer(uploadFile: UploadFile, congrssId: number): Promise<UploadFile> {
+  private uploadImageToServer(uploadFile: UploadFile, congressId: number): Promise<UploadFile> {
     return new Promise<UploadFile>((result) => {
-      this.congressImageService.uploadImage(uploadFile.file, congrssId).subscribe((uploadSuccess) => {
+      this.congressImageService.uploadImage(uploadFile.file, congressId).subscribe((uploadSuccess) => {
         uploadFile.uploadStatus = true;
         result(uploadFile);
-      }, (uploadFail) => {
+      }, (_uploadFail) => {
         uploadFile.uploadStatus = false;
         result(uploadFile);
       })
     })
   }
 
-  deleteImageFromCongressImagesList(selectedImage:UploadFile){
+  deleteImageFromCongressImagesList(selectedImage: UploadFile){
     this.congressImagesFiles.splice(this.congressImagesFiles.indexOf(selectedImage),1);
     this.congressImagesPaths.splice(this.congressImagesPaths.indexOf(selectedImage),1);
   }
@@ -169,7 +163,7 @@ congressImagesPaths:any[]=[]
   }
 
 
-  private addCongressImageToCongressImagesPaths(image: any): Promise<boolean> {
+  private addCongressImageToCongressImagesPaths(image: any): Promise<boolean> { 
     return new Promise<boolean>((result) => {
       this.checkFileMimeType(image).then((successStatus) => {
         if (successStatus) {
