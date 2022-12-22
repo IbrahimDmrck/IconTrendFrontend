@@ -28,16 +28,16 @@ createContactForm():FormGroup{
 
   createCongressForm():FormGroup{
     return this.formBuilder.group({
-      congressPresidentId:["",[Validators.required,Validators.pattern("^[0-9]*$"),Validators.min(1)]],
+      congressPresidentName:["",[Validators.required,Validators.min(1)]],
       congressName:["",[Validators.required,Validators.minLength(3)]],
-      congressAbout:["",[Validators.required,Validators.minLength(50)]],
-      congressCity:["",[Validators.required,Validators.minLength(3)]],
-      congressPlace:["",[Validators.required,Validators.minLength(3)]],
+      congressAbout:["",[Validators.required]],
+      congressAdress:["",[Validators.required,Validators.minLength(3)]],
       congressStatus:["",[Validators.required]],
       congressDate:new FormControl(this.datetime.toISOString().substring(0, 16)),
-      regulatoryBoardId:["",[Validators.required,Validators.pattern("^[0-9]*$"),Validators.min(1)]],
-      scienceBoardId:["",[Validators.required,Validators.pattern("^[0-9]*$"),Validators.min(1)]],
-      topicId:["",[Validators.required,Validators.pattern("^[0-9]*$"),Validators.min(1)]],
+      regulatoryBoard:["",[Validators.required,Validators.min(1)]],
+      scienceBoard:["",[Validators.required,Validators.min(1)]],
+      topic:["",[Validators.required,Validators.min(1)]],
+      univercity:["",[Validators.required]]
     });
   } 
 
@@ -74,10 +74,23 @@ createContactForm():FormGroup{
 
   createTransportLayoverForm():FormGroup{
     return this.formBuilder.group({
-      capacity:["",[Validators.required,Validators.pattern("^[0-9]*$"),Validators.min(1)]],
+      capacity:["",[Validators.required,Validators.min(1)]],
       minDemand:["",[Validators.required,Validators.minLength(2)]],
       description:["",[Validators.required,Validators.minLength(5)]],
-      Price: ["", [Validators.required, Validators.pattern("^[0-9]*$"), Validators.min(1)]],
+      Price: ["", [Validators.required, Validators.min(1)]],
     });
   }
+ 
+  createKongreForm():FormGroup{
+    return this.formBuilder.group({
+      kongreBaskani:["",[Validators.required,Validators.min(1)]],
+      kongreAdi:["",[Validators.required,Validators.minLength(3)]],
+      kongreHakkinda:["",[Validators.required,Validators.minLength(50)]],
+      kongreAdresi:["",[Validators.required,Validators.minLength(3)]],
+      kongreDuzenlemeKurulu:["",[Validators.required]],
+      kongreTarihi:new FormControl(this.datetime.toISOString().substring(0, 16)),
+      bilimKurulu:["",[Validators.required,Validators.min(1)]],
+      kongreKonusu:["",[Validators.required,Validators.min(1)]],
+    });
+  } 
 }

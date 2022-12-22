@@ -17,9 +17,18 @@
             <td>{{announcement.id}}</td>
             <td>{{announcement.announceTitle}}</td>
             <td>{{announcement.announceContent.substring(0,50)}}...</td>
-            <td *ngIf="announcement.announceStatus==true">Güncel Duyuru</td>
-            <td *ngIf="announcement.announceStatus==false">Geçmiş Duyuru</td>
+            <td *ngIf="announcement.announceStatus==true">Güncel Duyurular</td>
+            <td *ngIf="announcement.announceStatus==false">Geçmiş Duyurular</td>
             <td>{{announcement.announceDate.toString().substring(0,10)}}</td>
         </tr>
     </tbody>
   </table>
+  <!-- <div id="announce" class="container" >
+    <div class="row">
+        <div><h3 style="text-decoration: underline;">Güncel Duyurular</h3></div>
+        <div class="container"  *ngFor="let announcement of announcements">
+           <h4> {{announcement.announceDate.toString().substring(0,10)}} -- {{announcement.announceTitle}}</h4> 
+           {{announcement.announceContent}}
+        </div>
+    </div>
+  </div> -->

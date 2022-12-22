@@ -65,6 +65,12 @@ import { ContactComponent } from './components/contact/contact.component';
 import { AdminContactDeleteComponent } from './components/admin/admin-contact-delete/admin-contact-delete.component';
 import { AdminContactManagerComponent } from './components/admin/admin-contact-manager/admin-contact-manager.component';
 import { AdminShowContactComponent } from './components/admin/admin-show-contact/admin-show-contact.component';
+import { KongreComponent } from './components/kongre/kongre.component';
+import { KongreImageComponent } from './components/kongre-image/kongre-image.component';
+import { AdminKongreManagerComponent } from './components/admin/admin-kongre-manager/admin-kongre-manager.component';
+import { AdminKongreAddComponent } from './components/admin/admin-kongre-add/admin-kongre-add.component';
+import { AdminKongreDeleteComponent } from './components/admin/admin-kongre-delete/admin-kongre-delete.component';
+import { AdminKongreUpdateComponent } from './components/admin/admin-kongre-update/admin-kongre-update.component';
 
 
 
@@ -125,6 +131,12 @@ import { AdminShowContactComponent } from './components/admin/admin-show-contact
     AdminContactDeleteComponent,
     AdminContactManagerComponent,
     AdminShowContactComponent,
+    KongreComponent,
+    KongreImageComponent,
+    AdminKongreManagerComponent,
+    AdminKongreAddComponent,
+    AdminKongreDeleteComponent,
+    AdminKongreUpdateComponent,
   
   ],
   imports: [

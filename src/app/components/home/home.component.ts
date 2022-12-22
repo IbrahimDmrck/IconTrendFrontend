@@ -3,12 +3,14 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Announcement } from 'src/app/models/entities/announcement';
 import { Congress } from 'src/app/models/entities/congress';
 import { CongressDetailDto } from 'src/app/models/entities/congressDetailDTos';
+import { Kongre } from 'src/app/models/entities/kongre';
 import { ScienceBoard } from 'src/app/models/entities/science-board';
 import { Topic } from 'src/app/models/entities/topic';
 import { AnnouncementService } from 'src/app/services/announcement.service';
 import { CongressDetailsService } from 'src/app/services/congress-details.service';
 import { CongressImageService } from 'src/app/services/congress-image.service';
 import { CongressService } from 'src/app/services/congress.service';
+import { KongreService } from 'src/app/services/kongre.service';
 import { ScienceBoardService } from 'src/app/services/science-board.service';
 import { TopicService } from 'src/app/services/topic.service';
 
@@ -20,7 +22,7 @@ import { TopicService } from 'src/app/services/topic.service';
 export class HomeComponent implements OnInit {
 congressDetailDtos:CongressDetailDto[];
 
-  congress:Congress[];
+  kongres:Kongre[];
   scienceBoard:ScienceBoard[];
 
   congressDataLoaded:boolean=false;
@@ -32,7 +34,7 @@ congressDetailDtos:CongressDetailDto[];
   routerLink:string="";
 
   constructor(
-    private congressService:CongressService,
+    private kongresService:KongreService,
     private scienceBoardService:ScienceBoardService,
     private congressImageService:CongressImageService,
     private router:Router
@@ -45,8 +47,8 @@ congressDetailDtos:CongressDetailDto[];
 
 
   getCongress() {
-    this.congressService.getCongress().subscribe(response=>{
-      this.congress = response.data
+    this.kongresService.getKongre().subscribe(response=>{
+      this.kongres = response.data
       this.congressDataLoaded = true;
     })   
   }

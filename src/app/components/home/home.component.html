@@ -24,12 +24,12 @@
 
 
 <section style="background-color: whitesmoke;" *ngIf="congressDataLoaded==true" class="cards-wrapper">
-  <div *ngFor="let congress of congress " class="card-grid-space">
-    <a class="card" href="" routerLink="/congress-details/{{congress.congressId}}" style="--bg-img: url('https://images1-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&resize_w=1500&url=https://codetheweb.blog/assets/img/posts/basic-types-of-html-tags/cover.jpg')">
+  <div *ngFor="let congress of kongres " class="card-grid-space">
+    <a class="card" href="" routerLink="/congress-details/{{congress.kongreId}}" style="--bg-img: url('https://images1-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&resize_w=1500&url=https://codetheweb.blog/assets/img/posts/basic-types-of-html-tags/cover.jpg')">
       <div>
-        <h1>{{congress.congressName}}</h1>
-        <p>{{congress.congressAbout.substring(0,100)}}</p>
-        <div class="date">{{congress.congressDate.toString().substring(0,10)}}</div>
+        <h1>{{congress.kongreAdi}}</h1>
+        <p>{{congress.kongreHakkinda.substring(0,100)}}</p>
+        <div class="date">{{congress.kongreTarihi.toString().substring(0,10)}}</div>
         <div class="tags">
           <div class="tag">İncele</div>
         </div>

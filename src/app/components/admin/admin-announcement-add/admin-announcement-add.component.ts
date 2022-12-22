@@ -32,7 +32,7 @@ export class AdminAnnouncementAddComponent implements OnInit {
   ngOnInit(): void {
     this.createAnnounceAddForm();
   }
-
+ 
   add() {
     if (!this.announceAddForm.valid) {
       this.toastrService.error("Formunuz hatalı", "Geçersiz form");

@@ -12,30 +12,30 @@
     <div class="carousel-inner">
       <div class="carousel-item active">
       
-        <img width="100%"height="450px" class="rounded-3"  [src]="getImagePath(currentCongress.congressImages[0].imagePath)" >
+        <img width="100%"height="450px" class="rounded-3"  [src]="getImagePath(currentCongress.kongreImages[0].imagePath)" >
         <div class="container rounded-3">
           <div class="carousel-caption text-start">
-            <h1>{{currentCongress.congressName}}</h1>
+            <h1>{{currentCongress.kongreAdi}}</h1>
             <p><a class="btn btn-lg btn-primary">Daha Fazla</a></p>
           </div>
         </div>
       </div>
       <div class="carousel-item">
-        <img width="100%" height="450px" class="rounded-3"  [src]="getImagePath(currentCongress.congressImages[0].imagePath)" >
+        <img width="100%" height="450px" class="rounded-3"  [src]="getImagePath(currentCongress.kongreImages[0].imagePath)" >
 
         <div class="container rounded-3">
           <div class="carousel-caption">
-            <h1>{{currentCongress.congressName}}</h1>
+            <h1>{{currentCongress.kongreAdi}}</h1>
             <p><a class="btn btn-lg btn-primary">Learn more</a></p>
           </div>
         </div>
       </div>
       <div class="carousel-item">
-        <img width="100%" height="450px" class="rounded-3"  [src]="getImagePath(currentCongress.congressImages[0].imagePath)" >
+        <img width="100%" height="450px" class="rounded-3"  [src]="getImagePath(currentCongress.kongreImages[0].imagePath)" >
 
         <div class="container rounded-3" >
           <div class="carousel-caption text-end">
-            <h1>{{currentCongress.congressName}}</h1>
+            <h1>{{currentCongress.kongreAdi}}</h1>
             <p><a class="btn btn-lg btn-primary" >Browse gallery</a></p>
           </div>
         </div>
@@ -55,27 +55,25 @@
 
   <div  class="container-fluid" *ngIf=" currentCongress">
     <div id="contentCongress">
-        <p ><h4 id="congressTitle">Kongre Adı-{{currentCongress.congressName}}</h4><p>
+        <p ><h4 id="congressTitle">Kongre Adı-{{currentCongress.kongreAdi}}</h4><p>
         <div>
-            {{currentCongress.congressAbout}}
+            {{currentCongress.kongreHakkinda}}
         </div>
     </div>
     
     <div id="informations">
-      <p ><h4 id="congressTitle">Konger Başkanı - {{currentCongress.congressPresidentName}}</h4><p>
+      <p ><h4 id="congressTitle">Konger Başkanı - {{currentCongress.kongreBaskani}}</h4><p>
      
       <p ><h4 id="congressTitle">Düzenleme Kurulu</h4><p>
        <table class="table table-hover">
           <thead>
               <tr>
                   <th>Üye Adı</th>
-                  <th>Üye Okulu</th>
               </tr>
           </thead>
           <tbody>
             <tr>
-              <td>{{currentCongress.regulatoryBoardMemberName}}</td>
-              <td>{{currentCongress.regulatoryBoardMemberUnivercity}}</td>
+              <td>{{currentCongress.kongreDuzenlemeKurulu}}</td>
             </tr>
           </tbody>
       </table> 
@@ -85,13 +83,11 @@
           <thead>
               <tr>
                   <th class="text-center">Üye Adı</th>
-                  <th>Üye Okulu</th>
               </tr>
           </thead>
           <tbody >
             <tr>
-              <td>{{currentCongress.scienceBoardMemberName}}</td>
-              <td>{{currentCongress.scienceBoardMemberUnivercity}}</td>
+              <td>{{currentCongress.bilimKurulu}}</td>
             </tr>
           </tbody>
       </table>
@@ -100,7 +96,7 @@
 
 
     <p><h4 id="congressTitle">Kongre Yeri Ve Zamanı</h4> <p></p>
-    <div id="address">{{currentCongress.congressDate.toString().substring(0,10)}}  ||  {{currentCongress.congressCity}} || {{currentCongress.congressPlace}} - Saat {{currentCongress.congressDate.toString().substring(11,16)}}</div>
+    <div id="address">{{currentCongress.kongreTarihi.toString().substring(0,10)}}  ||  {{currentCongress.kongreAdresi}} ||  Saat {{currentCongress.kongreTarihi.toString().substring(11,16)}}</div>
   </div>
   
 

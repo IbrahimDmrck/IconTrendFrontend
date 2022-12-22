@@ -1,0 +1,40 @@
+<p>admin-kongre-manager works!</p>
+<div *ngIf="kongreDataLoad == false" class="spinner-border text-success" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+
+  <h3 style="margin-top: 70px;background-color:indianred;" class="text-center ">KONGRELER</h3>
+
+
+  <table *ngIf="kongreDataLoad == true"  style="border-radius:10px;" class="table table-hover bg-dark text-white text-center">
+    <thead  style="font-weight: bolder;text-decoration:underline;">
+        <tr>
+            <th scope="">ID</th>
+            <th scope="">kongre adı</th>
+            <th scope="">kongre başkanı</th>
+            <th scope="">Düzenleme Kurulu</th>
+            <th scope="">Bilim Kurulu</th>
+            <th scope="">konu</th>
+            <th scope="">Adres</th>
+            <th scope="">kongre tarihi</th> 
+            <th><button (click)="showKongreAddModal()" type="button" class="btn btn-outline-success" >kongre Ekle</button></th>  
+        </tr>
+    </thead>
+    <tbody> 
+        <tr *ngFor="let kongre of kongres">
+            <td>{{kongre.kongreId}}</td>
+            <td>{{kongre.kongreAdi}}</td>
+            <td>{{kongre.kongreBaskani}}</td>
+            <td>{{kongre.kongreDuzenlemeKurulu.substring(0,10)}}</td>
+            <td>{{kongre.bilimKurulu.substring(0,10)}}</td>
+            <td>{{kongre.kongreKonusu.substring(0,10)}}</td>
+            <td>{{kongre.kongreAdresi}}</td>
+            <td>{{kongre.kongreTarihi.toString().substring(0,10)}}</td>
+           
+           <!-- <td ><img width="100%" height="50px" class="rounded-3"  [src]="getImagePath(congress.congressImages[0].imagePath)" ></td> -->
+           <td><button  type="button" class="btn btn-sm btn-outline-warning">Düzenle</button> | <button (click)="showKongreDeleteModal(kongre)" type="button" class="btn btn-sm btn-outline-danger">Sil</button></td>
+        </tr>
+    </tbody>
+   
+  </table>
+ 

@@ -96,14 +96,14 @@ export class AdminCongressUpdateComponent implements OnInit {
   }
 
   private checkIfCongressObjectChanged(newCongressObject:any,oldCongressObject:Congress){
-    return !(newCongressObject.congressPresidentId==oldCongressObject.congressPresidentId &&
+    return !(newCongressObject.congressPresidentName==oldCongressObject.congressPresidentName &&
       newCongressObject.congressName==oldCongressObject.congressName&&
       newCongressObject.congressAbout==oldCongressObject.congressAbout&&
-      newCongressObject.congressCity==oldCongressObject.congressCity&&
-      newCongressObject.congressPlace==oldCongressObject.congressPlace&&
-      newCongressObject.scienceBoardId==oldCongressObject.scienceBoardId&&
-      newCongressObject.regulatoryBoardId==oldCongressObject.regulatoryBoardId&&
-      newCongressObject.topicId==oldCongressObject.topicId&&
+      newCongressObject.congressAdress==oldCongressObject.congressAdress&&
+      newCongressObject.scienceBoard==oldCongressObject.scienceBoard&&
+      newCongressObject.regulatoryBoard==oldCongressObject.regulatoryBoard&&
+      newCongressObject.topic==oldCongressObject.topic&&
+      newCongressObject.univercity==oldCongressObject.univercity&&
       newCongressObject.congressDate==oldCongressObject.congressDate)
   }
 

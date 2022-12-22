@@ -98,7 +98,7 @@
                                         </div>
                                         <div class="col-md-9">
                                             <select class="form-select" id="carColorId" formControlName="regulatoryBoardId">
-                                                <option value="" selected disabled hidden>{{currentCongress.regulatoryBoardMemberName}}</option>
+                                                <option value="" selected disabled hidden>{{currentCongress.regulatoryBoard}}</option>
                                                 <option *ngFor="let regulatoryBoard of regulatoryBoards" [value]="regulatoryBoard.id">
                                                     {{regulatoryBoard.regulatoryBoardMemberName}}
                                                 </option>
@@ -113,7 +113,7 @@
                                         </div>
                                         <div class="col-md-8">
                                             <select class="form-select" formControlName="scienceBoardId">
-                                                <option value="" selected disabled hidden>{{currentCongress.scienceBoardMemberName}}</option>
+                                                <option value="" selected disabled hidden>{{currentCongress.scienceBoard}}</option>
                                                 <option *ngFor="let scienceBoard of scienceBoards" [value]="scienceBoard.id">
                                                     {{scienceBoard.scienceBoardMemberName}}
                                                 </option>
@@ -130,7 +130,7 @@
                                         </div>
                                         <div class="col-md-9">
                                             <select class="form-select" formControlName="topicId">
-                                                <option value="" selected disabled hidden>{{currentCongress.topicName}}</option>
+                                                <option value="" selected disabled hidden>{{currentCongress.topic}}</option>
                                                 <option *ngFor="let topic of topics" [value]="topic.id">
                                                     {{topic.topicName}}
                                                 </option>
@@ -156,18 +156,18 @@
                                         </div>
                                         <div class="col-md-8">
                                             <input type="text" id="carDailyPrice" formControlName="congressCity"
-                                                class="form-control float-end" [placeholder]="currentCongress.congressCity" />
+                                                class="form-control float-end" [placeholder]="currentCongress.congressAdress" />
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group row align-items-center">
                                         <div class="col-md-4">
-                                            <label for="carColorId" class="text-nowrap">kongre yeri:</label>
+                                            <label for="carColorId" class="text-nowrap">Kurul Üye Kurumları:</label>
                                         </div>
                                         <div class="col-md-8">
                                             <input type="text" id="carDailyPrice" formControlName="congressPlace"
-                                                class="form-control float-end" [placeholder]="currentCongress.congressPlace" />
+                                                class="form-control float-end" [placeholder]="currentCongress.univercity" />
                                         </div>
                                     </div>
                                 </div>

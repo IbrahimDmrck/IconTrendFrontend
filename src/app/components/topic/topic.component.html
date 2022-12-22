@@ -2,7 +2,7 @@
     <span class="visually-hidden">Loading...</span>
   </div>
 
-  <table style="margin-top: 70px;"  *ngIf="topicDataLoaded==true" class="table table-hover">
+  <!-- <table style="margin-top: 70px;"  *ngIf="topicDataLoaded==true" class="table table-hover">
     <thead >
         <tr>
             <th>ID</th>
@@ -19,4 +19,14 @@
             <td>{{topic.category}}</td>
         </tr>
     </tbody>
-  </table>
+  </table> -->
+
+  <div style="margin-top: 70px;" >
+    <h3> Konular :</h3>
+    <div *ngFor="let topic of topic">
+      <td> {{topic.topicName}}
+        {{topic.category}}</td>
+    </div>
+    
+   
+  </div>

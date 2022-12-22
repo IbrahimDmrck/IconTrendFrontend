@@ -3,19 +3,14 @@ import { CongressImage } from "./congress-image";
 export interface CongressDetailDto{
     congressId:number;
     congressName:string;
-    congressPresidentId:number;
     congressPresidentName:string;
     congressAbout:string;
-    congressCity:string;
-    congressPlace:string;
+    congressAdress:string;
     congressDate:Date;
-    topicId:number;
-    topicName:string;
-    scienceBoardId:number;
-    scienceBoardMemberName:string;
-    regulatoryBoardId:number;
-    regulatoryBoardMemberName:string;
-    regulatoryBoardMemberUnivercity:string;
-    scienceBoardMemberUnivercity:string;
+    congressStatus:boolean;
+    topic:string;
+    scienceBoard:string;
+    regulatoryBoard:string;
+    univercity:string;
     congressImages:CongressImage[];
 }

@@ -12,8 +12,7 @@
             <th scope="">kongre başkanı</th>
             <th scope="">kongre adı</th>
             <th scope="">kongre hakkında</th>
-            <th scope="">kongre şehri</th>
-            <th scope="">kongre yeri</th>
+            <th scope="">kongre Adresi</th>
             <th scope="">kongre tarihi</th> 
             <th><button (click)="showCongressAddModal()" type="button" class="btn btn-outline-success" >kongre Ekle</button></th>  
         </tr>
@@ -21,11 +20,10 @@
     <tbody>
         <tr *ngFor="let congress of congresses">
             <td>{{congress.congressId}}</td>
-            <td>{{congress.congressPresidentId}}</td>
+            <td>{{congress.congressPresidentName}}</td>
             <td>{{congress.congressName}}</td>
             <td>{{congress.congressAbout.substring(0,20)}}</td>
-            <td>{{congress.congressCity}}</td>
-            <td>{{congress.congressPlace}}</td>
+            <td>{{congress.congressAdress}}</td>
             <td>{{congress.congressDate.toString().substring(0,10)}} -{{congress.congressDate.toString().substring(11,16)}} </td>
            
            <!-- <td ><img width="100%" height="50px" class="rounded-3"  [src]="getImagePath(congress.congressImages[0].imagePath)" ></td> -->

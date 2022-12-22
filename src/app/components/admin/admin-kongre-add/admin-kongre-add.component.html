@@ -1,62 +1,62 @@
-<div class="card">
+<div  class="card">
     <div class="card-header">
         <div class="d-flex justify-content-between">
-            <h5>Araç ekle</h5>
+            <h5>Kongre ekle</h5>
         </div>
     </div>
     <div class="card-body">
-        <form [formGroup]="congressAddForm">
+        <form [formGroup]="kongreAddForm">
             <div class="align-items-center">
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-6">
-                                <div *ngIf="congressImagesPaths.length>0" class="row">
-                                    <div id="AddCongressImagesCarousel" class="carousel carousel-dark slide"
+                                <div *ngIf="kongreImagesPaths.length>0" class="row">
+                                    <div id="AddKongreImagesCarousel" class="carousel carousel-dark slide"
                                         data-bs-ride="carousel">
                                         <div class="carousel-indicators">
-                                            <button *ngFor="let congressImage of congressImagesPaths; let i = index" type="button"
-                                                data-bs-target="#AddCarImagesCarousel" attr.data-bs-slide-to="{{i}}"
+                                            <button *ngFor="let kongreImage of kongreImagesPaths; let i = index" type="button"
+                                                data-bs-target="#AddKongreImagesCarousel" attr.data-bs-slide-to="{{i}}"
                                                 class="{{(i == 0) ? 'active' : ''}}"
                                                 attr.aria-label="Slide {{i}}"></button>
                                         </div>
                                         <div class="carousel-inner">
-                                            <div *ngFor="let congressImage of congressImagesPaths; let i = index"
+                                            <div *ngFor="let kongreImage of kongreImagesPaths; let i = index"
                                                 class="{{(i == 0) ? 'carousel-item active' : 'carousel-item' }}">
-                                                <img [src]="congressImage" height="200" alt="image not found">
+                                                <img [src]="kongreImage" height="200" alt="image not found">
                                             </div>
                                         </div>
-                                        <div *ngIf="congressImagesPaths.length>1">
+                                        <div *ngIf="kongreImagesPaths.length>1">
                                             <button class="carousel-control-prev" type="button"
-                                                data-bs-target="#AddCongressImagesCarousel" data-bs-slide="prev">
+                                                data-bs-target="#AddKongreImagesCarousel" data-bs-slide="prev">
                                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                                 <span class="visually-hidden">Previous</span>
                                             </button>
                                             <button class="carousel-control-next" type="button"
-                                                data-bs-target="#AddCongressImagesCarousel" data-bs-slide="next">
+                                                data-bs-target="#AddKongreImagesCarousel" data-bs-slide="next">
                                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                                 <span class="visually-hidden">Next</span>
                                             </button>
                                         </div>
                                     </div>
                                 </div>
-                                <div *ngIf="congressImagesPaths.length===0">
+                                <div *ngIf="kongreImagesPaths.length===0">
                                     <img src="" height="200" alt="image not found">
                                 </div>
                                 <div class="row mt-2 ms-2">
-                                    <input #file class="form-control" type="file" id="carImagesFiles" accept="image/*"
-                                        (change)="addCongressImagesToCongressImagesAndPathList(file.files)">
+                                    <input #file class="form-control" type="file" id="kongreImagesFiles" accept="image/*"
+                                        (change)="addkongreImagesToKongreImagesAndPathList(file.files)">
                                 </div>
                             </div>
                             <div class="col-md-1"></div>
                             <div class="col-md-5">
-                                <div *ngIf="congressImagesFiles.length>0" class="row">
+                                <div *ngIf="kongreImagesFiles.length>0" class="row">
                                     <ul class="list-group">
-                                        <li *ngFor="let file of congressImagesFiles" class="list-group-item">
+                                        <li *ngFor="let file of kongreImagesFiles" class="list-group-item">
                                             <div class="d-flex justify-content-between">
                                                 <small>{{file.file.name}}</small>
                                                 <span>
-                                                    <svg (click)="deleteImageFromCongressImagesList(file)"
+                                                    <svg (click)="deleteImageFromKongreImagesList(file)"
                                                         xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                         fill="red" class="bi bi-x-square-fill" viewBox="0 0 16 16">
                                                         <path
@@ -67,7 +67,7 @@
                                         </li>
                                     </ul>
                                     <p class="text-center text-muted">
-                                        <small>{{congressImagesFiles.length}}/5 dosya</small>
+                                        <small>{{kongreImagesFiles.length}}/5 dosya</small>
                                     </p>
                                 </div>
                             </div>
@@ -77,10 +77,10 @@
                                 <div class="col-md-6">
                                     <div class="form-group row align-items-center">
                                         <div class="col-md-3 text-center">
-                                            <label for="congressName">Kongre Adı:</label>
+                                            <label for="kongreAdi">Kongre Adı:</label>
                                         </div>
                                         <div class="col-md-9">
-                                            <input type="text" id="congressName" formControlName="congressName"
+                                            <input type="text" id="kongreAdi" formControlName="kongreAdi"
                                                 class="form-control" placeholder="Kongre Adı" />
                                         </div>
                                     </div>
@@ -88,34 +88,21 @@
                                 <div class="col-md-6">
                                     <div class="form-group row align-items-center">
                                         <div class="col-md-3 text-center">
-                                            <label for="topic">Kongre Konusu:</label>
+                                            <label for="kongreBaskani">Kongre Başkanı:</label>
                                         </div>
                                         <div class="col-md-9">
-                                            <input type="text" id="topic" formControlName="topic"
-                                                class="form-control" placeholder="Kongre Konusu" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group row align-items-center">
-                                        <div class="col-md-3 text-center">
-                                            <label for="congressPresidentName">Kongre Başkanı:</label>
-                                        </div>
-                                        <div class="col-md-9">
-                                            <input type="text" id="congressPresidentName" formControlName="congressPresidentName"
+                                            <input type="text" id="kongreBaskani" formControlName="kongreBaskani"
                                                 class="form-control" placeholder="Kongre Başkanı" />
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row mt-3">
                                 <div class="col-md-6">
                                     <div class="form-group row align-items-center">
                                         <div class="col-md-3 text-center">
-                                            <label for="regulatoryBoard">Düzenleme Kurulu:</label>
+                                            <label for="kongreDuzenlemeKurulu">Düzenleme Kurulu:</label>
                                         </div>
                                         <div class="col-md-9">
-                                            <input type="text" id="regulatoryBoard" formControlName="regulatoryBoard"
+                                            <input type="text" id="kongreDuzenlemeKurulu" formControlName="kongreDuzenlemeKurulu"
                                                 class="form-control" placeholder="Düzenleme Kurulu" />
                                         </div>
                                     </div>
@@ -123,10 +110,10 @@
                                 <div class="col-md-6">
                                     <div class="form-group row align-items-center">
                                         <div class="col-md-3 text-center">
-                                            <label for="scienceBoard">Bilim kurulu:</label>
+                                            <label for="bilimKurulu">Bilim Kurulu:</label>
                                         </div>
                                         <div class="col-md-9">
-                                            <input type="text" id="scienceBoard" formControlName="scienceBoard"
+                                            <input type="text" id="bilimKurulu" formControlName="bilimKurulu"
                                                 class="form-control" placeholder="Bilim Kurulu" />
                                         </div>
                                     </div>
@@ -134,58 +121,50 @@
                                 <div class="col-md-6">
                                     <div class="form-group row align-items-center">
                                         <div class="col-md-3 text-center">
-                                            <label for="univercity">Kurul Üye Kurumları:</label>
+                                            <label for="kongreKonusu">Konu:</label>
                                         </div>
                                         <div class="col-md-9">
-                                            <input type="text" id="univercity" formControlName="univercity"
-                                                class="form-control" placeholder="Kurul Üyelerinin Kurumları" />
+                                            <input type="text" id="kongreKonusu" formControlName="kongreKonusu"
+                                                class="form-control" placeholder="Konu..." />
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                     <div class="form-group row align-items-center">
-                                        <div class="col-md-4">
-                                            <label for="congressAdress" class="text-nowrap">kongre Adresi:</label>
-                                        </div> 
-                                        <div class="col-md-8">
-                                            <input type="text" id="congressAdress" formControlName="congressAdress"
-                                                class="form-control float-end" placeholder="Kongre Adresi" />
+                                        <div class="col-md-3 text-center">
+                                            <label for="kongreAdresi">Adres:</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <input type="text" id="kongreAdresi" formControlName="kongreAdresi"
+                                                class="form-control" placeholder="Adres..." />
                                         </div>
                                     </div>
                                 </div>
-                                <div style="margin-left: 20px;" class="col-md-6 mt-3">
-                                    <div class="form-group row align-items-center">
-                                        <div class="form-group row align-items-center">
-                                            <div class="form-check form-switch">
-                                                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked formControlName="congressStatus">
-                                                <label class="form-check-label" for="flexSwitchCheckChecked"><b>Durum --> Aktif / Pasif</b></label>
-                                              </div>
-                                        </div>
-                                    </div>
-                                </div> 
-                                <div class="col-md-5">
+                                <div class="col-md-6">
                                     <div class="form-group row align-items-center">
                                         <div class="col-md-4">
-                                            <label for="congressDate" class="text-nowrap">Kongre Tarihi:</label>
+                                            <label for="kongreTarihi" class="text-nowrap">Kongre Tarihi:</label>
                                         </div>
                                         <div class="col-md-8">
-                                            <input type="datetime-local" id="congressDate" formControlName="congressDate"
+                                            <input type="datetime-local" id="kongreTarihi" formControlName="kongreTarihi"
                                                 class="form-control float-end"  />
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                           
                             <div class="row mt-3 align-items-end">
                                 <div class="form-group row align-items-center">
                                     <div class="col-md-2">
-                                        <label for="congressAbout">Kongre Hakkında:</label>
+                                        <label for="kongreHakkinda">Kongre Açıklaması:</label>
                                     </div>
                                     <div class="col-md-10">
-                                        <input type="text" id="congressAbout" formControlName="congressAbout"
-                                            class="form-control" placeholder="Açıklama" />
+                                        <input type="text" id="kongreHakkinda" formControlName="kongreHakkinda"
+                                            class="form-control" placeholder="Açıklama..." />
                                     </div>
                                 </div>
                             </div>
+                  
                         </div>
                     </div>
                 </div>
@@ -194,7 +173,7 @@
         <div class="row mt-3">
             <div class="d-flex justify-content-end">
                 <button (click)="add()" type="button" class="btn btn-success me-2">Ekle</button>
-                <button (click)="closeCongressAddModal()" type="button" class="btn btn-danger">İptal</button>
+                <button (click)="closeKongreAddModal()" type="button" class="btn btn-danger">İptal</button>
             </div>
         </div>
     </div>

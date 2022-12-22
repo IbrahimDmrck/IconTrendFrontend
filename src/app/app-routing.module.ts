@@ -8,6 +8,7 @@ import { AdminAnnouncementManagerComponent } from './components/admin/admin-anno
 import { AdminCongressManagerComponent } from './components/admin/admin-congress-manager/admin-congress-manager.component';
 import { AdminCongressPresidentManagerComponent } from './components/admin/admin-congress-president-manager/admin-congress-president-manager.component';
 import { AdminContactManagerComponent } from './components/admin/admin-contact-manager/admin-contact-manager.component';
+import { AdminKongreManagerComponent } from './components/admin/admin-kongre-manager/admin-kongre-manager.component';
 import { AdminLayoutComponent } from './components/admin/admin-layout/admin-layout.component';
 import { AdminRegulatoryBoardManagerComponent } from './components/admin/admin-regulatory-board-manager/admin-regulatory-board-manager.component';
 import { AdminScienceBoardManagerComponent } from './components/admin/admin-science-board-manager/admin-science-board-manager.component';
@@ -35,14 +36,14 @@ const routes: Routes = [
   {
     path: 'admin', component: AdminLayoutComponent, children: [
       { path: 'announcement/manager', component: AdminAnnouncementManagerComponent, canActivate: [LoginGuard, RoleGuard], data: { expectedRole: 'Admin' } },
-      { path: 'congress/manager', component: AdminCongressManagerComponent, canActivate: [LoginGuard, RoleGuard], data: { expectedRole: 'Admin' } },
       { path: 'congresspresident/manager', component: AdminCongressPresidentManagerComponent, canActivate: [LoginGuard, RoleGuard], data: { expectedRole: 'Admin' } },
       { path: 'regulatoryboard/manager', component: AdminRegulatoryBoardManagerComponent, canActivate: [LoginGuard, RoleGuard], data: { expectedRole: 'Admin' } },
       { path: 'scienceboard/manager', component: AdminScienceBoardManagerComponent, canActivate: [LoginGuard, RoleGuard], data: { expectedRole: 'Admin' } },
       { path: 'topic/manager', component: AdminTopicManagerComponent, canActivate: [LoginGuard, RoleGuard], data: { expectedRole: 'Admin' } },
       { path: 'transportlayvoer/manager', component: AdminTransportLayoverManagerComponent, canActivate: [LoginGuard, RoleGuard], data: { expectedRole: 'Admin' } },
       { path: 'user/manager', component: AdminUserManagerComponent, canActivate: [LoginGuard, RoleGuard], data: { expectedRole: 'Admin' } },
-      { path: 'contact/manager', component: AdminContactManagerComponent, canActivate: [LoginGuard, RoleGuard], data: { expectedRole: 'Admin' } }
+      { path: 'contact/manager', component: AdminContactManagerComponent, canActivate: [LoginGuard, RoleGuard], data: { expectedRole: 'Admin' } },
+      { path: 'kongre/manager', component: AdminKongreManagerComponent, canActivate: [LoginGuard, RoleGuard], data: { expectedRole: 'Admin' } }
     ]
   },
   {
