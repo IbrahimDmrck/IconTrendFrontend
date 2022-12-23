@@ -1,32 +1,23 @@
 <div *ngIf="topicDataLoaded == false" class="spinner-border text-success" role="status">
-    <span class="visually-hidden">Loading...</span>
-  </div>
+  <span class="visually-hidden">Loading...</span>
+</div>
 
-  <!-- <table style="margin-top: 70px;"  *ngIf="topicDataLoaded==true" class="table table-hover">
-    <thead >
-        <tr>
-            <th>ID</th>
-            <th>congressId</th>
-            <th>TopicName</th>
-            <th>Category</th>
-        </tr>
+<div style="margin-top: 70px;">
+  <table id="table" class="table">
+    <thead id="thead">
+      <tr id="tr">
+        <th id="th">ID</th>
+        <th id="th">Kongre ID</th>
+        <th id="th">Ana Konu</th>
+        <th id="th">Alt Konular</th>
     </thead>
-    <tbody>
-        <tr *ngFor="let topic of topic">
-            <td>{{topic.id}}</td>
-            <td>{{topic.congressId}}</td>
-            <td>{{topic.topicName}}</td>
-            <td>{{topic.category}}</td>
-        </tr>
+    <tbody id="tbody">
+      <tr *ngFor="let topic of topic">
+        <td id="td">{{topic.id}}</td>
+        <td id="td">{{topic.congressId}}</td>
+        <td id="td">{{topic.topicName}}</td>
+        <td id="td">{{topic.category}}</td>
+      </tr>
     </tbody>
-  </table> -->
-
-  <div style="margin-top: 70px;" >
-    <h3> Konular :</h3>
-    <div *ngFor="let topic of topic">
-      <td> {{topic.topicName}}
-        {{topic.category}}</td>
-    </div>
-    
-   
-  </div>
+  </table>
+</div>
