@@ -10,7 +10,7 @@
   <div class="col"  *ngFor="let kongre of kongres ">
     <div class="card">
       <figure class="card__thumb">
-        <img src="https://source.unsplash.com/75S9fpDJVdo/300x510" alt="Picture by Kyle Cottrell" class="card__image">
+        <img [src]="getImage(kongre)" width="300" height="510" alt="Picture by Kyle Cottrell" class="card__image">
         <figcaption class="card__caption">
           <h1 class="card__title">{{ kongre.kongreAdi }}</h1>
           <p class="card__snippet">{{ kongre.kongreHakkinda}}...</p>
@@ -22,3 +22,4 @@
   </div>
 </div> 
 
+ 

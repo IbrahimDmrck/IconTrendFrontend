@@ -75,6 +75,9 @@ import { AdminKongreUpdateComponent } from './components/admin/admin-kongre-upda
 
 
 
+
+
+
 @NgModule({
   declarations: [
     AppComponent,

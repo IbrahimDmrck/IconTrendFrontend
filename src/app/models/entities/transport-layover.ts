@@ -1,6 +1,6 @@
 import { TransportLayoverImage } from "./transport-layover-image";
 
-export interface TransportLayover{
+export class TransportLayover{
     transportId:number;
     capacity:number;
     minDemand:string;

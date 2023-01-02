@@ -49,9 +49,27 @@
 
 #informations{
   margin-top: 40px;
-  background-color: whitesmoke;
+  background-color: rgb(30, 34, 41);
+  color:white;
+  border-radius: 15px;
 }
 
+#contentCongress{
+  background-color: rgb(30, 34, 41);
+  color:white;
+  border-radius: 15px;
+}
+
+#placeAndDate{
+  background-color: rgb(30, 34, 41);
+  color:white;
+  border-radius: 15px;
+  font-size: 25px;
+}
+
+#informations>table{
+  color: white;
+}
 #address{
   text-align: center;
 }

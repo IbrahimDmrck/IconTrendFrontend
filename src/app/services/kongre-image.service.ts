@@ -28,9 +28,6 @@ private ApiURL="https://localhost:44320/api/KongreImages/";
     let newpPath=this.ApiURL+'delete';
     return this.httpClient.post<ResponseModel>(newpPath,kongreImage);
   }
-
-  getKongreImagesByKongreId(kongreId:number):Observable<ListResponseModel<kongreImage>>{
-    let newPaht=this.ApiURL+"getallbykongreid?kongreId="+kongreId;
-    return this.httpClient.get<ListResponseModel<kongreImage>>(newPaht);
-  }
 }
+
+

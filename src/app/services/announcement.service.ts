@@ -38,4 +38,9 @@ private apiUrl="https://localhost:44320/api/Announcements/";
     let newPath=this.apiUrl+'update';
     return this.httpClient.post<ResponseModel>(newPath,announcement);
   }
+
+  getAnnouncementsWithDetails():Observable<ListResponseModel<Announcement>>{
+let newPaht=this.apiUrl+'getannouncementswithdetails';
+return this.httpClient.get<ListResponseModel<Announcement>>(newPaht);
+  }
 }

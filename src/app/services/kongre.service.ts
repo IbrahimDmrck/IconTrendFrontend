@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Kongre } from '../models/entities/kongre';
+import { kongreImage } from '../models/entities/kongre-image';
 import { ListResponseModel } from '../models/responseModels/listResponseModel';
 import { ResponseModel } from '../models/responseModels/responseModel';
 import { SingleResponseModel } from '../models/responseModels/singleResponseModel';
@@ -38,12 +39,15 @@ private ApiURL="https://localhost:44320/api/Kongres/";
     return this.httpClient.get<SingleResponseModel<Kongre>>(newPath);
   }
 
-  getKongreDetails(kongreId:number):Observable<SingleResponseModel<Kongre>>{
+  getKongreDetailsById(kongreId:number):Observable<SingleResponseModel<Kongre>>{
     let newPaht=this.ApiURL+'getkongresdetails?kongreId='+kongreId;
     return this.httpClient.get<SingleResponseModel<Kongre>>(newPaht);
   }
 
-
+ getKongreDetails():Observable<ListResponseModel<Kongre>>{
+  let newPath=this.ApiURL+'getkongrewithdetails';
+  return this.httpClient.get<ListResponseModel<Kongre>>(newPath);
+ }
 
 
 }

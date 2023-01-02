@@ -25,15 +25,11 @@
  
     <div  id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
       <div     class="carousel-inner ">
-        <div class="carousel-item active">
-          <img width="100%" height="400px%" src="https://i.hizliresim.com/1iqzgza.png" class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img width="100%" height="400px%" src="https://i.hizliresim.com/1iqzgza.png" class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img width="100%" height="400px%" src="https://i.hizliresim.com/1iqzgza.png" class="d-block w-100" alt="...">
-        </div>
+        <div *ngFor="let announce of announcements; let i = index"
+        class="{{(i == 0) ? 'carousel-item active' : 'carousel-item' }} text-center">
+        <img [src]="getImage(announce)" height="400" alt="..." style="object-fit: cover;">
+      </div>
+     
        </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>

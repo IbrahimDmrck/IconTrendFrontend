@@ -4,6 +4,7 @@ import { Announcement } from 'src/app/models/entities/announcement';
 import { Congress } from 'src/app/models/entities/congress';
 import { CongressDetailDto } from 'src/app/models/entities/congressDetailDTos';
 import { Kongre } from 'src/app/models/entities/kongre';
+import { kongreImage } from 'src/app/models/entities/kongre-image';
 import { ScienceBoard } from 'src/app/models/entities/science-board';
 import { Topic } from 'src/app/models/entities/topic';
 import { AnnouncementService } from 'src/app/services/announcement.service';
@@ -21,18 +22,13 @@ import { TopicService } from 'src/app/services/topic.service';
 })
 export class HomeComponent implements OnInit {
 congressDetailDtos:CongressDetailDto[];
-
-  kongres:Kongre[];
+ 
+  kongres:Kongre[]=[];
   scienceBoard:ScienceBoard[];
-
   congressDataLoaded:boolean=false;
   scienceBoardDataLoaded:boolean=false;
-
-  maxRandomCongressLength:number=5;
-  randomCongress:Congress[]=[];
-
   routerLink:string="";
-
+  
   constructor(
     private kongresService:KongreService,
     private scienceBoardService:ScienceBoardService,
@@ -45,9 +41,9 @@ congressDetailDtos:CongressDetailDto[];
         this.getScienceBoard();
   }
 
-
+ 
   getCongress() {
-    this.kongresService.getKongre().subscribe(response=>{
+    this.kongresService.getKongreDetails().subscribe(response=>{
       this.kongres = response.data
       this.congressDataLoaded = true;
     })   
@@ -66,4 +62,8 @@ congressDetailDtos:CongressDetailDto[];
     return this.congressImageService.getImagePath(imagePath);
   }
 
+  getImage(kongreImg:Kongre){
+    return "https://localhost:44320/" + kongreImg.kongreImages[0].imagePath;
+  
+  }
 }

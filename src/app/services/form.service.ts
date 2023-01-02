@@ -80,7 +80,7 @@ createContactForm():FormGroup{
       Price: ["", [Validators.required, Validators.min(1)]],
     });
   }
- 
+  
   createKongreForm():FormGroup{
     return this.formBuilder.group({
       kongreBaskani:["",[Validators.required,Validators.min(1)]],

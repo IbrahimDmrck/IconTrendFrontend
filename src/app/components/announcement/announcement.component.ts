@@ -12,9 +12,9 @@ import { AnnouncementService } from 'src/app/services/announcement.service';
 })
 export class AnnouncementComponent implements OnInit {
 
-  announcement: Announcement[];
+  announcements: Announcement[]=[];
   announcementDataLoad: boolean = false;
-  announceImages: AnnounceImage[];
+  
   constructor(
     private announcementService: AnnouncementService,
     private announceImagesService: AnnouncementImageService
@@ -25,26 +25,18 @@ export class AnnouncementComponent implements OnInit {
   }
 
   getAnnouncement() {
-    this.announcementService.getAnnouncements().subscribe(response => {
-      this.announcement = response.data;
+    this.announcementService.getAnnouncementsWithDetails().subscribe(response => {
+      this.announcements = response.data;
       this.announcementDataLoad = true;
 
     })
   }
 
-  getImage(announceImage:AnnounceImage){
-    console.log(announceImage);
-    return "https://localhost:44320/Uploads/Images/"+announceImage.imagePath;
-  
+  getImage(announceImage:Announcement){
+    return "https://localhost:44320/"+announceImage.announceImages[0].imagePath;
   }
 
-  getActiveString(announceImage:AnnounceImage){
-    if(announceImage===this.announceImages[0]){
-      return "active"
-    }else{
-      return ""
-    }
-  }
+
 
   getImagePath(imagePath: string) {
     console.log(imagePath);

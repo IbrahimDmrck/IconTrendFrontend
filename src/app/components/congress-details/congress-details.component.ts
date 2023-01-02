@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Congress } from 'src/app/models/entities/congress';
-import { CongressImage } from 'src/app/models/entities/congress-image';
-import { CongressDetailDto } from 'src/app/models/entities/congressDetailDTos';
+import { ToastrService } from 'ngx-toastr';
 import { Kongre } from 'src/app/models/entities/kongre';
 import { kongreImage } from 'src/app/models/entities/kongre-image';
-import { CongressDetailsService } from 'src/app/services/congress-details.service';
-import { CongressImageService } from 'src/app/services/congress-image.service';
-import { CongressService } from 'src/app/services/congress.service';
+import { RegulatoryBoard } from 'src/app/models/entities/regulatory-board';
+import { ScienceBoard } from 'src/app/models/entities/science-board';
 import { KongreImageService } from 'src/app/services/kongre-image.service';
 import { KongreService } from 'src/app/services/kongre.service';
+import { RegulatoryBoardService } from 'src/app/services/regulatory-board.service';
+import { ScienceBoardService } from 'src/app/services/science-board.service';
 
 @Component({
   selector: 'app-congress-details',
@@ -20,36 +19,56 @@ export class CongressDetailsComponent implements OnInit {
 
   currentCongress:Kongre;
   DataLoadded:boolean=false;
-
   congressImages:kongreImage[];
+ 
+
 
   constructor(
     private kongreService:KongreService,
     private kongreImageService:KongreImageService,
-    private activatedRoute:ActivatedRoute
+    private activatedRoute:ActivatedRoute,
+    private scienceService:ScienceBoardService,
+    private regulatoryService:RegulatoryBoardService,
+    private toastrService: ToastrService
     ) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params)=>{
-      if (params["congressId"]) {
-        this.getCongressDetailsByCongressId(params["congressId"]);
+      if (params['kongreId']) {
+        this.getCurrentCongressDetailsByCongressId(params['kongreId']);
       }
     })
   }
 
-getCongressDetailsByCongressId(kongreId:number){
-return new Promise<void>((resolve,recejct)=>{
-  this.kongreService.getKongreDetails(kongreId).subscribe((response)=>{
+  getCurrentCongressDetailsByCongressId(kongreId:number){
+return new Promise<void>((resolve,_recejct)=>{
+  this.kongreService.getKongreDetailsById(kongreId).subscribe((response)=>{
     this.currentCongress=response.data;
     this.DataLoadded=true;
+    console.log(response.data);
     resolve();
-    console.log(this.currentCongress.kongreBaskani);
   });
 });
 
 }
 
+
 getImagePath(imagePath:string){
   return this.kongreImageService.getImagePath(imagePath);
 }
+
+getActiveString(carImage:kongreImage){
+  if(carImage===this.congressImages[0]){
+    return "active"
+  }else{
+    return ""
+  }
+}
+
+getImage(kongreImage:kongreImage){
+  return "https://localhost:44320/" + kongreImage.imagePath;
+
+}
+
+
 }

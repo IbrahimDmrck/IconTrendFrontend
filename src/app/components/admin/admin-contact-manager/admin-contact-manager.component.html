@@ -11,6 +11,7 @@
             <th>Ad-Soyad</th>
             <th>E-posta</th>
             <th>Mesaj</th>
+            <th>#</th>
         </tr>
     </thead>
     <tbody> 
@@ -19,7 +20,7 @@
             <td>{{contact.nameSurname}}</td>
             <td>{{contact.email}}</td>
             <td>{{contact.message}}</td>
-            <td><button  type="button" class="btn btn-sm btn-outline-success">Mesajı Gör</button> | <button (click)="showContactDeleteModal(contact)" type="button" class="btn btn-sm btn-outline-danger">Sil</button></td>
+            <td><button (click)="showContactDeleteModal(contact)" type="button" class="btn btn-sm btn-outline-success">Mesajı Gör</button></td>
         </tr>
     </tbody>
   </table>
