@@ -44,13 +44,14 @@
 <div class="container card mb-3"  style="margin-top: 70px;" *ngFor="let announcement of announcements.reverse()">
     <div class="row g-0">
       
-      <div class="col-md-8" >
+      <div  class="col-md-8" >
         <div class="card-body">
           <h5 class="card-title">{{announcement.announceTitle}}</h5>
           <p class="card-text">{{announcement.announceContent}}</p>
           <p class="card-text"><small class="text-muted">{{announcement.announceDate.toString().substring(0,10)}}</small></p>
         </div>
       </div>
+      
       <div class="col-md-4 rounded-3" >
         
         <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
@@ -58,7 +59,7 @@
           
             <div *ngFor="let announce of announcements; let i = index"
             class="{{(i == 0) ? 'carousel-item active' : 'carousel-item' }} text-center rounded-3">
-            <img [src]="getImage(announce)" height="450" alt="..." class="rounded-3" style="object-fit: cover;">
+            <img [src]="getImage(announce)" height="300" alt="..." class="rounded-3" style="object-fit: cover;">
           </div>
           </div>
           <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">

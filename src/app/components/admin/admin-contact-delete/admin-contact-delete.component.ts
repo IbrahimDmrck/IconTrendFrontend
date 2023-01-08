@@ -19,7 +19,7 @@ export class AdminContactDeleteComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+ 
   delete(contact:Contact){
 this.contactService.delete(contact).subscribe(response=>{
   this.toastrService.success(contact.nameSurname + " Mesajını Sildiniz", "Silme İşlemi başarılı")

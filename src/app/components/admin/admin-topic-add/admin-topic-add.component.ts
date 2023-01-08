@@ -19,7 +19,7 @@ topicAddForm:FormGroup
     private errorService:ErrorService,
     private formService:FormService,
     private topicAddModal:MatDialogRef<AdminTopicAddComponent>
-  ) { }
+  ) { } 
 
   ngOnInit(): void {
     this.createTopicAddForm();

@@ -1,0 +1,36 @@
+<div style="margin-top: 70px;" *ngIf="DataLoad == false" class="spinner-border text-success" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+
+  <h3 style="margin-top: 70px;background-color:indianred;" class="text-center ">Kayıt</h3>
+
+
+  <table *ngIf="DataLoad == true"  style="border-radius:10px;" class="table table-bordered bg-dark text-white text-center">
+    <thead  style="font-weight: bolder;text-decoration:underline;">
+        <tr>
+            
+            <th scope="">Video Konferans YSU Üye Fiyatı</th>
+            <th scope="">Video Konferans YSU Üye Olmayan Fiyatı</th>
+            <th scope="">Sözlü/Poster Sunum YSU Üye Fiyatı</th>
+            <th scope="">Sözlü/Poster Sunum YSU Üye Olmayan Fiyatı</th>
+            <th scope="">Video Konferans Açıklama</th> 
+            <th scope="">Katılım Ücretine Dahil Olan Hizmetler</th>
+            <th>Açıklama</th>
+            <th><button (click)="showSaveAddModal()"  type="button" class="btn btn-outline-success" >Kayıt Ekle</button></th>  
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let save of saves">
+            <td>{{save.videoConferenceMemberPrice}}</td>
+            <td>{{save.videoConferenceNonMemberPrice}}</td>
+           <td>{{save.oralPresentationMemberPrice}}</td>
+           <td>{{save.oralPresentationNonMemberPrice}}</td>
+            <td>{{save.videoConferenceDescription.substring(0,10)}}..</td>
+            <td>{{save.participationPriceServiceAdditionDescription.substring(0,10)}}..</td>
+            <td>{{save.description.substring(0,10)}}..</td>
+           <td><button (click)="showSaveUpdateModal(save)" type="button" class="btn btn-sm btn-outline-warning">Düzenle</button> | <button (click)="showSaveDeleteModal(save)" type="button" class="btn btn-sm btn-outline-danger">Sil</button></td>
+        </tr>
+    </tbody>
+   
+  </table>
+ 

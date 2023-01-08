@@ -7,7 +7,7 @@ import { TransportLayoverService } from 'src/app/services/transport-layover.serv
 import { AdminTransportLayoverAddComponent } from '../admin-transport-layover-add/admin-transport-layover-add.component';
 import { AdminTransportLayoverDeleteComponent } from '../admin-transport-layover-delete/admin-transport-layover-delete.component';
 import { AdminTransportLayoverUpdateComponent } from '../admin-transport-layover-update/admin-transport-layover-update.component';
-
+ 
 @Component({
   selector: 'app-admin-transport-layover-manager',
   templateUrl: './admin-transport-layover-manager.component.html',

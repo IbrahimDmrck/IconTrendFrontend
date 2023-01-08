@@ -5,20 +5,24 @@ import { AccountLayoutComponent } from './components/account/account-layout/acco
 import { LoginComponent } from './components/account/account-login/account-login.component';
 import { RegisterComponent } from './components/account/account-register/account-register.component';
 import { AdminAnnouncementManagerComponent } from './components/admin/admin-announcement-manager/admin-announcement-manager.component';
+import { AdminBankAccountManagerComponent } from './components/admin/admin-bank-account-manager/admin-bank-account-manager.component';
 import { AdminCongressManagerComponent } from './components/admin/admin-congress-manager/admin-congress-manager.component';
 import { AdminCongressPresidentManagerComponent } from './components/admin/admin-congress-president-manager/admin-congress-president-manager.component';
 import { AdminContactManagerComponent } from './components/admin/admin-contact-manager/admin-contact-manager.component';
 import { AdminKongreManagerComponent } from './components/admin/admin-kongre-manager/admin-kongre-manager.component';
 import { AdminLayoutComponent } from './components/admin/admin-layout/admin-layout.component';
 import { AdminRegulatoryBoardManagerComponent } from './components/admin/admin-regulatory-board-manager/admin-regulatory-board-manager.component';
+import { AdminSaveManagerComponent } from './components/admin/admin-save-manager/admin-save-manager.component';
 import { AdminScienceBoardManagerComponent } from './components/admin/admin-science-board-manager/admin-science-board-manager.component';
 import { AdminTopicManagerComponent } from './components/admin/admin-topic-manager/admin-topic-manager.component';
+import { AdminTrBankAccountManagerComponent } from './components/admin/admin-tr-bank-account-manager/admin-tr-bank-account-manager.component';
 import { AdminTransportLayoverManagerComponent } from './components/admin/admin-transport-layover-manager/admin-transport-layover-manager.component';
 import { AdminUserManagerComponent } from './components/admin/admin-user-manager/admin-user-manager.component';
 import { CongressDetailsComponent } from './components/congress-details/congress-details.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { HomeComponent } from './components/home/home.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { SaveComponent } from './components/save/save.component';
 import { SeeAllAnnounceComponent } from './components/see-all-announce/see-all-announce.component';
 import { TopicComponent } from './components/topic/topic.component';
 import { TransportLayoverComponent } from './components/transport-layover/transport-layover.component';
@@ -33,6 +37,7 @@ const routes: Routes = [
   { path: 'transportlayover', component: TransportLayoverComponent },
   { path: 'topic', component: TopicComponent },
   { path: 'contact', component: ContactComponent },
+  { path: 'save', component: SaveComponent },
   {
     path: 'admin', component: AdminLayoutComponent, children: [
       { path: 'announcement/manager', component: AdminAnnouncementManagerComponent, canActivate: [LoginGuard, RoleGuard], data: { expectedRole: 'Admin' } },
@@ -43,7 +48,10 @@ const routes: Routes = [
       { path: 'transportlayvoer/manager', component: AdminTransportLayoverManagerComponent, canActivate: [LoginGuard, RoleGuard], data: { expectedRole: 'Admin' } },
       { path: 'user/manager', component: AdminUserManagerComponent, canActivate: [LoginGuard, RoleGuard], data: { expectedRole: 'Admin' } },
       { path: 'contact/manager', component: AdminContactManagerComponent, canActivate: [LoginGuard, RoleGuard], data: { expectedRole: 'Admin' } },
-      { path: 'kongre/manager', component: AdminKongreManagerComponent, canActivate: [LoginGuard, RoleGuard], data: { expectedRole: 'Admin' } }
+      { path: 'kongre/manager', component: AdminKongreManagerComponent, canActivate: [LoginGuard, RoleGuard], data: { expectedRole: 'Admin' } },
+      { path: 'save/manager', component: AdminSaveManagerComponent, canActivate: [LoginGuard, RoleGuard], data: { expectedRole: 'Admin' } },
+      { path: 'bankAccountInfo/manager', component: AdminBankAccountManagerComponent, canActivate: [LoginGuard, RoleGuard], data: { expectedRole: 'Admin' } },
+      { path: 'trbankAccountInfo/manager', component: AdminTrBankAccountManagerComponent, canActivate: [LoginGuard, RoleGuard], data: { expectedRole: 'Admin' } }
     ]
   },
   {

@@ -1,0 +1,33 @@
+<div style="margin-top: 70px;" *ngIf="DataLoad == false" class="spinner-border text-success" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+
+  <h3 style="margin-top: 70px;background-color:indianred;" class="text-center ">Türkiye Banka Bilgleri</h3>
+
+
+  <table *ngIf="DataLoad == true"  style="border-radius:10px;" class="table table-bordered bg-dark text-white text-center">
+    <thead  style="font-weight: bolder;text-decoration:underline;">
+        <tr>
+            
+            <th scope="">IBAN</th>
+            <th scope="">Hesap Adı</th>
+            <th scope="">Banka Adı</th>
+            <th scope="">Açıklam-1</th>
+            <th scope="">Açıklama-2</th> 
+            <th><button (click)="showTrBankAccountInfoAddModal()"  type="button" class="btn btn-outline-info" >Banka Bilgisi Ekle</button></th>  
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let trBankAccount of trBankAccounts">
+            <td>{{trBankAccount.iban}}</td>
+            <td>{{trBankAccount.accountName}}</td>
+            <td>{{trBankAccount.bankName}}</td>
+            <td>{{trBankAccount.description1.substring(0,15)}}..</td>
+            <td>{{trBankAccount.description2.substring(0,15)}}..</td>
+           
+           <td><button (click)="showTrBankAccountInfoUpdateModal(trBankAccount)" type="button" class="btn btn-sm btn-outline-warning">Düzenle</button> | <button (click)="showTrBankAccountInfoDeleteModal(trBankAccount)" type="button" class="btn btn-sm btn-outline-danger">Sil</button></td>
+        </tr>
+    </tbody>
+   
+  </table>
+ 

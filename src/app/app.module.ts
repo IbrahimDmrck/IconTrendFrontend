@@ -71,6 +71,21 @@ import { AdminKongreManagerComponent } from './components/admin/admin-kongre-man
 import { AdminKongreAddComponent } from './components/admin/admin-kongre-add/admin-kongre-add.component';
 import { AdminKongreDeleteComponent } from './components/admin/admin-kongre-delete/admin-kongre-delete.component';
 import { AdminKongreUpdateComponent } from './components/admin/admin-kongre-update/admin-kongre-update.component';
+import { SaveComponent } from './components/save/save.component';
+import { BankAccountInfoComponent } from './components/bank-account-info/bank-account-info.component';
+import { TrBankAccountInfoComponent } from './components/tr-bank-account-info/tr-bank-account-info.component';
+import { AdminSaveManagerComponent } from './components/admin/admin-save-manager/admin-save-manager.component';
+import { AdminSaveAddComponent } from './components/admin/admin-save-add/admin-save-add.component';
+import { AdminSaveDeleteComponent } from './components/admin/admin-save-delete/admin-save-delete.component';
+import { AdminSaveUpdateComponent } from './components/admin/admin-save-update/admin-save-update.component';
+import { AdminBankAccountManagerComponent } from './components/admin/admin-bank-account-manager/admin-bank-account-manager.component';
+import { AdminBankAccountAddComponent } from './components/admin/admin-bank-account-add/admin-bank-account-add.component';
+import { AdminBankAccountDeleteComponent } from './components/admin/admin-bank-account-delete/admin-bank-account-delete.component';
+import { AdminBankAccountUpdateComponent } from './components/admin/admin-bank-account-update/admin-bank-account-update.component';
+import { AdminTrBankAccountManagerComponent } from './components/admin/admin-tr-bank-account-manager/admin-tr-bank-account-manager.component';
+import { AdminTrBankAccountAddComponent } from './components/admin/admin-tr-bank-account-add/admin-tr-bank-account-add.component';
+import { AdminTrBankAccountDeleteComponent } from './components/admin/admin-tr-bank-account-delete/admin-tr-bank-account-delete.component';
+import { AdminTrBankAccountUpdateComponent } from './components/admin/admin-tr-bank-account-update/admin-tr-bank-account-update.component';
 
 
 
@@ -140,6 +155,21 @@ import { AdminKongreUpdateComponent } from './components/admin/admin-kongre-upda
     AdminKongreAddComponent,
     AdminKongreDeleteComponent,
     AdminKongreUpdateComponent,
+    SaveComponent,
+    BankAccountInfoComponent,
+    TrBankAccountInfoComponent,
+    AdminSaveManagerComponent,
+    AdminSaveAddComponent,
+    AdminSaveDeleteComponent,
+    AdminSaveUpdateComponent,
+    AdminBankAccountManagerComponent,
+    AdminBankAccountAddComponent,
+    AdminBankAccountDeleteComponent,
+    AdminBankAccountUpdateComponent,
+    AdminTrBankAccountManagerComponent,
+    AdminTrBankAccountAddComponent,
+    AdminTrBankAccountDeleteComponent,
+    AdminTrBankAccountUpdateComponent,
   
   ],
   imports: [

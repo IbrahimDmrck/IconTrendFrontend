@@ -77,7 +77,7 @@ createContactForm():FormGroup{
       capacity:["",[Validators.required,Validators.min(1)]],
       minDemand:["",[Validators.required,Validators.minLength(2)]],
       description:["",[Validators.required,Validators.minLength(5)]],
-      Price: ["", [Validators.required, Validators.min(1)]],
+      price: ["", [Validators.required, Validators.min(1)]]
     });
   }
   
@@ -90,7 +90,40 @@ createContactForm():FormGroup{
       kongreDuzenlemeKurulu:["",[Validators.required]],
       kongreTarihi:new FormControl(this.datetime.toISOString().substring(0, 16)),
       bilimKurulu:["",[Validators.required,Validators.min(1)]],
-      kongreKonusu:["",[Validators.required,Validators.min(1)]],
+      kongreKonusu:["",[Validators.required,Validators.min(1)]]
     });
   } 
+
+  createSaveForm():FormGroup{
+    return this.formBuilder.group({
+      videoConferenceMemberPrice:["",[Validators.required]],
+      videoConferenceNonMemberPrice:["",[Validators.required]],
+      oralPresentationMemberPrice:["",[Validators.required]],
+      oralPresentationNonMemberPrice:["",[Validators.required]],
+      videoConferenceDescription:["",[Validators.required]],
+      participationPriceServiceAdditionDescription:["",[Validators.required]],
+      description:["",[Validators.required]]
+    })
+  }
+
+  createBankAccountInfo():FormGroup{
+    return this.formBuilder.group({
+      country:["",[Validators.required]],
+      bankCode:["",[Validators.required]],
+      accountNumber:["",[Validators.required]],
+      branch:["",[Validators.required]],
+      address:["",[Validators.required]],
+      description:["",[Validators.required]]
+    })
+  }
+
+  createTrBankAccountInfo():FormGroup{
+    return this.formBuilder.group({
+      iban:["",[Validators.required]],
+      accountName:["",[Validators.required]],
+      bankName:["",[Validators.required]],
+      description1:["",[Validators.required]],
+      description2:["",[Validators.required]],
+    })
+  }
 }

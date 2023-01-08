@@ -7,7 +7,7 @@ import { ErrorService } from 'src/app/services/error.service';
 import { FormService } from 'src/app/services/form.service';
 import { TransportLayoverImageService } from 'src/app/services/transport-layover-image.service';
 import { TransportLayoverService } from 'src/app/services/transport-layover.service';
-
+ 
 @Component({
   selector: 'app-admin-transport-layover-add',
   templateUrl: './admin-transport-layover-add.component.html',
@@ -30,12 +30,20 @@ export class AdminTransportLayoverAddComponent implements OnInit {
     this.createTransportAddForm();
   }
 
+  private createTransportAddForm() {
+    this.transportAddForm = this.formService.createTransportLayoverForm();
+  }
+
+  closeTransportAddModal() {
+    this.transportAddModal.close();
+  }
+
   add() {
     if (!this.transportAddForm.valid) {
       this.toastrService.error("Formunuz hatalı", "Geçersiz form");
     } else {
       let transportModel = Object.assign({}, this.transportAddForm.value);
-      //Add Announce to Server
+      //Add transport to Server
       this.transportLayoverService.add(transportModel).subscribe(transportAddSuccessResponse => {
         if (this.transportImagesFiles.length === 0) {  
           this.toastrService.success("Yeni ulaşım bilgisi başarıyla eklendi", "İşlem başarılı");
@@ -165,12 +173,6 @@ export class AdminTransportLayoverAddComponent implements OnInit {
     })
   }
 
-  private createTransportAddForm() {
-    this.transportAddForm = this.formService.createTransportLayoverForm();
-  }
 
-  closeTransportAddModal() {
-    this.transportAddModal.close();
-  }
   
 }

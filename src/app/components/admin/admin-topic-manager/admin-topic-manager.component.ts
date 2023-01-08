@@ -38,7 +38,7 @@ export class AdminTopicManagerComponent implements OnInit {
       disableClose:true,
       width:'50%'
     });
-
+ 
     topicUpdateModal.componentInstance.currentTopic=topic;
     topicUpdateModal.afterClosed().subscribe(result=>{
       this.ngOnInit();

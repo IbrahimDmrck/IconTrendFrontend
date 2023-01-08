@@ -1,0 +1,63 @@
+<div *ngIf="currentBankAccount && bankAccountUpdateForm"  class="card">
+    <div class="card-header">
+        <div class="d-flex justify-content-between">
+            <h5>Banka bilgisini Güncelle</h5>
+         </div>
+    </div>
+    <div class="card-body">
+        <form [formGroup]="bankAccountUpdateForm">
+            <div class="align-items-center">
+                <div class="card">
+                    <div class="card-body">
+                     
+                        <div class="row">
+
+                            <div class="col-3">
+                                <b>Ülke :</b>
+                                <input class="form-control form-control-sm"   type="text" [placeholder]="currentBankAccount.country" formControlName="country">         
+                            </div>
+
+                            <div class="col-3">
+                                <b>Banka Kodu (Swift) :</b>
+                                <input class="form-control form-control-sm"  type="text" [placeholder]="currentBankAccount.bankCode" formControlName="bankCode">
+                               </div>
+                        
+                                 <div class=" col-3">
+                                      <b>Hesap Numarası :</b>
+                                    <input class="form-control form-control-sm"  type="text" [placeholder]="currentBankAccount.accountNumber" formControlName="accountNumber">
+                                 </div>
+                        
+                                
+                        
+                                 <div class=" col-3">
+                                    <b>Şube :</b>
+                                    <input class="form-control form-control-sm"  type="text" [placeholder]="currentBankAccount.branch" formControlName="address" >
+                                 </div>
+                                
+                        
+                                 <div class="mt-3">
+                                    <b>Adres :</b>
+                                    <input class="form-control form-control-sm"  type="text" [placeholder]="currentBankAccount.address" formControlName="branch" >
+                                 </div>
+                        
+                                <div class="mt-3">
+                                    <b>Açıklama :</b>
+                                    <textarea class="form-control form-control-sm"  [placeholder]="currentBankAccount.description"  row="30" cols="150" formControlName="description"></textarea>
+                                </div>
+                        
+                                
+
+                        </div>
+                 
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="row mt-3">
+            <div class="d-flex justify-content-end">
+                <button (click)="update()" type="button" class="btn btn-success me-2">Güncelle</button>
+                <button (click)="closeUpdateModal()" type="button" class="btn btn-danger">İptal</button>
+            </div>
+        </div>
+    </div>
+</div>

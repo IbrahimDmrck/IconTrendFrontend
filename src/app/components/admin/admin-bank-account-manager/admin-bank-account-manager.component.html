@@ -1,0 +1,34 @@
+<div style="margin-top: 70px;" *ngIf="DataLoad == false" class="spinner-border text-success" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+
+  <h3 style="margin-top: 70px;background-color:indianred;" class="text-center ">Banka Bilgleri</h3>
+
+
+  <table *ngIf="DataLoad == true"  style="border-radius:10px;" class="table table-bordered bg-dark text-white text-center">
+    <thead  style="font-weight: bolder;text-decoration:underline;">
+        <tr>
+            
+            <th scope="">Ülke</th>
+            <th scope="">Banka Kodu (SWIFT)</th>
+            <th scope="">Hesap Numarası</th>
+            <th scope="">Şube</th>
+            <th scope="">Adres</th> 
+            <th scope="">Açıklama</th>
+            <th><button (click)="showBankAccountInfoAddModal()"  type="button" class="btn btn-outline-info" >Banka Bilgisi Ekle</button></th>  
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let bankAccount of bankAccounts">
+            <td>{{bankAccount.country}}</td>
+            <td>{{bankAccount.bankCode}}</td>
+            <td>{{bankAccount.accountNumber}}</td>
+            <td>{{bankAccount.branch}}</td>
+            <td>{{bankAccount.address.substring(0,10)}}..</td>
+            <td>{{bankAccount.description.substring(0,15)}}..</td>
+           <td><button (click)="showBankAccountInfoUpdateModal(bankAccount)" type="button" class="btn btn-sm btn-outline-warning">Düzenle</button> | <button (click)="showBankAccountInfoDeleteModal(bankAccount)" type="button" class="btn btn-sm btn-outline-danger">Sil</button></td>
+        </tr>
+    </tbody>
+   
+  </table>
+ 

@@ -14,7 +14,7 @@ export class AdminContactManagerComponent implements OnInit {
 contacts:Contact[];
 DataLoadded:boolean=false;
   constructor(private contactService:ContactService,private dialog:MatDialog) { }
-
+ 
   ngOnInit(): void {
     this.getContact();
   }

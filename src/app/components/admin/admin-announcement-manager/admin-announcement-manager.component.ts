@@ -8,7 +8,7 @@ import { AnnouncementService } from 'src/app/services/announcement.service';
 import { AdminAnnouncementAddComponent } from '../admin-announcement-add/admin-announcement-add.component';
 import { AdminAnnouncementDeleteComponent } from '../admin-announcement-delete/admin-announcement-delete.component';
 import { AdminAnnouncementUpdateComponent } from '../admin-announcement-update/admin-announcement-update.component';
-
+ 
 @Component({
   selector: 'app-admin-announcement-manager',
   templateUrl: './admin-announcement-manager.component.html',
@@ -47,7 +47,7 @@ export class AdminAnnouncementManagerComponent implements OnInit {
       disableClose:true,
       width:'50%'
     });
-
+    announceUpdateModal.componentInstance.currentAnnounce=announce;
     announceUpdateModal.afterClosed().subscribe(result=>{
       this.ngOnInit();
     })
