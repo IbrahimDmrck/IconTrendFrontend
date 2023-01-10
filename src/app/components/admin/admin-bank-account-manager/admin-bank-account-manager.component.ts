@@ -58,7 +58,8 @@ showBankAccountInfoDeleteModal(accountInfo:BankAccountInfo){
   showBankAccountInfoAddModal(){
     const bankAccountAddModal=this.dialog.open(AdminBankAccountAddComponent,{
       disableClose:true,
-      width:'95%'
+      width:'100%',
+      height:'100%'
     });
     bankAccountAddModal.afterClosed().subscribe(result=>{
       this.ngOnInit();

@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatDialogModule } from '@angular/material/dialog';
 import { NgxMaskModule } from 'ngx-mask';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { AngularEditorModule } from '@kolkov/angular-editor';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -86,6 +87,7 @@ import { AdminTrBankAccountManagerComponent } from './components/admin/admin-tr-
 import { AdminTrBankAccountAddComponent } from './components/admin/admin-tr-bank-account-add/admin-tr-bank-account-add.component';
 import { AdminTrBankAccountDeleteComponent } from './components/admin/admin-tr-bank-account-delete/admin-tr-bank-account-delete.component';
 import { AdminTrBankAccountUpdateComponent } from './components/admin/admin-tr-bank-account-update/admin-tr-bank-account-update.component';
+
 
 
 
@@ -182,6 +184,7 @@ import { AdminTrBankAccountUpdateComponent } from './components/admin/admin-tr-b
     BrowserAnimationsModule,
     MatDialogModule,
     NgxSpinnerModule,
+    AngularEditorModule,
     ToastrModule.forRoot({
       positionClass: "toast-top-right"
     })
@@ -190,6 +193,7 @@ import { AdminTrBankAccountUpdateComponent } from './components/admin/admin-tr-b
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
     JwtHelperService
+  
   ],
   bootstrap: [AppComponent]
 })

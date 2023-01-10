@@ -1,4 +1,4 @@
-<div  class="card" >
+<div style="overflow-y: auto;" class="card" >
     <div class="card-header">
         <div class="d-flex justify-content-between">
             <h5>Duyuru Güncelle --> {{currentAnnounce.announceTitle}}</h5>
@@ -129,8 +129,9 @@
                                         <label for="announceContent">Açıklama:</label>
                                     </div>
                                     <div class="col-md-10">
-                                        <input type="text" id="announceContent" formControlName="announceContent"
-                                            class="form-control" [placeholder]="currentAnnounce.announceContent" />
+                                        <!-- <input type="text" id="announceContent" formControlName="announceContent"
+                                            class="form-control" [placeholder]="currentAnnounce.announceContent" /> -->
+                                            <angular-editor [placeholder]="currentAnnounce.announceContent" formControlName="announceContent"  ></angular-editor>
                                     </div>
                                 </div>
                             </div>
