@@ -1,1 +1,218 @@
-<p>admin-kongre-update works!</p>
+<div *ngIf="currentCongre && kongreUpdateForm" class="card">
+    <div class="card-header">
+        <div class="d-flex justify-content-between">
+            <h5>{{currentCongre.kongreAdi}} Kongresini güncelle</h5>
+        </div>
+    </div>
+    <div class="card-body">
+        <form [formGroup]="kongreUpdateForm">
+            <div class="align-items-center">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div *ngIf="kongreImages.length>0" class="row">
+                                    <div id="AddKongreImagesCarousel" class="carousel carousel-dark slide"
+                                        data-bs-ride="carousel">
+                                        <div class="carousel-indicators">
+                                            <button *ngFor="let kongreImage of kongreImages; let i = index" type="button"
+                                                data-bs-target="#AddKongreImagesCarousel" attr.data-bs-slide-to="{{i}}"
+                                                class="{{(i == 0) ? 'active' : ''}}"
+                                                attr.aria-label="Slide {{i}}"></button>
+                                        </div>
+                                        <div class="carousel-inner">
+                                            <div *ngFor="let kongreImage of kongreImages; let i = index"
+                                                class="{{(i == 0) ? 'carousel-item active' : 'carousel-item' }}">
+                                                <img [src]="kongreImage" height="100%" width="100%"
+                                                    alt="image not found">
+                                            </div>
+                                        </div>
+                                        <div *ngIf="kongreImages.length>1">
+                                            <button class="carousel-control-prev" type="button"
+                                                data-bs-target="#AddKongreImagesCarousel" data-bs-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Previous</span>
+                                            </button>
+                                            <button class="carousel-control-next" type="button"
+                                                data-bs-target="#AddKongreImagesCarousel" data-bs-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Next</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div *ngIf="kongreImages.length===0">
+                                    <img src="" height="200" alt="image not found">
+                                </div>
+                                <div class="row mt-2 ms-2">
+                                    <input #file class="form-control" type="file" id="kongreImagesFiles" accept="image/*"
+                                        (change)="addKongreImagesToUploadAndPathList(file.files)">
+                                </div>
+                            </div>
+                            <div class="col-md-1"></div>
+                            <div class="col-md-5">
+                                <div *ngIf="kongreImages.length>0 || uploadImagesPaths.length > 0" class="row">
+                                    <ul class="list-group">
+                                        <li *ngFor="let kongreImage of kongreImages" class="list-group-item">
+                                            <div class="d-flex justify-content-between">
+                                                <img [src]="getImagePath(kongreImage.imagePath)" height="30"
+                                                    alt="image not found">
+                                                <span>
+                                                    <svg (click)="deleteImageFromKongreImages(kongreImage)"
+                                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                        fill="red" class="bi bi-x-square-fill" viewBox="0 0 16 16">
+                                                        <path
+                                                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.354 4.646L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 1 1 .708-.708z" />
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                        </li>
+                                        <li *ngFor="let uploadImage of uploadImagesPaths"
+                                            class="list-group-item text-light"
+                                            style="background-color: rgb(100, 197, 113);">
+                                            <div class="d-flex justify-content-between">
+                                                <img [src]="uploadImage" height="30" alt="image not found">
+                                                <span>
+                                                    <svg (click)="deleteImageFromUploadFiles(uploadImage)"
+                                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                        fill="red" class="bi bi-x-square-fill" viewBox="0 0 16 16">
+                                                        <path
+                                                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.354 4.646L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 1 1 .708-.708z" />
+                                                    </svg>
+                                                </span>
+                                            </div>
+
+                                        </li>
+                                    </ul>
+                                    <p class="text-center text-muted">
+                                        <small>{{kongreImages.length + uploadImagesPaths.length}}/5 resim</small>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="row mt-3">
+                                <div class="col-md-4">
+                                    <div class="form-group row align-items-center">
+                                        <div class="col-md-3 text-center">
+                                            <label for="kongreAdi">
+                                                Kongre Adı:
+                                            </label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            
+                                                <input type="text" id="kongreAdi" formControlName="kongreAdi"
+                                                    class="form-control" [placeholder]="currentCongre.kongreAdi" />
+                                           
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group row align-items-center">
+                                        <div class="col-md-3 text-center">
+                                            <label for="kongreDuzenlemeKurulu">Düzenleme Kurulu:</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <!-- <input type="text" id="kongreDuzenlemeKurulu" formControlName="kongreDuzenlemeKurulu"
+                                                    class="form-control" [placeholder]="currentCongre.kongreDuzenlemeKurulu" /> -->
+                                                    <angular-editor [placeholder]="'düzenleme kurulu...'" formControlName="kongreDuzenlemeKurulu"  ></angular-editor>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group row align-items-center">
+                                        <div class="col-md-4 text-center">
+                                            <label class="text-nowrap" for="bilimKurulu">Bilim Kurulu:</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <!-- <input type="text" id="bilimKurulu" formControlName="bilimKurulu"
+                                            class="form-control" [placeholder]="currentCongre.bilimKurulu" /> -->
+                                            <angular-editor [placeholder]="'bilim kurulu...'" formControlName="bilimKurulu"  ></angular-editor>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-md-6">
+                                    <div class="form-group row align-items-center">
+                                        <div class="col-md-3 text-center">
+                                            <label for="kongreKonusu">Konu:</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <input type="text" id="kongreKonusu" formControlName="kongreKonusu"
+                                                class="form-control" [placeholder]="currentCongre.kongreKonusu" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group row align-items-center">
+                                        <div class="col-md-4">
+                                            <label for="kongreAdresi" class="text-nowrap">Adres:</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="text" id="kongreAdresi" formControlName="kongreAdresi"
+                                                class="form-control float-end" [placeholder]="currentCongre.kongreAdresi" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-md-6">
+                                    <div class="form-group row align-items-center">
+                                        <div class="col-md-4">
+                                            <label for="kongreTarihi" class="text-nowrap">Tarih:</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                                <input type="datetime-local" id="kongreTarihi" formControlName="kongreTarihi"
+                                                class="form-control float-end" [placeholder]="currentCongre.kongreTarihi"  />
+                                        </div>
+                                    </div>
+                                    <div class="form-group row align-items-center">
+                                        <div class="col-md-4">
+                                            <label for="kongreBitisTarihi" class="text-nowrap">Bitiş Tarihi:</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                                <input type="datetime-local" id="kongreBitisTarihi" formControlName="kongreBitisTarihi"
+                                                class="form-control float-end" [placeholder]="currentCongre.kongreBitisTarihi"  />
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group row align-items-center">
+                                        <div class="col-md-4">
+                                            <label for="kongreBaskani" class="text-nowrap">Kongre Başkanı:</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                                <input type="text" id="kongreBaskani" formControlName="kongreBaskani"
+                                                class="form-control float-end" [placeholder]="currentCongre.kongreBaskani"  />
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="row mt-3 align-items-end">
+                                <div class="form-group row align-items-center">
+                                    <div class="col-md-2">
+                                        <label for="kongreHakkinda">Açıklama:</label>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <!-- <input type="text" id="kongreHakkinda" formControlName="kongreHakkinda"
+                                            class="form-control" [placeholder]="currentCongre.kongreHakkinda" /> -->
+                                            <angular-editor [placeholder]="'Açıklama...'" formControlName="kongreHakkinda"  ></angular-editor>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="row mt-3">
+            <div class="d-flex justify-content-end">
+                <button (click)="update()" type="button" class="btn btn-success me-2">Güncelle</button>
+                <button (click)="closeKongreUpdateModal()" type="button" class="btn btn-danger">İptal</button>
+            </div>
+        </div>
+    </div>
+</div>

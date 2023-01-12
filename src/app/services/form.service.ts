@@ -6,6 +6,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 })
 export class FormService {
   datetime= new Date();
+  datetimeFinish= new Date();
   status:boolean;
   constructor(private formBuilder:FormBuilder) { }
   
@@ -89,6 +90,7 @@ createContactForm():FormGroup{
       kongreAdresi:["",[Validators.required,Validators.minLength(3)]],
       kongreDuzenlemeKurulu:["",[Validators.required]],
       kongreTarihi:new FormControl(this.datetime.toISOString().substring(0, 16)),
+      kongreBitisTarihi:new FormControl(this.datetimeFinish.toISOString().substring(0, 16)),
       bilimKurulu:["",[Validators.required,Validators.min(1)]],
       kongreKonusu:["",[Validators.required,Validators.min(1)]]
     });
@@ -124,6 +126,14 @@ createContactForm():FormGroup{
       bankName:["",[Validators.required]],
       description1:["",[Validators.required]],
       description2:["",[Validators.required]],
+    })
+  }
+
+  createGeneralInfo():FormGroup{
+    return this.formBuilder.group({
+      summaryContent:["",[Validators.required]],
+      paperEvaluation:["",[Validators.required]],
+      rules:["",[Validators.required]]
     })
   }
 }

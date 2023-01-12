@@ -43,7 +43,9 @@ export class AdminTransportLayoverManagerComponent implements OnInit {
   showTransportUpdateModal(transportlayover: TransportLayover) {
     const transportUpdateModal = this.dialog.open(AdminTransportLayoverUpdateComponent, {
       disableClose: true,
-      width: "40%"
+      width: '100%',
+      height:'80%'
+
     });
     transportUpdateModal.componentInstance.currentTransport = transportlayover;
 
@@ -55,7 +57,8 @@ export class AdminTransportLayoverManagerComponent implements OnInit {
   showTransportDeleteModal(transportlayover: TransportLayover) {
     const transportDeleteModal = this.dialog.open(AdminTransportLayoverDeleteComponent, {
       disableClose: true,
-      width: "50%"
+      width: '100%'
+
     });
     transportDeleteModal.componentInstance.deletedTransport = transportlayover;
 
@@ -67,7 +70,8 @@ export class AdminTransportLayoverManagerComponent implements OnInit {
   showTransportAddModal() {
     const transportAddModal = this.dialog.open(AdminTransportLayoverAddComponent, {
       disableClose: true,
-      width: "50%",
+      width: '100%',
+      height:'80%'
     });
 
     transportAddModal.afterClosed().subscribe(result => {

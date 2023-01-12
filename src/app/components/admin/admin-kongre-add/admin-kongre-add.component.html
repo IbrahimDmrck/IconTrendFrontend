@@ -96,29 +96,31 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div style="margin: 5px 0px 5px 0px;" class="col-md-6">
                                     <div class="form-group row align-items-center">
                                         <div class="col-md-3 text-center">
                                             <label for="kongreDuzenlemeKurulu">Düzenleme Kurulu:</label>
                                         </div>
                                         <div class="col-md-9">
-                                            <input type="text" id="kongreDuzenlemeKurulu" formControlName="kongreDuzenlemeKurulu"
-                                                class="form-control" placeholder="Düzenleme Kurulu" />
+                                            <!-- <input type="text" id="kongreDuzenlemeKurulu" formControlName="kongreDuzenlemeKurulu"
+                                                class="form-control" placeholder="Düzenleme Kurulu" /> -->
+                                                <angular-editor [placeholder]="'Düzenleme Kurulu...'" formControlName="kongreDuzenlemeKurulu"  ></angular-editor>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div style="margin: 5px 0px 5px 0px;" class="col-md-6">
                                     <div class="form-group row align-items-center">
                                         <div class="col-md-3 text-center">
                                             <label for="bilimKurulu">Bilim Kurulu:</label>
                                         </div>
                                         <div class="col-md-9">
-                                            <input type="text" id="bilimKurulu" formControlName="bilimKurulu"
-                                                class="form-control" placeholder="Bilim Kurulu" />
+                                            <!-- <input type="text" id="bilimKurulu" formControlName="bilimKurulu"
+                                                class="form-control" placeholder="Bilim Kurulu" /> -->
+                                                <angular-editor [placeholder]="'Bilim Kurulu...'" formControlName="bilimKurulu"  ></angular-editor>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-6 mb-1">
                                     <div class="form-group row align-items-center">
                                         <div class="col-md-3 text-center">
                                             <label for="kongreKonusu">Konu:</label>
@@ -150,17 +152,28 @@
                                                 class="form-control float-end"  />
                                         </div>
                                     </div>
+                                    
+                                    <div class="form-group row align-items-center">
+                                        <div class="col-md-4">
+                                            <label for="kongreBitisTarihi" class="text-nowrap">Kongre Bitiş Tarihi:</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="datetime-local" id="kongreBitisTarihi" formControlName="kongreBitisTarihi"
+                                                class="form-control float-end"  />
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                            
                             <div class="row mt-3 align-items-end">
                                 <div class="form-group row align-items-center">
-                                    <div class="col-md-2">
-                                        <label for="kongreHakkinda">Kongre Açıklaması:</label>
+                                    <div class="col-md-1">
+                                        <label for="kongreHakkinda">Açıklaması:</label>
                                     </div>
-                                    <div class="col-md-10">
-                                        <input type="text" id="kongreHakkinda" formControlName="kongreHakkinda"
-                                            class="form-control" placeholder="Açıklama..." />
+                                    <div class="col-md-11">
+                                        <!-- <input type="text" id="kongreHakkinda" formControlName="kongreHakkinda"
+                                            class="form-control" placeholder="Açıklama..." /> -->
+                                            <angular-editor [placeholder]="'Açıklama...'" formControlName="kongreHakkinda"  ></angular-editor>
                                     </div>
                                 </div>
                             </div>

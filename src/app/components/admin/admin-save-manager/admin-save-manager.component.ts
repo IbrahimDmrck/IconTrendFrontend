@@ -10,7 +10,7 @@ import { AdminSaveUpdateComponent } from '../admin-save-update/admin-save-update
   selector: 'app-admin-save-manager',
   templateUrl: './admin-save-manager.component.html',
   styleUrls: ['./admin-save-manager.component.css']
-})
+}) 
 export class AdminSaveManagerComponent implements OnInit {
 saves:Save[];
 DataLoad:boolean=false;
@@ -33,7 +33,8 @@ DataLoad:boolean=false;
   showSaveDeleteModal(save:Save){
     const saveDeleteModal=this.dialog.open(AdminSaveDeleteComponent,{
       disableClose:true,
-      width:'95%'
+      width:'95%',
+      height:'80%'
     });
 
     saveDeleteModal.componentInstance.deletedSave=save;
@@ -46,7 +47,8 @@ DataLoad:boolean=false;
     const saveUpdateModal=this.dialog.open(AdminSaveUpdateComponent,{
 
       disableClose:true,
-      width:'95%'
+      width:'95%',
+      height:'80%'
     });
 
     saveUpdateModal.componentInstance.currentSave=save;
@@ -58,7 +60,8 @@ DataLoad:boolean=false;
   showSaveAddModal(){
     const saveAddModal=this.dialog.open(AdminSaveAddComponent,{
       disableClose:true,
-      width:'95%'
+      width:'95%',
+      height:'80%'
     });
     saveAddModal.afterClosed().subscribe(result=>{
       this.ngOnInit();

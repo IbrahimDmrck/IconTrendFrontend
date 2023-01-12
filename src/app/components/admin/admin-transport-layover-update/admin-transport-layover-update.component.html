@@ -163,9 +163,16 @@
                                             <input type="text" id="carDailyPrice" formControlName="minDemand"
                                                 class="form-control float-end" [placeholder]="currentTransport.minDemand" />
                                         </div>
-                                        <div class="col-md-8">
-                                            <input type="text" id="carDailyPrice" formControlName="price"
-                                                class="form-control float-end" [placeholder]="currentTransport.price" />
+                                    </div>
+                                </div>
+                                <div class="row mt-3 align-items-end">
+                                    <div class="form-group row align-items-center">
+                                        <div class="col-md-2">
+                                            <label for="" class="text-nowrap"> Fiyat</label>
+                                        </div>
+                                        <div class="col-md-10">
+                                            <input type="number" id="price" formControlName="price"
+                                            class="form-control" placeholder="currentTransport.price    " />
                                         </div>
                                     </div>
                                 </div>
@@ -176,8 +183,10 @@
                                         <label for="carColorId">Açıklama:</label>
                                     </div>
                                     <div class="col-md-10">
-                                        <input type="text" id="carDescription" formControlName="description"
-                                            class="form-control" [placeholder]="currentTransport.description" />
+                                        <!-- <input type="text" id="carDescription" formControlName="description"
+                                            class="form-control" [placeholder]="currentTransport.description" /> -->
+
+                                            <angular-editor  [placeholder]="currentTransport.description" formControlName="description"  ></angular-editor>
                                     </div>
                                 </div>
                             </div>

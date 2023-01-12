@@ -1,4 +1,4 @@
-<div *ngIf="currentRegulatoryBoard && regulatoryBoardUpdateForm">
+<div style="overflow-x: auto;" *ngIf="currentRegulatoryBoard && regulatoryBoardUpdateForm">
     <div class="card">
         <div class="card-header">
             <div class="d-flex justify-content-between">
@@ -34,10 +34,12 @@
                                     <div class="form-group  mb-3">
                                         <input type="text"  formControlName="regulatoryBoardMemberName" class="form-control"
                                             placeholder="Üye Adlarını Yazın" />
+                                            <!-- <angular-editor id="editor2" [placeholder]="currentRegulatoryBoard.regulatoryBoardMemberName" formControlName="regulatoryBoardMemberName"  ></angular-editor> -->
                                     </div>
                                     <div class="form-group">
                                         <input type="text"  formControlName="univercity" class="form-control"
                                             placeholder="Üye üniversiteleri" />
+                                            <!-- <angular-editor id="editor2" [placeholder]="currentRegulatoryBoard.univercity" formControlName="univercity"  ></angular-editor> -->
                                     </div>
                                 </div>
                             </form>

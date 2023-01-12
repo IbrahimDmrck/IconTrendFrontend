@@ -27,7 +27,8 @@
     <div id="contentCongress">
         <p ><h4 id="congressTitle">{{currentCongress.kongreAdi}}</h4><p>
         <div>
-            {{currentCongress.kongreHakkinda}}
+            
+            <angular-editor [config]="editorConfig" [ngModel]="currentCongress.kongreHakkinda"></angular-editor>
         </div>
     </div>
     
@@ -43,7 +44,9 @@
           </thead>
           <tbody>
             <tr>
-              <td>{{currentCongress.kongreDuzenlemeKurulu}}</td>
+              <td>
+                <angular-editor [config]="editorConfig" [ngModel]="currentCongress.kongreDuzenlemeKurulu"></angular-editor>
+              </td>
             </tr>
           </tbody>
       </table> 

@@ -1,0 +1,38 @@
+
+<!-- <table class="table table-hover text-white bg-danger">
+    <thead>
+        <tr>
+            <th>ıd</th>
+            <th>özet</th>
+            <th>bildiri</th>
+            <th>kurallar</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let general of generalInfo">
+        <tr>
+            <td>{{general.id}}</td>
+            <td>{{general.summaryContent}}</td>
+            <td>{{general.paperEvaluation}}</td>
+            <td>{{general.rules}}</td>
+        </tr>
+    </tbody>
+</table> -->
+
+<div style="margin-top: 70px;" class="container-fluid">
+    <div class="container bg-primary">
+        <h3>-Bildiri Yazım Kuralları</h3>
+    </div>
+    <div class="container text-white" *ngFor="let general of generalInfo" >
+        <div id="editor"><angular-editor [config]="editorConfig" [ngModel]="general.summaryContent"></angular-editor></div>
+    </div>
+  
+    <div class="container text-white" *ngFor="let general of generalInfo" >
+        <h3>kurallar :</h3>   
+        <div id="editor"><angular-editor [config]="editorConfig" [ngModel]="general.rules"></angular-editor></div>
+    </div>
+
+    <div class="container text-white" *ngFor="let general of generalInfo" >
+        <h3>Bildiri Değerlendirmesi :</h3>   
+        <div id="editor"><angular-editor [config]="editorConfig" [ngModel]="general.paperEvaluation"></angular-editor></div>
+    </div>
+</div>

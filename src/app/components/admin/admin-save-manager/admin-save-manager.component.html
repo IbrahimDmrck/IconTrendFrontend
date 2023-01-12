@@ -8,7 +8,7 @@
   <table *ngIf="DataLoad == true"  style="border-radius:10px;" class="table table-bordered bg-dark text-white text-center">
     <thead  style="font-weight: bolder;text-decoration:underline;">
         <tr>
-            
+            <th scope="">ID</th>
             <th scope="">Video Konferans YSU Üye Fiyatı</th>
             <th scope="">Video Konferans YSU Üye Olmayan Fiyatı</th>
             <th scope="">Sözlü/Poster Sunum YSU Üye Fiyatı</th>
@@ -21,6 +21,7 @@
     </thead>
     <tbody>
         <tr *ngFor="let save of saves">
+            <td>{{save.id}}</td>
             <td>{{save.videoConferenceMemberPrice}}</td>
             <td>{{save.videoConferenceNonMemberPrice}}</td>
            <td>{{save.oralPresentationMemberPrice}}</td>

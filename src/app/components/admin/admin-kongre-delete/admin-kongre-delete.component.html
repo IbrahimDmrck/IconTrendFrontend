@@ -9,29 +9,14 @@
         <div class="row">
             <div class="card">
                 <div class="card-body">
-                    <!-- <div class="row">
-                        <div class="text-center">
-                            <img [src]="getImagePath(deletedKongre.kongreImages[0].imagePath)" height="200">
-                        </div>
-                    </div> -->
+                 
                     <div class="row text-center">
-                        <ul class="list-group list-group-horizontal d-flex">
-                            <li class="list-group-item flex-fill">
-                                <strong><ins>Marka</ins></strong><br>{{deletedKongre.kongreAdi}}</li>
-                            <li class="list-group-item flex-fill">
-                                <strong><ins>Model</ins></strong><br>{{deletedKongre.kongreBaskani}}</li>
-                            <li class="list-group-item flex-fill">
-                                <strong><ins>Renk</ins></strong><br>{{deletedKongre.kongreAdresi}}</li>
-                        </ul>
-                        <ul class="list-group list-group-horizontal d-flex">
-                            <!-- <li class="list-group-item flex-fill"><strong><ins>Model
-                                        Yılı</ins></strong><br>{{deletedAnnounce.modelYear}}</li>
-                            <li class="list-group-item flex-fill"><strong><ins>Günlük
-                                        Ücreti</ins></strong><br>{{deletedAnnounce.dailyPrice}} ₺</li> -->
-                            <li class="list-group-item flex-fill">
-                                <strong><ins>Açıklama</ins></strong><br>{{deletedKongre.kongreKonusu}}</li>
-
-                        </ul>
+                        <div class="alert alert-warning d-flex align-items-center" role="alert">
+                            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+                            <div>
+                              Bu Kongreyi Silmek İstediğinizden Emin Misiniz ?
+                            </div>
+                          </div>
                     </div>
 
                 </div>

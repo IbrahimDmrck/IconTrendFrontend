@@ -36,6 +36,7 @@ bankAccountAddForm:FormGroup;
     add(){
     if (this.bankAccountAddForm.valid) {
       let bankAccountModel=Object.assign({},this.bankAccountAddForm.value);
+  
       this.bankAccountService.add(bankAccountModel).subscribe(()=>{
         this.toastrService.success(bankAccountModel.branch,"Banka Bilgisi Eklendi");
         this.closeBankAccountAddModal();

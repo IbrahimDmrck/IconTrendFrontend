@@ -7,13 +7,13 @@
  <div  class="container-fluid" id="baslik">Geçmiş Kongrelerimiz...</div>
 <div *ngIf="congressDataLoaded==true" class="container-fluid" style="margin-top: 20px;">
  <div id="pastCongress" class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
-  <div class="col"  *ngFor="let kongre of kongres ">
+  <div class="col"  *ngFor="let kongre of kongres.reverse() ">
     <div class="card">
       <figure class="card__thumb">
         <img [src]="getImage(kongre)" width="300" height="510" alt="Picture by Kyle Cottrell" class="card__image">
         <figcaption class="card__caption">
           <h1 class="card__title">{{ kongre.kongreAdi }}</h1>
-          <p class="card__snippet">{{ kongre.kongreHakkinda}}...</p>
+          <p class="card__snippet">...</p>
           <a href="" class="card__button" routerLink="/congress-details/{{kongre.kongreId}}">Kongre Detayı</a>
         </figcaption>
       </figure>

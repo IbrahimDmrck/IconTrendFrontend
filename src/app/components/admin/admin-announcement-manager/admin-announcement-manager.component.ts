@@ -45,7 +45,8 @@ export class AdminAnnouncementManagerComponent implements OnInit {
   showAnnounceUpdateModal(announce:Announcement){
     const announceUpdateModal=this.dialog.open(AdminAnnouncementUpdateComponent,{
       disableClose:true,
-      width:'100%'
+      width: '100%',
+      height:'80%'
     });
     announceUpdateModal.componentInstance.currentAnnounce=announce;
     announceUpdateModal.afterClosed().subscribe(result=>{
@@ -56,7 +57,7 @@ export class AdminAnnouncementManagerComponent implements OnInit {
   showAnnounceDeleteModal(announce: Announcement) {
     const announceDeleteModal = this.dialog.open(AdminAnnouncementDeleteComponent, {
       disableClose: true,
-      width: "25%"
+      width: "100%"
     });
     announceDeleteModal.componentInstance.deletedAnnounce = announce;
 
@@ -68,7 +69,8 @@ export class AdminAnnouncementManagerComponent implements OnInit {
   showAnnounceAddModal() {
     const announceAddModal = this.dialog.open(AdminAnnouncementAddComponent, {
       disableClose: true,
-      width: "100%",
+      width: '100%',
+      height:'80%'
     });
 
     announceAddModal.afterClosed().subscribe(result => {

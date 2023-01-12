@@ -37,7 +37,8 @@ export class AdminRegulatoryBoardManagerComponent implements OnInit {
     const regulatoryBoardUpdateModal=this.dialog.open(AdminRegulatoryBoardUpdateComponent,{
 
       disableClose:true,
-      width:'50%'
+      width:'100%',
+      height:'80%'
     });
 
     regulatoryBoardUpdateModal.componentInstance.currentRegulatoryBoard=regulatoryBoard;
@@ -49,7 +50,8 @@ export class AdminRegulatoryBoardManagerComponent implements OnInit {
   showRegulatoryBoardAddModal(){
     const regulatoryBoardAddModal=this.dialog.open(AdminRegulatoryBoardAddComponent,{
       disableClose:true,
-      width:'30%'
+      width:'100%',
+      height:'80%'
     });
     regulatoryBoardAddModal.afterClosed().subscribe(result=>{
       this.ngOnInit();

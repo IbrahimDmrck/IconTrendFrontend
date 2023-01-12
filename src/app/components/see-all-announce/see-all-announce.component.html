@@ -47,7 +47,8 @@
       <div  class="col-md-8" >
         <div class="card-body">
           <h5 class="card-title">{{announcement.announceTitle}}</h5>
-          <p class="card-text">{{announcement.announceContent}}</p>
+          <!-- <p class="card-text">{{announcement.announceContent}}</p> -->
+          <angular-editor [config]="editorConfig" [ngModel]="announcement.announceContent"></angular-editor>
           <p class="card-text"><small class="text-muted">{{announcement.announceDate.toString().substring(0,10)}}</small></p>
         </div>
       </div>

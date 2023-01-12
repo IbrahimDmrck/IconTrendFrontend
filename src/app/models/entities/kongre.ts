@@ -10,5 +10,6 @@ export class Kongre{
     kongreHakkinda:string;
     kongreAdresi:string;
     kongreTarihi:Date;
+    kongreBitisTarihi:Date;
     kongreImages:kongreImage[];
 }

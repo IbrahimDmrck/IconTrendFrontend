@@ -45,7 +45,8 @@ export class AdminCongressManagerComponent implements OnInit {
   showCongressUpdateModal(congress: Congress) {
     const congressUpdateModal = this.dialog.open(AdminCongressUpdateComponent, {
       disableClose: true,
-      width: "90%"
+      width: "90%",
+      height:"80%"
     });
     congressUpdateModal.componentInstance.currentCongress = congress;
 
@@ -57,7 +58,8 @@ export class AdminCongressManagerComponent implements OnInit {
   showCongressDeleteModal(congress: Congress) {
     const congressDeleteModal = this.dialog.open(AdminCongressDeleteComponent, {
       disableClose: true,
-      width: "90%"
+      width: '100%',
+      height:'80%'
     });
     congressDeleteModal.componentInstance.deletedCongress = congress;
 
@@ -69,7 +71,8 @@ export class AdminCongressManagerComponent implements OnInit {
   showCongressAddModal() {
     const congressAddModal = this.dialog.open(AdminCongressAddComponent, {
       disableClose: true,
-      width: "90%",
+      width: '100%',
+      height:'80%'
     });
 
     congressAddModal.afterClosed().subscribe(result => {

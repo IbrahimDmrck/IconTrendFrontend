@@ -33,7 +33,8 @@ getBankAccountInfo(){
 showBankAccountInfoDeleteModal(accountInfo:BankAccountInfo){
     const bankAccountDeleteModal=this.dialog.open(AdminBankAccountDeleteComponent,{
       disableClose:true,
-      width:'95%'
+      width:'95%',
+      height:'80%'
     });
 
     bankAccountDeleteModal.componentInstance.deletedBankAccount=accountInfo;
@@ -46,7 +47,8 @@ showBankAccountInfoDeleteModal(accountInfo:BankAccountInfo){
     const bankAccountUpdateModal=this.dialog.open(AdminBankAccountUpdateComponent,{
 
       disableClose:true,
-      width:'95%'
+      width:'100%',
+      height:'80%'
     });
 
     bankAccountUpdateModal.componentInstance.currentBankAccount=accountInfo;
@@ -59,7 +61,7 @@ showBankAccountInfoDeleteModal(accountInfo:BankAccountInfo){
     const bankAccountAddModal=this.dialog.open(AdminBankAccountAddComponent,{
       disableClose:true,
       width:'100%',
-      height:'100%'
+      height:'80%'
     });
     bankAccountAddModal.afterClosed().subscribe(result=>{
       this.ngOnInit();

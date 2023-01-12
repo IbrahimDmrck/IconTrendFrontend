@@ -34,7 +34,8 @@ export class AdminTrBankAccountManagerComponent implements OnInit {
 showTrBankAccountInfoDeleteModal(trBank:TrBankAccountInfo){
   const trBankAccountDeleteModal=this.dialog.open(AdminTrBankAccountDeleteComponent,{
     disableClose:true,
-    width:'95%'
+    width:'100%',
+    height:'80%'
   });
 
   trBankAccountDeleteModal.componentInstance.deletedTrBankAccount=trBank;
@@ -47,7 +48,8 @@ showTrBankAccountInfoUpdateModal(trBank:TrBankAccountInfo){
   const trBankAccountUpdateModal=this.dialog.open(AdminTrBankAccountUpdateComponent,{
 
     disableClose:true,
-    width:'95%'
+    width:'100%',
+    height:'80%'
   });
 
   trBankAccountUpdateModal.componentInstance.currentTrBankAccount=trBank;
@@ -59,7 +61,8 @@ showTrBankAccountInfoUpdateModal(trBank:TrBankAccountInfo){
 showTrBankAccountInfoAddModal(){
   const trBankAccountAddModal=this.dialog.open(AdminTrBankAccountAddComponent,{
     disableClose:true,
-    width:'95%'
+    width:'100%',
+    height:'80%'
   });
   trBankAccountAddModal.afterClosed().subscribe(result=>{
     this.ngOnInit();

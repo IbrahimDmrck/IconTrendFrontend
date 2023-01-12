@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { AngularEditorConfig } from '@kolkov/angular-editor/lib/config';
 import { AnnounceImage } from 'src/app/models/entities/announce-image';
 import { Announcement } from 'src/app/models/entities/announcement';
 import { AnnouncementImageService } from 'src/app/services/announcement-image.service';
@@ -21,6 +22,20 @@ export class SeeAllAnnounceComponent implements OnInit {
     private announceImageService:AnnouncementImageService,
     private activatedRoute:ActivatedRoute
   ) { }
+
+  editorConfig: AngularEditorConfig = {
+    editable: false,
+    spellcheck: true,
+    height: '15rem',
+    minHeight: '5rem',
+    placeholder: 'Enter text here...',
+    translate: 'no',
+    defaultParagraphSeparator: 'p',
+    defaultFontName: 'Arial',
+    showToolbar: false,
+    
+   
+  };
 
   ngOnInit(): void {
     this.getAllAnnounce();

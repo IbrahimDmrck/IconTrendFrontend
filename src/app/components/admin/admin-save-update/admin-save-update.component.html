@@ -1,4 +1,4 @@
-<div *ngIf="currentSave && saveUpdateForm"  class="card">
+<div style="overflow-y: auto;" *ngIf="currentSave && saveUpdateForm"  class="card">
     <div class="card-header">
         <div class="d-flex justify-content-between">
             <h5>Kayıt bilgisini Güncelle</h5>
@@ -42,12 +42,14 @@
                         
                                 <div class="mt-3">
                                     <b>Kayıt ek olarak hizmetler</b>
-                                    <textarea class="form-control form-control-sm"  [placeholder]="currentSave.participationPriceServiceAdditionDescription"  row="30" cols="150" formControlName="participationPriceServiceAdditionDescription"></textarea>
+                                    <!-- <textarea class="form-control form-control-sm"  [placeholder]="currentSave.participationPriceServiceAdditionDescription"  row="30" cols="150" formControlName="participationPriceServiceAdditionDescription"></textarea> -->
+                                    <angular-editor id="editor2"  [placeholder]="currentSave.participationPriceServiceAdditionDescription" formControlName="participationPriceServiceAdditionDescription"  ></angular-editor>
                                 </div>
                         
                                 <div class="mt-3">
                                     <b>Açıklama</b><br>
-                                <textarea class="form-control form-control-sm"   [placeholder]="currentSave.description"  row="30" cols="140" formControlName="description"></textarea>
+                                <!-- <textarea class="form-control form-control-sm"   [placeholder]="currentSave.description"  row="30" cols="140" formControlName="description"></textarea> -->
+                                <angular-editor id="editor2"  [placeholder]="currentSave.description" formControlName="description"  ></angular-editor>
                                 </div>
 
                         </div>

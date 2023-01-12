@@ -19,6 +19,7 @@ export class AppComponent {
     translate: 'no',
     defaultParagraphSeparator: 'p',
     defaultFontName: 'Arial',
+    enableToolbar:false
    
   };
 }

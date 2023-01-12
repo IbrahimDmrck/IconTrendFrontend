@@ -1,0 +1,30 @@
+<div style="margin-top: 70px;" *ngIf="DataLoad == false" class="spinner-border text-success" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+
+  <h3 style="margin-top: 70px;background-color:indianred;" class="text-center ">Genel Bilgiler</h3>
+
+
+  <table *ngIf="DataLoad == true"  style="border-radius:10px;" class="table table-bordered bg-dark text-white text-center">
+    <thead  style="font-weight: bolder;text-decoration:underline;">
+        <tr>
+            
+            <th scope="">ID</th>
+            <th scope="">Özet İçeriği</th>
+            <th scope="">Bildiri Değerlendirmesi</th>
+            <th scope="">Kurallar</th>
+            <th><button (click)="showGeneralInfoAddModal()"  type="button" class="btn btn-outline-success" >Genel Bilgi Ekle</button></th>  
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let generalInfo of generalInformations">
+            <td>{{generalInfo.id}}</td>
+            <td>{{generalInfo.summaryContent.substring(0,15)}}..</td>
+            <td>{{generalInfo.paperEvaluation.substring(0,15)}}..</td>
+            <td>{{generalInfo.rules.substring(0,15)}}..</td> 
+           <td><button (click)="showGeneralInfoUpdateModal(generalInfo)" type="button" class="btn btn-sm btn-outline-warning">Düzenle</button> | <button (click)="showGeneralInfoDeleteModal(generalInfo)" type="button" class="btn btn-sm btn-outline-danger">Sil</button></td>
+        </tr>
+    </tbody>
+   
+  </table>
+ 

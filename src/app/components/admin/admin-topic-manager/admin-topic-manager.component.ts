@@ -58,7 +58,7 @@ export class AdminTopicManagerComponent implements OnInit {
   showTopicDeleteModal(topic:Topic){
     const topicDeleteModal=this.dialog.open(AdminTopicDeleteComponent,{
       disableClose:true,
-      width:'30%'
+      width:'100%'
     });
     topicDeleteModal.componentInstance.deletedTopic=topic;
     topicDeleteModal.afterClosed().subscribe(result=>{

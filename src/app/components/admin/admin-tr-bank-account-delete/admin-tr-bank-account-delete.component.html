@@ -27,7 +27,10 @@
 
             <div class="mt-4">
                 <b>Açıklam-1 :</b>
-                <input class="form-control form-control-sm" type="text" value="{{deletedTrBankAccount.description1}}" readonly>
+                <!-- <input class="form-control form-control-sm" type="text" value="{{deletedTrBankAccount.description1}}" readonly> -->
+                <textarea class="form-control form-control-sm" value="{{deletedTrBankAccount.description1}}" readonly
+                    row="30" cols="140"></textarea>
+            
             </div>
 
 
@@ -35,6 +38,7 @@
                 <b>Açıklama-2 :</b><br>
                 <textarea class="form-control form-control-sm" value="{{deletedTrBankAccount.description2}}" readonly
                     row="30" cols="140"></textarea>
+                   
             </div>
 
         </div>

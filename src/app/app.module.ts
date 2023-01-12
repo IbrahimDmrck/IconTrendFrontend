@@ -10,6 +10,9 @@ import { NgxMaskModule } from 'ngx-mask';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 
+
+
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NaviComponent } from './components/navi/navi.component';
@@ -87,6 +90,13 @@ import { AdminTrBankAccountManagerComponent } from './components/admin/admin-tr-
 import { AdminTrBankAccountAddComponent } from './components/admin/admin-tr-bank-account-add/admin-tr-bank-account-add.component';
 import { AdminTrBankAccountDeleteComponent } from './components/admin/admin-tr-bank-account-delete/admin-tr-bank-account-delete.component';
 import { AdminTrBankAccountUpdateComponent } from './components/admin/admin-tr-bank-account-update/admin-tr-bank-account-update.component';
+import { GeneralInformationComponent } from './components/general-information/general-information.component';
+import { AdminGeneralInformationManagerComponent } from './components/admin/admin-general-information-manager/admin-general-information-manager.component';
+import { AdminGeneralInformationAddComponent } from './components/admin/admin-general-information-add/admin-general-information-add.component';
+import { AdminGeneralInformationDeleteComponent } from './components/admin/admin-general-information-delete/admin-general-information-delete.component';
+import { AdminGeneralInformationUpdateComponent } from './components/admin/admin-general-information-update/admin-general-information-update.component';
+
+
 
 
 
@@ -172,6 +182,11 @@ import { AdminTrBankAccountUpdateComponent } from './components/admin/admin-tr-b
     AdminTrBankAccountAddComponent,
     AdminTrBankAccountDeleteComponent,
     AdminTrBankAccountUpdateComponent,
+    GeneralInformationComponent,
+    AdminGeneralInformationManagerComponent,
+    AdminGeneralInformationAddComponent,
+    AdminGeneralInformationDeleteComponent,
+    AdminGeneralInformationUpdateComponent,
   
   ],
   imports: [

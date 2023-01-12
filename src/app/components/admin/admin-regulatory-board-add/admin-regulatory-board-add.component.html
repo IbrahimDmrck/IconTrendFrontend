@@ -1,4 +1,4 @@
-<div id="maincard" class="card">
+<div style="overflow-x:auto ;" id="maincard" class="card">
     <div class="card-header">
         <div class="d-flex justify-content-between">
             <h5>Düzenleme Kurulu Ekle</h5>
@@ -14,13 +14,15 @@
                 </div><br>
                 <div  class="form-group">
                     <div class="mb-2 fw-bold"><Label>Üye Adları :</Label></div>
-                    <input type="text"  formControlName="regulatoryBoardMemberName" class="form-control"
-                        placeholder="Üye Adlarını Yazın" />
+                    <!-- <input type="text"  formControlName="regulatoryBoardMemberName" class="form-control"
+                        placeholder="Üye Adlarını Yazın" /> -->
+                        <angular-editor id="editor1" [placeholder]="'Üye Adları.'" formControlName="regulatoryBoardMemberName"  ></angular-editor>
                 </div><br>
                 <div class="form-group">
                     <div class="mb-2 fw-bold"><Label>Üye Kurumları :</Label></div>
-                    <input type="text"  formControlName="univercity" class="form-control"
-                        placeholder="Üye üniversiteleri" />
+                    <!-- <input type="text"  formControlName="univercity" class="form-control"
+                        placeholder="Üye üniversiteleri" /> -->
+                        <angular-editor id="editor2" [placeholder]="'Üye Kurumları.'" formControlName="univercity"  ></angular-editor>
                 </div>
             </div>
         </form>
