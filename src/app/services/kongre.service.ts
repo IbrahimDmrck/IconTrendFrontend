@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Kongre } from '../models/entities/kongre';
-import { kongreImage } from '../models/entities/kongre-image';
+import { KongreImage } from '../models/entities/kongre-image';
 import { ListResponseModel } from '../models/responseModels/listResponseModel';
 import { ResponseModel } from '../models/responseModels/responseModel';
 import { SingleResponseModel } from '../models/responseModels/singleResponseModel';

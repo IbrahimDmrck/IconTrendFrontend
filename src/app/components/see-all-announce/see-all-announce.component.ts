@@ -26,7 +26,7 @@ export class SeeAllAnnounceComponent implements OnInit {
   editorConfig: AngularEditorConfig = {
     editable: false,
     spellcheck: true,
-    height: '15rem',
+    maxHeight: 'auto',
     minHeight: '5rem',
     placeholder: 'Enter text here...',
     translate: 'no',

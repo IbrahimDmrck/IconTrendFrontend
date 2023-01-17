@@ -1,3 +1,45 @@
-<p style="margin-top: 70px;">Editor</p>
 
 
+
+<table style="margin-top: 70px; font-size:20px;background-color:rgb(60, 60, 188);" class="table table-bordered text-white">
+    <tbody *ngFor="let save of saves">
+        <tr>
+            <th></th>
+            <td>YSU Üyesi Olan</td>
+            <td>YSU Üyesi Olmayan</td>
+        </tr>
+       <tr>
+        
+        <tr>
+            <th>Video Konferans (Sanal Sunum)</th>
+            <td>{{save.videoConferenceMemberPrice}}</td>
+            <td>{{save.videoConferenceNonMemberPrice}}</td>
+        </tr>
+        <tr>
+            <th>Sözlü ya da Poster Sunum</th>
+            <td>{{save.oralPresentationMemberPrice}}</td>
+            <td>{{save.oralPresentationNonMemberPrice}}</td>
+        </tr>
+
+       <tr>
+
+
+    </tbody>
+</table>
+
+<div *ngFor="let save of saves" class=" container text-white">
+    <div>
+        <h3>Açıklama :</h3>
+        <angular-editor [config]="editor" [ngModel]="save.description"></angular-editor>
+    </div>
+<br>
+    <div>
+        <h3>Video Konferans (Sanal Sunum) :</h3>
+        <angular-editor [config]="editor" [ngModel]="save.videoConferenceDescription"></angular-editor>
+    </div>
+    <br>
+    <div>
+        <h3>Katılım Ücretine Dahil Olan Hizmetler :</h3>
+        <angular-editor [config]="editor" [ngModel]="save.participationPriceServiceAdditionDescription"></angular-editor>
+    </div>
+</div>

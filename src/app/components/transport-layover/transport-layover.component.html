@@ -1,8 +1,8 @@
-<div *ngIf="transportdataloaded == false" class="spinner-border text-success" role="status">
+<div style="margin-top: 70px;" *ngIf="transportdataloaded == false" class="spinner-border text-success" role="status">
     <span class="visually-hidden">Loading...</span>
   </div>
 
-  <table style="margin-top: 70px;" id="announce"  *ngIf="transportdataloaded == true" class="table table-hover text-white">
+  <!-- <table style="margin-top: 70px;" id="announce"  *ngIf="transportdataloaded == true" class="table table-hover text-white">
     <thead>
         <tr>
             <th>ıd</th>
@@ -21,4 +21,38 @@
             <td>{{transpotLayover.description.substring(0,50)}}</td>
         </tr>
     </tbody>
-  </table>
+  </table> -->
+
+<!-- <div style="margin-top: 70px;">
+    <div class="row" >
+        <div *ngFor="let transpotLayover of transpotLayovers" class="col-md-6 mt-3">
+            <div class="card text-center">
+                <div class="card-header">
+                    {{transpotLayover.minDemand}}
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">{{transpotLayover.capacity}}</h5>
+                  <p class="card-text"><angular-editor [config]="editor" [ngModel]="transpotLayover.description"></angular-editor></p>
+                  <a href="#" class="btn btn-primary">Daha Fazla</a>
+                </div>
+                <div class="card-footer text-muted">
+                    {{transpotLayover.price}}.₺
+                </div>
+              </div>
+        </div>
+    
+    </div>
+</div> -->
+
+<div>
+    <div style="margin-top: 70px;" class="row align-items-md-stretch">
+        <div class="col-md-6 mt-3 mb-3"  *ngFor="let transpotLayover of transpotLayovers">
+          <div class="h-100 p-5 text-white bg-dark rounded-3">
+            <h2> {{transpotLayover.minDemand}}</h2>
+            <p><angular-editor [config]="editor" [ngModel]="transpotLayover.description"></angular-editor></p>
+            <p style="font-size: 20px;font-weight: bolder;">{{transpotLayover.price}}.₺</p>
+            <button class="btn btn-outline-info" type="button">Daha Fazla</button>
+          </div>
+        </div>
+</div>
+

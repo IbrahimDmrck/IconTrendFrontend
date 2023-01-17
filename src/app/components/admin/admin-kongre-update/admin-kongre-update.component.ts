@@ -3,7 +3,7 @@ import { FormGroup } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
 import { Kongre } from 'src/app/models/entities/kongre';
-import { kongreImage } from 'src/app/models/entities/kongre-image';
+import { KongreImage } from 'src/app/models/entities/kongre-image';
 import { UploadFile } from 'src/app/models/uploadFile';
 import { ErrorService } from 'src/app/services/error.service';
 import { FormService } from 'src/app/services/form.service';
@@ -17,7 +17,7 @@ import { KongreService } from 'src/app/services/kongre.service';
 })
 export class AdminKongreUpdateComponent implements OnInit {
 currentCongre:Kongre
-kongreImages:kongreImage[]=[];
+kongreImages:KongreImage[]=[];
 kongreUpdateForm:FormGroup;
 
 uploadFiles: UploadFile[] = [];
@@ -33,8 +33,8 @@ uploadFiles: UploadFile[] = [];
   ) { }
 
   ngOnInit(): void {
-    this.createKongreUpdateForm();
     this.getKongreImages();
+    this.createKongreUpdateForm();
   }
 
   update() {
@@ -70,7 +70,7 @@ uploadFiles: UploadFile[] = [];
     }
   }
 
-  private checkIfKongreImagesChanged(uploadList: UploadFile[], deleteList: kongreImage[]) {
+  private checkIfKongreImagesChanged(uploadList: UploadFile[], deleteList: KongreImage[]) {
     return !(uploadList.length === 0 && deleteList.length === 0)
   }
 
@@ -85,7 +85,7 @@ uploadFiles: UploadFile[] = [];
       newKongreObject.kongreTarihi == oldKongreObject.kongreTarihi )
   }
 
-  private updateKongreImages(deletedImages: kongreImage[], uploadFiles: UploadFile[]): Promise<string> {
+  private updateKongreImages(deletedImages: KongreImage[], uploadFiles: UploadFile[]): Promise<string> {
     return new Promise<string>((methodResolve) => {
       if (this.kongreImages.length < this.currentCongre.kongreImages.length) { //If the kongre image was deleted
         deletedImages = this.currentCongre.kongreImages.filter(image => image.id != -1 && this.kongreImages.indexOf(image) == -1);
@@ -135,10 +135,10 @@ uploadFiles: UploadFile[] = [];
     })
   }
 
-  private deleteAllSelectedImagesFromServer(deletedImages: kongreImage[]): Promise<kongreImage[]> {
-    return new Promise<kongreImage[]>((methodResolve) => {
+  private deleteAllSelectedImagesFromServer(deletedImages: KongreImage[]): Promise<KongreImage[]> {
+    return new Promise<KongreImage[]>((methodResolve) => {
       if (deletedImages.length > 0) {
-        let unDeletedImages: kongreImage[] = [];
+        let unDeletedImages: KongreImage[] = [];
         const allDelets = new Promise<void>(async (resolveAllDelets) => {
           let counter = 0;
           for (const image of deletedImages) {
@@ -157,14 +157,14 @@ uploadFiles: UploadFile[] = [];
           methodResolve(unDeletedImages);
         })
       } else {
-        let emptyArray: kongreImage[] = [];
+        let emptyArray: KongreImage[] = [];
         methodResolve(emptyArray);
       }
     })
   }
 
-  private deleteImageFromServer(deletedImage: kongreImage): Promise<kongreImage> {
-    return new Promise<kongreImage>((resolve, reject) => {
+  private deleteImageFromServer(deletedImage: KongreImage): Promise<KongreImage> {
+    return new Promise<KongreImage>((resolve, reject) => {
       this.kongreImageService.deleteImage(deletedImage).subscribe(deleteSuccess => {
         resolve(deletedImage);
       }, deleteFail => {
@@ -287,7 +287,7 @@ uploadFiles: UploadFile[] = [];
     })
   }
 
-  deleteImageFromKongreImages(image: kongreImage) {
+  deleteImageFromKongreImages(image: KongreImage) {
     this.kongreImages.splice(this.kongreImages.indexOf(image), 1);
   }
 

@@ -1,4 +1,4 @@
-import { kongreImage } from "./kongre-image";
+import { KongreImage } from "./kongre-image";
 
 export class Kongre{
     kongreId:number;
@@ -11,5 +11,5 @@ export class Kongre{
     kongreAdresi:string;
     kongreTarihi:Date;
     kongreBitisTarihi:Date;
-    kongreImages:kongreImage[];
+    kongreImages:KongreImage[];
 }

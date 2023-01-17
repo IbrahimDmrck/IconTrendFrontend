@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularEditorConfig } from '@kolkov/angular-editor/lib/config';
 import { TransportLayover } from 'src/app/models/entities/transport-layover';
 import { TransportLayoverService } from 'src/app/services/transport-layover.service';
 
@@ -13,6 +14,20 @@ export class TransportLayoverComponent implements OnInit {
   transportdataloaded:boolean=false;
   constructor(private transportLayoverService:TransportLayoverService
     ) { }
+
+    editor: AngularEditorConfig = {
+      editable: false,
+      spellcheck: true,
+      maxHeight: 'auto',
+      width:'100%',
+      minHeight: '5rem',
+      placeholder: 'Enter text here...',
+      translate: 'no',
+      defaultParagraphSeparator: 'p',
+      defaultFontName: 'Arial',
+      showToolbar:false
+     
+    };
 
   ngOnInit(): void {
     this.getAllTransportLayover();

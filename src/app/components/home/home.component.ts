@@ -4,7 +4,7 @@ import { Announcement } from 'src/app/models/entities/announcement';
 import { Congress } from 'src/app/models/entities/congress';
 import { CongressDetailDto } from 'src/app/models/entities/congressDetailDTos';
 import { Kongre } from 'src/app/models/entities/kongre';
-import { kongreImage } from 'src/app/models/entities/kongre-image';
+import { KongreImage } from 'src/app/models/entities/kongre-image';
 import { ScienceBoard } from 'src/app/models/entities/science-board';
 import { Topic } from 'src/app/models/entities/topic';
 import { AnnouncementService } from 'src/app/services/announcement.service';

@@ -1,4 +1,4 @@
-export class kongreImage{
+export class KongreImage{
     id:number;
     kongreId :number;
     imagePath:string;

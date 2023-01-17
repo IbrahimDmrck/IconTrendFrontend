@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { AngularEditorConfig } from '@kolkov/angular-editor/lib/config';
 import { ToastrService } from 'ngx-toastr';
 import { Kongre } from 'src/app/models/entities/kongre';
-import { kongreImage } from 'src/app/models/entities/kongre-image';
+import { KongreImage } from 'src/app/models/entities/kongre-image';
 import { RegulatoryBoard } from 'src/app/models/entities/regulatory-board';
 import { ScienceBoard } from 'src/app/models/entities/science-board';
 import { KongreImageService } from 'src/app/services/kongre-image.service';
@@ -20,7 +20,7 @@ export class CongressDetailsComponent implements OnInit {
 
   currentCongress:Kongre;
   DataLoadded:boolean=false;
-  congressImages:kongreImage[];
+  congressImages:KongreImage[];
  
 
 
@@ -33,16 +33,18 @@ export class CongressDetailsComponent implements OnInit {
     private toastrService: ToastrService
     ) { }
 
+    content:"<p></p>";
     editorConfig: AngularEditorConfig = {
       editable: false,
       spellcheck: true,
-      height: '15rem',
+      maxHeight: 'auto',
       minHeight: '5rem',
       placeholder: 'Enter text here...',
       translate: 'no',
       defaultParagraphSeparator: 'p',
       defaultFontName: 'Arial',
       showToolbar: false,
+     
       
      
     };
@@ -72,7 +74,7 @@ getImagePath(imagePath:string){
   return this.kongreImageService.getImagePath(imagePath);
 }
 
-getActiveString(carImage:kongreImage){
+getActiveString(carImage:KongreImage){
   if(carImage===this.congressImages[0]){
     return "active"
   }else{
@@ -80,7 +82,7 @@ getActiveString(carImage:kongreImage){
   }
 }
 
-getImage(kongreImage:kongreImage){
+getImage(kongreImage:KongreImage){
   return "https://localhost:44320/" + kongreImage.imagePath;
 
 }

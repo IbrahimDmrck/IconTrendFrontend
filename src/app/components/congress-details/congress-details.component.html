@@ -35,44 +35,37 @@
     <div id="informations">
       <p ><h4 id="congressTitle">Konger Başkanı - {{currentCongress.kongreBaskani}}</h4><p>
      
-      <p ><h4 id="congressTitle">Düzenleme Kurulu</h4><p>
-       <table class="table table-hover">
-          <thead>
-              <tr>
-                  <th>ÜYELER :</th>
-              </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <angular-editor [config]="editorConfig" [ngModel]="currentCongress.kongreDuzenlemeKurulu"></angular-editor>
-              </td>
-            </tr>
-          </tbody>
-      </table> 
+      <div class="row">
+        
+          <div class="col-md-4">
+            <p ><h4 id="congressTitle">Düzenleme Kurulu</h4><p></p>
+            <angular-editor [config]="editorConfig"  [ngModel]="currentCongress.kongreDuzenlemeKurulu"></angular-editor>
+          </div>
   
-        <p><h4 id="congressTitle">Bilim Kurulu</h4> <p>
-       <table class="table table-hover ">
-          <thead>
-              <tr>
-                  <th>ÜYELER :</th>
-              </tr>
-          </thead>
-          <tbody >
-            <tr>
-              <td>
-                {{currentCongress.bilimKurulu}}
-              </td>
-            </tr>
-          </tbody>
-      </table>
+    
+         
+            <div class="col-md-4">
+              <p ><h4 id="congressTitle">Bilim Kurulu</h4><p></p>
+              <angular-editor [config]="editorConfig" [ngModel]="currentCongress.bilimKurulu"></angular-editor>
+            </div>
+
+            <div class="col-md-4">
+              <p ><h4 id="congressTitle">konular</h4><p>
+               
+
+                  <angular-editor [config]="editorConfig" aria-label="readonly input example "  [ngModel]="currentCongress.kongreKonusu"></angular-editor>
+              
+             
+            </div>
+      </div>
+
     </div>
    
 
 
     <div id="placeAndDate">
       <p><h4 id="congressTitle">Kongre Yeri Ve Zamanı</h4> <p></p>
-    <div id="address">{{currentCongress.kongreTarihi.toString().substring(0,10)}}  ||  {{currentCongress.kongreAdresi}} ||  Saat {{currentCongress.kongreTarihi.toString().substring(11,16)}}</div>
+    <div id="address">{{currentCongress.kongreTarihi.toString().substring(0,10)}}  ||  {{currentCongress.kongreAdresi}}</div>
     </div>
   </div>
   

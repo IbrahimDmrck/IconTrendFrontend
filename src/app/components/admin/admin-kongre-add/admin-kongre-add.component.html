@@ -96,42 +96,41 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div style="margin: 5px 0px 5px 0px;" class="col-md-6">
+                                <div style="margin: 5px 0px 5px 0px;" class="col-md-12">
                                     <div class="form-group row align-items-center">
-                                        <div class="col-md-3 text-center">
+                                        <div class="col-md-2 text-center">
                                             <label for="kongreDuzenlemeKurulu">Düzenleme Kurulu:</label>
                                         </div>
-                                        <div class="col-md-9">
-                                            <!-- <input type="text" id="kongreDuzenlemeKurulu" formControlName="kongreDuzenlemeKurulu"
-                                                class="form-control" placeholder="Düzenleme Kurulu" /> -->
+                                        <div class="col-md-10">
                                                 <angular-editor [placeholder]="'Düzenleme Kurulu...'" formControlName="kongreDuzenlemeKurulu"  ></angular-editor>
                                         </div>
                                     </div>
                                 </div>
-                                <div style="margin: 5px 0px 5px 0px;" class="col-md-6">
+                                <div style="margin: 5px 0px 5px 0px;" class="col-md-12">
                                     <div class="form-group row align-items-center">
-                                        <div class="col-md-3 text-center">
+                                        <div class="col-md-2 text-center">
                                             <label for="bilimKurulu">Bilim Kurulu:</label>
                                         </div>
-                                        <div class="col-md-9">
-                                            <!-- <input type="text" id="bilimKurulu" formControlName="bilimKurulu"
-                                                class="form-control" placeholder="Bilim Kurulu" /> -->
+                                        <div class="col-md-10">
+                                         
                                                 <angular-editor [placeholder]="'Bilim Kurulu...'" formControlName="bilimKurulu"  ></angular-editor>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6 mb-1">
+                                <div class="col-md-6 mb-1 mt-3">
                                     <div class="form-group row align-items-center">
                                         <div class="col-md-3 text-center">
                                             <label for="kongreKonusu">Konu:</label>
                                         </div>
                                         <div class="col-md-9">
-                                            <input type="text" id="kongreKonusu" formControlName="kongreKonusu"
-                                                class="form-control" placeholder="Konu..." />
+                                            <!-- <input type="text" id="kongreKonusu" formControlName="kongreKonusu"
+                                                class="form-control" placeholder="Konu..." /> -->
+                                                
+                                                <angular-editor [placeholder]="'Konular'"  formControlName="kongreKonusu"  ></angular-editor>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-6 mt-3">
                                     <div class="form-group row align-items-center">
                                         <div class="col-md-3 text-center">
                                             <label for="kongreAdresi">Adres:</label>
@@ -142,7 +141,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-6 mt-3">
                                     <div class="form-group row align-items-center">
                                         <div class="col-md-4">
                                             <label for="kongreTarihi" class="text-nowrap">Kongre Tarihi:</label>
@@ -152,7 +151,8 @@
                                                 class="form-control float-end"  />
                                         </div>
                                     </div>
-                                    
+                                </div>
+                                <div  class="col-md-6 mt-3">
                                     <div class="form-group row align-items-center">
                                         <div class="col-md-4">
                                             <label for="kongreBitisTarihi" class="text-nowrap">Kongre Bitiş Tarihi:</label>

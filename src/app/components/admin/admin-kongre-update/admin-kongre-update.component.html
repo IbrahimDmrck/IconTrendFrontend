@@ -92,7 +92,7 @@
                         </div>
                         <div class="row">
                             <div class="row mt-3">
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                     <div class="form-group row align-items-center">
                                         <div class="col-md-3 text-center">
                                             <label for="kongreAdi">
@@ -107,77 +107,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="form-group row align-items-center">
-                                        <div class="col-md-3 text-center">
-                                            <label for="kongreDuzenlemeKurulu">Düzenleme Kurulu:</label>
-                                        </div>
-                                        <div class="col-md-9">
-                                            <!-- <input type="text" id="kongreDuzenlemeKurulu" formControlName="kongreDuzenlemeKurulu"
-                                                    class="form-control" [placeholder]="currentCongre.kongreDuzenlemeKurulu" /> -->
-                                                    <angular-editor [placeholder]="'düzenleme kurulu...'" formControlName="kongreDuzenlemeKurulu"  ></angular-editor>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group row align-items-center">
-                                        <div class="col-md-4 text-center">
-                                            <label class="text-nowrap" for="bilimKurulu">Bilim Kurulu:</label>
-                                        </div>
-                                        <div class="col-md-8">
-                                            <!-- <input type="text" id="bilimKurulu" formControlName="bilimKurulu"
-                                            class="form-control" [placeholder]="currentCongre.bilimKurulu" /> -->
-                                            <angular-editor [placeholder]="'bilim kurulu...'" formControlName="bilimKurulu"  ></angular-editor>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row mt-3">
-                                <div class="col-md-6">
-                                    <div class="form-group row align-items-center">
-                                        <div class="col-md-3 text-center">
-                                            <label for="kongreKonusu">Konu:</label>
-                                        </div>
-                                        <div class="col-md-9">
-                                            <input type="text" id="kongreKonusu" formControlName="kongreKonusu"
-                                                class="form-control" [placeholder]="currentCongre.kongreKonusu" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group row align-items-center">
-                                        <div class="col-md-4">
-                                            <label for="kongreAdresi" class="text-nowrap">Adres:</label>
-                                        </div>
-                                        <div class="col-md-8">
-                                            <input type="text" id="kongreAdresi" formControlName="kongreAdresi"
-                                                class="form-control float-end" [placeholder]="currentCongre.kongreAdresi" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row mt-3">
-                                <div class="col-md-6">
-                                    <div class="form-group row align-items-center">
-                                        <div class="col-md-4">
-                                            <label for="kongreTarihi" class="text-nowrap">Tarih:</label>
-                                        </div>
-                                        <div class="col-md-8">
-                                                <input type="datetime-local" id="kongreTarihi" formControlName="kongreTarihi"
-                                                class="form-control float-end" [placeholder]="currentCongre.kongreTarihi"  />
-                                        </div>
-                                    </div>
-                                    <div class="form-group row align-items-center">
-                                        <div class="col-md-4">
-                                            <label for="kongreBitisTarihi" class="text-nowrap">Bitiş Tarihi:</label>
-                                        </div>
-                                        <div class="col-md-8">
-                                                <input type="datetime-local" id="kongreBitisTarihi" formControlName="kongreBitisTarihi"
-                                                class="form-control float-end" [placeholder]="currentCongre.kongreBitisTarihi"  />
-                                        </div>
-                                    </div>
-
-                                </div>
                                 <div class="col-md-6">
                                     <div class="form-group row align-items-center">
                                         <div class="col-md-4">
@@ -190,7 +119,79 @@
                                     </div>
 
                                 </div>
+                                <div class="col-md-12 mt-3">
+                                    <div class="form-group row align-items-center">
+                                        <div class="col-md-1 text-center">
+                                            <label for="kongreDuzenlemeKurulu">Düzenleme Kurulu:</label>
+                                        </div>
+                                        <div class="col-md-11">
+                                    
+                                                    <angular-editor [placeholder]="'düzenleme kurulu...'" formControlName="kongreDuzenlemeKurulu"  ></angular-editor>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 mt-3">
+                                    <div class="form-group row align-items-center">
+                                        <div class="col-md-1 text-center">
+                                            <label class="text-nowrap" for="bilimKurulu">Bilim Kurulu:</label>
+                                        </div>
+                                        <div class="col-md-11">
+                                            <angular-editor [placeholder]="'bilim kurulu...'" formControlName="bilimKurulu"  ></angular-editor>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
+                            <div class="row mt-3">
+                                <div class="col-md-12">
+                                    <div class="form-group row align-items-center">
+                                        <div class="col-md-1 text-center">
+                                            <label for="kongreKonusu">Konu:</label>
+                                        </div>
+                                        <div class="col-md-11">
+ 
+                                                <angular-editor [placeholder]="'bilim kurulu...'" formControlName="bilimKurulu"  ></angular-editor>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            
+                            </div>
+                          <div class="row mt-12 mt-3">
+                            <div class="col-md-4">
+                                <div class="form-group row align-items-center">
+                                    <div class="col-md-3">
+                                        <label for="kongreAdresi" class="text-nowrap">Adres:</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <input type="text" id="kongreAdresi" formControlName="kongreAdresi"
+                                            class="form-control float-end" [placeholder]="currentCongre.kongreAdresi" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group row align-items-center">
+                                    <div class="col-md-3">
+                                        <label for="kongreTarihi" class="text-nowrap">Tarih:</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                            <input type="datetime-local" id="kongreTarihi" formControlName="kongreTarihi"
+                                            class="form-control float-end" [placeholder]="currentCongre.kongreTarihi"  />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group row align-items-center">
+                                    <div class="col-md-3">
+                                        <label for="kongreBitisTarihi" class="text-nowrap">Bitiş Tarihi:</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                            <input type="datetime-local" id="kongreBitisTarihi" formControlName="kongreBitisTarihi"
+                                            class="form-control float-end" [placeholder]="currentCongre.kongreBitisTarihi"  />
+                                    </div>
+                                </div>
+                            </div>
+                             
+                            </div> 
                             <div class="row mt-3 align-items-end">
                                 <div class="form-group row align-items-center">
                                     <div class="col-md-2">
